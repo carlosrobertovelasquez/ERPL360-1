@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("Domain")]
+[assembly: AssemblyTitle("Logistika360.ERP.AS.Cammon")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Domain")]
+[assembly: AssemblyProduct("Logistika360.ERP.AS.Cammon")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
-[assembly: Guid("f2281e6c-fc5a-4768-aeeb-8209ffe1946e")]
+[assembly: Guid("b4af7781-c48a-4465-b79f-27e020af2bbb")]
 
 // La información de versión de un ensamblado consta de los cuatro valores siguientes:
 //

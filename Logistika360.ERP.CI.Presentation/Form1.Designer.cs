@@ -1,4 +1,4 @@
-﻿namespace Presentation
+﻿namespace Logistika360.ERP.CI.Presentation
 {
     partial class Form1
     {

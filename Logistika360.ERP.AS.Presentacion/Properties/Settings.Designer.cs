@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Domain.Properties
+namespace Logistika360.ERP.AS.Presentacion.Properties
 {
 
 

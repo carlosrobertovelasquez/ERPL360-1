@@ -1,4 +1,4 @@
-﻿namespace Domain
+﻿namespace Logistika360.ERP.FA.Presentation
 {
     partial class Form1
     {

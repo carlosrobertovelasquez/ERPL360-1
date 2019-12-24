@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("Domain")]
+[assembly: AssemblyTitle("Logistika360.ERP.FA.DataAcces")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Domain")]
+[assembly: AssemblyProduct("Logistika360.ERP.FA.DataAcces")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
-[assembly: Guid("f2281e6c-fc5a-4768-aeeb-8209ffe1946e")]
+[assembly: Guid("e8f02248-3d43-4e50-a24d-f0cf93a19f4c")]
 
 // La información de versión de un ensamblado consta de los cuatro valores siguientes:
 //
