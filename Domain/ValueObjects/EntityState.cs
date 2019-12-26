@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Logistika36.ERP.AS.DataAcces
+namespace Domain.ValueObjects
 {
-    public class Class1
+    public enum EntityState
     {
+        Added,
+        Deleted,
+        Modified
     }
 }
