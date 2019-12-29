@@ -26,6 +26,8 @@ namespace DataAcces.Repositories
             rangofecha = "select * from ERPL360.Usuario";
         }
 
+        public string Error => throw new NotImplementedException();
+
         public int Add(Usuario entity)
         {
             parameters = new List<SqlParameter>();
