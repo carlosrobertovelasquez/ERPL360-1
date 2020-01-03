@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Presentation
+namespace Logistika360.ERP.ERPADMIN.Presentacion
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace Presentation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form());
+            Application.Run(new Forms.FormLogin());
         }
     }
 }
