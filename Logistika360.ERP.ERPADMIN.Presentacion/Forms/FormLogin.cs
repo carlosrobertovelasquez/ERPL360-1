@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Configuration;
+using Logistika360.ERP.ERPADMIN.Domain.Models;
+using Logistika360.ERP.ERPADMIN.Common.Cache;
 
 namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
 {
@@ -119,6 +121,73 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnAcceder_Click(object sender, EventArgs e)
+        {
+            if (txtUsuario.Text != "USUARIO")
+            {
+                if (txtContrasena.Text != "CONTRASEÑA")
+                {
+
+                }
+                else
+                {
+                    msgError("Ingrese el Password");
+                    txtContrasena.Clear();
+                    txtUsuario.Focus();
+                }
+                
+                if (CmbConjunto.GetItemText(CmbConjunto.SelectedItem) != "Seleccionar Empresa")
+                {
+                    UsuarioModel user = new UsuarioModel();
+                    var ACTIVO = "S";
+                    var validarLogin = user.login(txtUsuario.Text, txtContrasena.Text,ACTIVO);
+                   if (validarLogin.Count()>0  )
+                      
+                    {
+                                               
+                        foreach (var item in validarLogin)
+                        {
+                            UserLoginCache.USUARIO = item.USUARIO1;
+                            UserLoginCache.NOMBRE = item.NOMBRE1;
+                            UserLoginCache.CONJUNTO = CmbConjunto.GetItemText(CmbConjunto.SelectedItem);
+                        }
+
+                        FormMenu mainMenu = new FormMenu();
+                        mainMenu.Show();
+                        mainMenu.FormClosed += Logout;
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Revise sus credeciales");
+                    }
+
+                }
+                else msgError("Debe selecionar una Empresa");
+
+            }
+            else msgError("Ingrese Usuario");   
+        }
+        private void msgError(string msg)
+        {
+            lblErrorMessage.Text = "   " + msg;
+            lblErrorMessage.Visible = true;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void Logout(object sender, FormClosedEventArgs e)
+        {
+            txtContrasena.Text = "CONTRASEÑA";
+            txtContrasena.UseSystemPasswordChar = false;
+            txtUsuario.Text="USUARIO";
+            lblErrorMessage.Visible = false;
+            this.Show();
+            txtUsuario.Focus();
         }
     }
 }

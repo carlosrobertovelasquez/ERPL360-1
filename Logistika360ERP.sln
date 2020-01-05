@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logistika360.ERP.ERPADMIN.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logistika360.ERP.ERPADMIN.Domain", "Logistika360.ERP.ERPADMIN.Donain\Logistika360.ERP.ERPADMIN.Domain.csproj", "{2AA855B0-7CDA-476D-A83A-38EABE59DF42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logistika360.ERP.ERPADMIN.Common", "Logistika360.ERP.ERPADMIN.Common\Logistika360.ERP.ERPADMIN.Common.csproj", "{0C3F8F03-3830-471C-AA0F-DE7255D5B3E9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{2AA855B0-7CDA-476D-A83A-38EABE59DF42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AA855B0-7CDA-476D-A83A-38EABE59DF42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AA855B0-7CDA-476D-A83A-38EABE59DF42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C3F8F03-3830-471C-AA0F-DE7255D5B3E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C3F8F03-3830-471C-AA0F-DE7255D5B3E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C3F8F03-3830-471C-AA0F-DE7255D5B3E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C3F8F03-3830-471C-AA0F-DE7255D5B3E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
