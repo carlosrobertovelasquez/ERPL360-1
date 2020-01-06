@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Logistika360.ERP.ERPADMIN.Common.Cache;
+using Logistika360.ERP.ERPADMIN.Domain.Models;
 
 namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
 {
@@ -121,13 +122,69 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
         private void LoadUserData()
         {
             lblUsuario.Text = UserLoginCache.USUARIO;
-            lblNombre.Text = UserLoginCache.NOMBRE;
+           
             lblConjunto.Text = UserLoginCache.CONJUNTO;
         }
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
+            timer1.Enabled = true;
             LoadUserData();
+            agregarMenu();
+
+
+        }
+
+        private void agregarMenu()
+        {
+            int f;
+            int valorInicial = 0;
+            int valorAncho = 36;
+            ModuloInstaladoModel modulos = new ModuloInstaladoModel();
+            var validarModulos = modulos.modulos(UserLoginCache.CONJUNTO);
+
+            foreach (var item in validarModulos)
+            {
+                valorInicial = valorInicial + valorAncho;
+                var NombreBoton = "btn" + item.ACCION;
+
+                Button btnCG = new Button();
+                btnCG.FlatAppearance.BorderSize = 0;
+                btnCG.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+                btnCG.FlatStyle = System.Windows.Forms.FlatStyle.System;
+                btnCG.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                btnCG.ForeColor = System.Drawing.Color.White;
+                btnCG.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+                btnCG.Size = new System.Drawing.Size(242, 38);
+                btnCG.Location = new System.Drawing.Point(-1, valorInicial);
+                btnCG.Name = item.ACCION;
+                btnCG.TabIndex = 7;
+                btnCG.Text = item.NOMBREACCION;
+                btnCG.UseVisualStyleBackColor = true;
+                panelBotones.Controls.Add(btnCG);
+
+            }
+        }
+
+        private void PanelCliente_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblHora.Text = DateTime.Now.ToLongTimeString();
+            lbfecha.Text = DateTime.Now.ToString("dddd:MMMM:yyyy");
+        }
+
+        private void btnFA_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelBotones_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

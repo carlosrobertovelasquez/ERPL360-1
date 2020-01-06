@@ -55,6 +55,7 @@ namespace Logistika360.ERP.ERPADMIN.Domain.Models
         public UsuarioModel()
         {
             usuarioRepository = new UsuarioRepository();
+            
         }
 
         public string SaveChanges()

@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using System.Configuration;
 using Logistika360.ERP.ERPADMIN.Domain.Models;
 using Logistika360.ERP.ERPADMIN.Common.Cache;
+using System.Globalization;
 
 namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
 {
@@ -141,8 +142,11 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
                 if (CmbConjunto.GetItemText(CmbConjunto.SelectedItem) != "Seleccionar Empresa")
                 {
                     UsuarioModel user = new UsuarioModel();
+                    
                     var ACTIVO = "S";
-                    var validarLogin = user.login(txtUsuario.Text, txtContrasena.Text,ACTIVO);
+                    var validarLogin = user.login( txtUsuario.Text, txtContrasena.Text,ACTIVO);
+                   
+
                    if (validarLogin.Count()>0  )
                       
                     {
@@ -151,8 +155,12 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
                         {
                             UserLoginCache.USUARIO = item.USUARIO1;
                             UserLoginCache.NOMBRE = item.NOMBRE1;
+                            UserLoginCache.CORREO_ELECTRONICO = item.CORREO_ELECTRONICO1;
                             UserLoginCache.CONJUNTO = CmbConjunto.GetItemText(CmbConjunto.SelectedItem);
                         }
+
+                       
+
 
                         FormMenu mainMenu = new FormMenu();
                         mainMenu.Show();
