@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Reflection;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FontAwesome;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Logistika360.ERP.ERPADMIN.Common.Cache;
@@ -141,15 +143,16 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
             int valorInicial = 0;
             int valorAncho = 36;
             ModuloInstaladoModel modulos = new ModuloInstaladoModel();
-            var validarModulos = modulos.modulos(UserLoginCache.CONJUNTO);
+            var validarModulos = modulos.modulos(UserLoginCache.CONJUNTO,UserLoginCache.USUARIO);
 
             foreach (var item in validarModulos)
             {
                 valorInicial = valorInicial + valorAncho;
-                var NombreBoton = "btn" + item.ACCION;
+                var NombreBoton = "btn" + item.NOMBRECONSTANTE;
 
                 Button btnCG = new Button();
                 btnCG.FlatAppearance.BorderSize = 0;
+                btnCG.Cursor = System.Windows.Forms.Cursors.Hand;
                 btnCG.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
                 btnCG.FlatStyle = System.Windows.Forms.FlatStyle.System;
                 btnCG.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -157,10 +160,18 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
                 btnCG.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
                 btnCG.Size = new System.Drawing.Size(242, 38);
                 btnCG.Location = new System.Drawing.Point(-1, valorInicial);
-                btnCG.Name = item.ACCION;
+                btnCG.Name = NombreBoton;
                 btnCG.TabIndex = 7;
                 btnCG.Text = item.NOMBREACCION;
                 btnCG.UseVisualStyleBackColor = true;
+                Label accion = new Label();
+                Label nombreModulo = new Label();
+                panelBotones.Controls.Add(accion);
+                panelBotones.Controls.Add(nombreModulo);
+                accion.Text = item.ACCION;
+                nombreModulo.Text = item.NOMBREACCION;
+                btnCG.Click += new System.EventHandler((sender1,e1) => btnFA_Click(sender1,e1,accion.Text,nombreModulo.Text));
+                
                 panelBotones.Controls.Add(btnCG);
 
             }
@@ -177,12 +188,65 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
             lbfecha.Text = DateTime.Now.ToString("dddd:MMMM:yyyy");
         }
 
-        private void btnFA_Click(object sender, EventArgs e)
+        private void btnFA_Click(object sender1, EventArgs e1, string accion,string nombreModulo)
+        {
+            treeMenu.Nodes.Clear();
+           
+            btnnombreModulo.Visible = true;
+            btnnombreModulo.Text = nombreModulo;
+            var _accion = accion;
+
+
+            CrearNodoDelPadre(Int32.Parse(_accion),null);
+
+        }
+
+        private void CrearNodoDelPadre(int indicePadre,TreeNode nodoPadre)
+        {
+
+        
+            AccionModel nombreaccion = new AccionModel();
+
+             ParentescoModel padres = new ParentescoModel();
+            DataTable dtsN = padres.Nodos();
+
+            DataView  dataViewHijos =new DataView  (dtsN);
+            dataViewHijos.RowFilter = dtsN.Columns["PADRE"].ColumnName + "=" + indicePadre;
+
+            foreach (DataRowView dataRowCurrent in dataViewHijos)
+            {
+                   
+                TreeNode nuevoNodo = new TreeNode();
+                nuevoNodo.Text = dataRowCurrent["NOMBREACCION"].ToString().Trim();
+                nuevoNodo.Name = dataRowCurrent["ACCION"].ToString().Trim();
+                nuevoNodo.ImageIndex = 0;
+                nuevoNodo.SelectedImageIndex = 1;
+                if (nodoPadre == null)
+                {
+                    treeMenu.Nodes.Add(nuevoNodo);
+
+                }
+                else
+                {
+                    nodoPadre.Nodes.Add(nuevoNodo);
+                }
+                CrearNodoDelPadre(Int32.Parse(dataRowCurrent["accion"].ToString()), nuevoNodo);
+            }
+
+
+            
+        }
+
+
+        
+
+
+        private void panelBotones_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void panelBotones_Paint(object sender, PaintEventArgs e)
+        private void btnFA_Click_1(object sender, EventArgs e)
         {
 
         }

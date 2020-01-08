@@ -239,8 +239,8 @@
   <data name="iconomaximizar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7O
-        HOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAABedQAA
-        XnUB9gqWNQAAAAFiS0dELlTTEIcAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTktMDgtMDlUMTM6MzQ6NDQr
+        HOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAABedAAA
+        XnQBJE100QAAAAFiS0dELlTTEIcAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTktMDgtMDlUMTM6MzQ6NDQr
         MDE6MDB4vQgbAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE5LTA4LTA5VDEzOjM0OjQ0KzAxOjAwCeCwpwAA
         AEZ0RVh0c29mdHdhcmUASW1hZ2VNYWdpY2sgNi43LjgtOSAyMDE5LTAyLTAxIFExNiBodHRwOi8vd3d3
         LmltYWdlbWFnaWNrLm9yZ0F74sgAAAAYdEVYdFRodW1iOjpEb2N1bWVudDo6UGFnZXMAMaf/uy8AAAAY
@@ -565,5 +565,8 @@
   </data>
   <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="imageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>104, 17</value>
   </metadata>
 </root>

@@ -19,6 +19,7 @@ namespace Logistika360.ERP.ERPADMIN.Domain.Models
         private string cONJUNTO;
         private string aCCION;
         private string nOMBREACCION;
+        private string nOMBRECONSTANTE;
 
 
         private IModuloInstaladoRepository ModuloInstaladoRepository;
@@ -26,6 +27,7 @@ namespace Logistika360.ERP.ERPADMIN.Domain.Models
         public string CONJUNTO { get => cONJUNTO; set => cONJUNTO = value; }
         public string ACCION { get => aCCION; set => aCCION = value; }
         public string NOMBREACCION { get => nOMBREACCION; set => nOMBREACCION = value; }
+        public string NOMBRECONSTANTE { get => nOMBRECONSTANTE; set => nOMBRECONSTANTE = value; }
 
 
         public ModuloInstaladoModel()
@@ -78,19 +80,20 @@ namespace Logistika360.ERP.ERPADMIN.Domain.Models
             return message;
         }
 
-        public List<ModuloInstaladoModel> modulos(string conjunto)
+        public List<ModuloInstaladoModel> modulos(string conjunto,string usuario)
         {
 
 
-            var modulosinstaladoModel = ModuloInstaladoRepository.Imodulos(conjunto);
+            var modulosinstaladoModel = ModuloInstaladoRepository.Imodulos(conjunto,usuario);
             var listModuloinstalado = new List<ModuloInstaladoModel>();
             foreach (Modulo_Instalado item in  modulosinstaladoModel)
             {
                 listModuloinstalado.Add(new ModuloInstaladoModel
                 {
-                    ACCION = item.ACCION,
-                    CONJUNTO = item.CONJUNTO,
-                NOMBREACCION = item.NOMBREACCION
+                    aCCION = item.ACCION,
+                    cONJUNTO = item.CONJUNTO,
+                nOMBREACCION = item.NOMBREACCION,
+                nOMBRECONSTANTE=item.NOMBRECONSTANTE
                 
                 });
             }

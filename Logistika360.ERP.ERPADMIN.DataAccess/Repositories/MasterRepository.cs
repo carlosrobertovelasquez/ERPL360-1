@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 
 
+
 namespace Logistika360.ERP.ERPADMIN.DataAccess.Repositories
 {
    public abstract class MasterRepository:Repository
@@ -80,5 +81,11 @@ namespace Logistika360.ERP.ERPADMIN.DataAccess.Repositories
 
             }
         }
+
+    
+
+    
+        
+
     }
 }

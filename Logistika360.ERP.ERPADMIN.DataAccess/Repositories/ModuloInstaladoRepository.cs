@@ -24,7 +24,7 @@ namespace Logistika360.ERP.ERPADMIN.DataAccess.Repositories
             insert = "insert into ERPL360.Usuario(USUARIO,NOMBRE,TIPO,ACTIVO,REQ_CAMBIO_CLAVE,FRECUENCIA_CLAVE,FECHA_ULT_CLAVE,MAX_INTENTOS_CONEX,CLAVE,CORREO_ELECTRONICO,TIPO_ACCESO,CELULAR,TIPO_PERSONALIZADO) values(@USUARIO,@NOMBRE,@TIPO,@ACTIVO,@REQ_CAMBIO_CLAVE,@FRECUENCIA_CLAVE,@FECHA_ULT_CLAVE,@MAX_INTENTOS_CONEX,@CLAVE,@CORREO_ELECTRONICO,@TIPO_ACCESO,@CELULAR,@TIPO_PERSONALIZADO)";
             update = "update ERPL360.Usuario set NOMBRE=@NOMBRE,TIPO=@TIPO,ACTIVO=@ACTIVO,REQ_CAMBIO_CLAVE=@REQ_CAMBIO_CLAVE,FRECUENCIA_CLAVE=@FRECUENCIA_CLAVE,FECHA_ULT_CLAVE=@FECHA_ULT_CLAVE,MAX_INTENTOS_CONEX=@MAX_INTENTOS_CONEX,CLAVE=@CLAVE,CORREO_ELECTRONICO=@CORREO_ELECTRONICO,TIPO_ACCESO=@TIPO_ACCESO,CELULAR=@CELULAR,TIPO_PERSONALIZADO=@TIPO_PERSONALIZADO where USUARIO=@USUARIO ";
             delete = "delete ERPL360.Usuario where USUARIO=@USUARIO";
-            modulos = "select MI.CONJUNTO,AC.ACCION,AC.NOMBREACCION from ERPL360.MODULO_INSTALADO MI,ERPL360.ACCION AC where MI.ACCION=AC.ACCION AND CONJUNTO=@CONJUNTO ";
+            modulos = "select ex.CONJUNTO, ac.ACCION, ac.NOMBREACCION, ac.NOMBRECONSTANTE from ERPL360.PRIVILEGIO_EX ex,ERPL360.ACCION ac,ERPL360.PARENTESCO pa where ac.ACCION=pa.ACCION and ac.ACCION=ex.ACCION and ac.ESMODULO='S' and ex.ACTIVO='S' and ex.CONJUNTO=@CONJUNTO and EX.USUARIO=@USUARIO order by pa.NUMEROHERMANO";
         }
 
         public int Add(Modulo_Instalado entity)
@@ -42,10 +42,11 @@ namespace Logistika360.ERP.ERPADMIN.DataAccess.Repositories
             throw new NotImplementedException();
         }
 
-        public List<Modulo_Instalado> Imodulos(string CONJUNTO)
+        public List<Modulo_Instalado> Imodulos(string CONJUNTO,string USUARIO)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@CONJUNTO", CONJUNTO));
+            parameters.Add(new SqlParameter("@USUARIO", USUARIO));
 
             //var tableResult = ExecuteReader(usuario);
             var tableResult = ExecuteReaderParametros(modulos);
@@ -57,7 +58,8 @@ namespace Logistika360.ERP.ERPADMIN.DataAccess.Repositories
 
                     CONJUNTO = item[0].ToString(),
                     ACCION = item[1].ToString(),
-                    NOMBREACCION = item[2].ToString()
+                    NOMBREACCION = item[2].ToString(),
+                    NOMBRECONSTANTE=item[3].ToString()
 
                 });
             }

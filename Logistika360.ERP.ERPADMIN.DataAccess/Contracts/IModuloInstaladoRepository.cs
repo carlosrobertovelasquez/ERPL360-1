@@ -9,6 +9,6 @@ namespace Logistika360.ERP.ERPADMIN.DataAccess.Contracts
 {
     public interface IModuloInstaladoRepository:IGenericRepository<Modulo_Instalado>
     {
-        List<Modulo_Instalado> Imodulos(string CONJUNTO);
+        List<Modulo_Instalado> Imodulos(string CONJUNTO,String USUARIO);
     }
 }

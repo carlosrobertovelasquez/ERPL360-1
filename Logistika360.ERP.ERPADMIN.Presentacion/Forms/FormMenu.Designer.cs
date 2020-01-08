@@ -31,8 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenu));
             this.MenuVertical = new System.Windows.Forms.Panel();
+            this.treeMenu = new System.Windows.Forms.TreeView();
             this.panelBotones = new System.Windows.Forms.Panel();
-            this.btnFA = new System.Windows.Forms.Button();
+            this.btnFAAA = new System.Windows.Forms.Button();
             this.btnCerrarSeccion = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.BarraTitulo = new System.Windows.Forms.Panel();
@@ -54,6 +55,8 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btnnombreModulo = new System.Windows.Forms.Button();
             this.MenuVertical.SuspendLayout();
             this.panelBotones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -71,6 +74,8 @@
             // MenuVertical
             // 
             this.MenuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.MenuVertical.Controls.Add(this.btnnombreModulo);
+            this.MenuVertical.Controls.Add(this.treeMenu);
             this.MenuVertical.Controls.Add(this.panelBotones);
             this.MenuVertical.Controls.Add(this.btnCerrarSeccion);
             this.MenuVertical.Controls.Add(this.pictureBox2);
@@ -81,31 +86,46 @@
             this.MenuVertical.TabIndex = 0;
             this.MenuVertical.Paint += new System.Windows.Forms.PaintEventHandler(this.MenuVertical_Paint);
             // 
+            // treeMenu
+            // 
+            this.treeMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.treeMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.treeMenu.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeMenu.Location = new System.Drawing.Point(4, 97);
+            this.treeMenu.Name = "treeMenu";
+            this.treeMenu.Size = new System.Drawing.Size(240, 208);
+            this.treeMenu.TabIndex = 3;
+            // 
             // panelBotones
             // 
+            this.panelBotones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panelBotones.AutoScroll = true;
             this.panelBotones.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelBotones.Controls.Add(this.btnFA);
-            this.panelBotones.Location = new System.Drawing.Point(4, 265);
+            this.panelBotones.Controls.Add(this.btnFAAA);
+            this.panelBotones.Location = new System.Drawing.Point(4, 307);
             this.panelBotones.Name = "panelBotones";
-            this.panelBotones.Size = new System.Drawing.Size(244, 335);
+            this.panelBotones.Size = new System.Drawing.Size(244, 295);
             this.panelBotones.TabIndex = 3;
             this.panelBotones.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBotones_Paint);
             // 
-            // btnFA
+            // btnFAAA
             // 
-            this.btnFA.FlatAppearance.BorderSize = 0;
-            this.btnFA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnFA.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnFA.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFA.ForeColor = System.Drawing.Color.White;
-            this.btnFA.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFA.Location = new System.Drawing.Point(-1, -1);
-            this.btnFA.Name = "btnFA";
-            this.btnFA.Size = new System.Drawing.Size(242, 38);
-            this.btnFA.TabIndex = 7;
-            this.btnFA.Text = "Facturación";
-            this.btnFA.UseVisualStyleBackColor = true;
+            this.btnFAAA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnFAAA.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFAAA.Enabled = false;
+            this.btnFAAA.FlatAppearance.BorderSize = 0;
+            this.btnFAAA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnFAAA.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFAAA.ForeColor = System.Drawing.Color.Black;
+            this.btnFAAA.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFAAA.Location = new System.Drawing.Point(0, 0);
+            this.btnFAAA.Name = "btnFAAA";
+            this.btnFAAA.Size = new System.Drawing.Size(242, 38);
+            this.btnFAAA.TabIndex = 7;
+            this.btnFAAA.Text = "Modulos Instalados";
+            this.btnFAAA.UseVisualStyleBackColor = false;
+            this.btnFAAA.Click += new System.EventHandler(this.btnFA_Click_1);
             // 
             // btnCerrarSeccion
             // 
@@ -362,6 +382,23 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // btnnombreModulo
+            // 
+            this.btnnombreModulo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnnombreModulo.Location = new System.Drawing.Point(4, 65);
+            this.btnnombreModulo.Name = "btnnombreModulo";
+            this.btnnombreModulo.Size = new System.Drawing.Size(240, 30);
+            this.btnnombreModulo.TabIndex = 3;
+            this.btnnombreModulo.Text = "nombremodulo";
+            this.btnnombreModulo.UseVisualStyleBackColor = true;
+            this.btnnombreModulo.Visible = false;
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -420,6 +457,9 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lbfecha;
         private System.Windows.Forms.Panel panelBotones;
-        private System.Windows.Forms.Button btnFA;
+        private System.Windows.Forms.Button btnFAAA;
+        private System.Windows.Forms.TreeView treeMenu;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Button btnnombreModulo;
     }
 }

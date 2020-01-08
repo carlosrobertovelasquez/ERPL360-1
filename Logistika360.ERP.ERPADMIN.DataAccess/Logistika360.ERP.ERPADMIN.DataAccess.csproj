@@ -61,6 +61,7 @@
     <Compile Include="Repositories\ConjuntoRepository.cs" />
     <Compile Include="Repositories\MasterRepository.cs" />
     <Compile Include="Repositories\ModuloInstaladoRepository.cs" />
+    <Compile Include="Repositories\ParentescoRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UsuarioRepository.cs" />
   </ItemGroup>
