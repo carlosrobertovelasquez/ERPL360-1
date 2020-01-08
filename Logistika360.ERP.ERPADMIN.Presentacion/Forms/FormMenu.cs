@@ -141,7 +141,7 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
         {
             int f;
             int valorInicial = 0;
-            int valorAncho = 36;
+            int valorAncho = 30;
             ModuloInstaladoModel modulos = new ModuloInstaladoModel();
             var validarModulos = modulos.modulos(UserLoginCache.CONJUNTO,UserLoginCache.USUARIO);
 
@@ -158,7 +158,7 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
                 btnCG.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 btnCG.ForeColor = System.Drawing.Color.White;
                 btnCG.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                btnCG.Size = new System.Drawing.Size(242, 38);
+                btnCG.Size = new System.Drawing.Size(312, 32);
                 btnCG.Location = new System.Drawing.Point(-1, valorInicial);
                 btnCG.Name = NombreBoton;
                 btnCG.TabIndex = 7;
@@ -205,9 +205,9 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
         {
 
         
-            AccionModel nombreaccion = new AccionModel();
+          //  AccionModel nombreaccion = new AccionModel();
 
-             ParentescoModel padres = new ParentescoModel();
+            ParentescoModel padres = new ParentescoModel();
             DataTable dtsN = padres.Nodos();
 
             DataView  dataViewHijos =new DataView  (dtsN);
@@ -230,7 +230,7 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
                 {
                     nodoPadre.Nodes.Add(nuevoNodo);
                 }
-                CrearNodoDelPadre(Int32.Parse(dataRowCurrent["accion"].ToString()), nuevoNodo);
+                CrearNodoDelPadre(Int32.Parse(dataRowCurrent["ACCION"].ToString()), nuevoNodo);
             }
 
 

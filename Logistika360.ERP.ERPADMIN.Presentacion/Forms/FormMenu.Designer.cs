@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenu));
             this.MenuVertical = new System.Windows.Forms.Panel();
+            this.btnnombreModulo = new System.Windows.Forms.Button();
             this.treeMenu = new System.Windows.Forms.TreeView();
             this.panelBotones = new System.Windows.Forms.Panel();
             this.btnFAAA = new System.Windows.Forms.Button();
@@ -56,7 +57,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.btnnombreModulo = new System.Windows.Forms.Button();
             this.MenuVertical.SuspendLayout();
             this.panelBotones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -82,30 +82,43 @@
             this.MenuVertical.Dock = System.Windows.Forms.DockStyle.Left;
             this.MenuVertical.Location = new System.Drawing.Point(0, 0);
             this.MenuVertical.Name = "MenuVertical";
-            this.MenuVertical.Size = new System.Drawing.Size(250, 650);
+            this.MenuVertical.Size = new System.Drawing.Size(312, 650);
             this.MenuVertical.TabIndex = 0;
             this.MenuVertical.Paint += new System.Windows.Forms.PaintEventHandler(this.MenuVertical_Paint);
             // 
+            // btnnombreModulo
+            // 
+            this.btnnombreModulo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnnombreModulo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnnombreModulo.Location = new System.Drawing.Point(-3, 65);
+            this.btnnombreModulo.Name = "btnnombreModulo";
+            this.btnnombreModulo.Size = new System.Drawing.Size(317, 30);
+            this.btnnombreModulo.TabIndex = 3;
+            this.btnnombreModulo.Text = "nombremodulo";
+            this.btnnombreModulo.UseVisualStyleBackColor = true;
+            this.btnnombreModulo.Visible = false;
+            // 
             // treeMenu
             // 
-            this.treeMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.treeMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.treeMenu.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.treeMenu.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeMenu.ImageIndex = 0;
+            this.treeMenu.ImageList = this.imageList1;
             this.treeMenu.Location = new System.Drawing.Point(4, 97);
             this.treeMenu.Name = "treeMenu";
-            this.treeMenu.Size = new System.Drawing.Size(240, 208);
+            this.treeMenu.SelectedImageIndex = 0;
+            this.treeMenu.Size = new System.Drawing.Size(306, 208);
             this.treeMenu.TabIndex = 3;
             // 
             // panelBotones
             // 
             this.panelBotones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panelBotones.AutoScroll = true;
-            this.panelBotones.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelBotones.Controls.Add(this.btnFAAA);
-            this.panelBotones.Location = new System.Drawing.Point(4, 307);
+            this.panelBotones.Location = new System.Drawing.Point(1, 307);
             this.panelBotones.Name = "panelBotones";
-            this.panelBotones.Size = new System.Drawing.Size(244, 295);
+            this.panelBotones.Size = new System.Drawing.Size(311, 297);
             this.panelBotones.TabIndex = 3;
             this.panelBotones.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBotones_Paint);
             // 
@@ -116,12 +129,13 @@
             this.btnFAAA.Enabled = false;
             this.btnFAAA.FlatAppearance.BorderSize = 0;
             this.btnFAAA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnFAAA.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFAAA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFAAA.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFAAA.ForeColor = System.Drawing.Color.Black;
             this.btnFAAA.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFAAA.Location = new System.Drawing.Point(0, 0);
             this.btnFAAA.Name = "btnFAAA";
-            this.btnFAAA.Size = new System.Drawing.Size(242, 38);
+            this.btnFAAA.Size = new System.Drawing.Size(309, 30);
             this.btnFAAA.TabIndex = 7;
             this.btnFAAA.Text = "Modulos Instalados";
             this.btnFAAA.UseVisualStyleBackColor = false;
@@ -139,7 +153,7 @@
             this.btnCerrarSeccion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCerrarSeccion.Location = new System.Drawing.Point(0, 610);
             this.btnCerrarSeccion.Name = "btnCerrarSeccion";
-            this.btnCerrarSeccion.Size = new System.Drawing.Size(250, 40);
+            this.btnCerrarSeccion.Size = new System.Drawing.Size(309, 40);
             this.btnCerrarSeccion.TabIndex = 3;
             this.btnCerrarSeccion.Text = "Cerrar Sección";
             this.btnCerrarSeccion.UseVisualStyleBackColor = true;
@@ -150,7 +164,7 @@
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(3, 1);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(247, 51);
+            this.pictureBox2.Size = new System.Drawing.Size(310, 51);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
@@ -168,9 +182,9 @@
             this.BarraTitulo.Controls.Add(this.iconocerrar);
             this.BarraTitulo.Controls.Add(this.btnslide);
             this.BarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BarraTitulo.Location = new System.Drawing.Point(250, 0);
+            this.BarraTitulo.Location = new System.Drawing.Point(312, 0);
             this.BarraTitulo.Name = "BarraTitulo";
-            this.BarraTitulo.Size = new System.Drawing.Size(1050, 50);
+            this.BarraTitulo.Size = new System.Drawing.Size(988, 50);
             this.BarraTitulo.TabIndex = 1;
             this.BarraTitulo.Paint += new System.Windows.Forms.PaintEventHandler(this.BarraTitulo_Paint);
             this.BarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulo_MouseDown);
@@ -221,7 +235,7 @@
             this.iconorestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.iconorestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconorestaurar.Image = ((System.Drawing.Image)(resources.GetObject("iconorestaurar.Image")));
-            this.iconorestaurar.Location = new System.Drawing.Point(969, 15);
+            this.iconorestaurar.Location = new System.Drawing.Point(907, 15);
             this.iconorestaurar.Name = "iconorestaurar";
             this.iconorestaurar.Size = new System.Drawing.Size(25, 25);
             this.iconorestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -235,7 +249,7 @@
             this.iconomaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.iconomaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconomaximizar.Image = ((System.Drawing.Image)(resources.GetObject("iconomaximizar.Image")));
-            this.iconomaximizar.Location = new System.Drawing.Point(968, 11);
+            this.iconomaximizar.Location = new System.Drawing.Point(906, 11);
             this.iconomaximizar.Name = "iconomaximizar";
             this.iconomaximizar.Size = new System.Drawing.Size(25, 25);
             this.iconomaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -248,7 +262,7 @@
             this.iconominimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.iconominimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconominimizar.Image = ((System.Drawing.Image)(resources.GetObject("iconominimizar.Image")));
-            this.iconominimizar.Location = new System.Drawing.Point(939, 11);
+            this.iconominimizar.Location = new System.Drawing.Point(877, 11);
             this.iconominimizar.Name = "iconominimizar";
             this.iconominimizar.Size = new System.Drawing.Size(25, 25);
             this.iconominimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -261,7 +275,7 @@
             this.iconocerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.iconocerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconocerrar.Image = ((System.Drawing.Image)(resources.GetObject("iconocerrar.Image")));
-            this.iconocerrar.Location = new System.Drawing.Point(999, 11);
+            this.iconocerrar.Location = new System.Drawing.Point(937, 11);
             this.iconocerrar.Name = "iconocerrar";
             this.iconocerrar.Size = new System.Drawing.Size(25, 25);
             this.iconocerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -289,9 +303,9 @@
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelContenedor.ForeColor = System.Drawing.Color.White;
-            this.panelContenedor.Location = new System.Drawing.Point(250, 50);
+            this.panelContenedor.Location = new System.Drawing.Point(312, 50);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1050, 600);
+            this.panelContenedor.Size = new System.Drawing.Size(988, 600);
             this.panelContenedor.TabIndex = 2;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
             // 
@@ -387,17 +401,6 @@
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // btnnombreModulo
-            // 
-            this.btnnombreModulo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnnombreModulo.Location = new System.Drawing.Point(4, 65);
-            this.btnnombreModulo.Name = "btnnombreModulo";
-            this.btnnombreModulo.Size = new System.Drawing.Size(240, 30);
-            this.btnnombreModulo.TabIndex = 3;
-            this.btnnombreModulo.Text = "nombremodulo";
-            this.btnnombreModulo.UseVisualStyleBackColor = true;
-            this.btnnombreModulo.Visible = false;
             // 
             // FormMenu
             // 
