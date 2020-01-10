@@ -33,6 +33,7 @@
             this.MenuVertical = new System.Windows.Forms.Panel();
             this.btnnombreModulo = new System.Windows.Forms.Button();
             this.treeMenu = new System.Windows.Forms.TreeView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panelBotones = new System.Windows.Forms.Panel();
             this.btnFAAA = new System.Windows.Forms.Button();
             this.btnCerrarSeccion = new System.Windows.Forms.Button();
@@ -56,7 +57,6 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.MenuVertical.SuspendLayout();
             this.panelBotones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -102,7 +102,8 @@
             // 
             this.treeMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.treeMenu.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treeMenu.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeMenu.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeMenu.FullRowSelect = true;
             this.treeMenu.ImageIndex = 0;
             this.treeMenu.ImageList = this.imageList1;
             this.treeMenu.Location = new System.Drawing.Point(4, 97);
@@ -110,6 +111,16 @@
             this.treeMenu.SelectedImageIndex = 0;
             this.treeMenu.Size = new System.Drawing.Size(306, 208);
             this.treeMenu.TabIndex = 3;
+            this.treeMenu.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeMenu_NodeMouseClick);
+            this.treeMenu.Click += new System.EventHandler(this.treeMenu_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "folder_Closed_16xLG.png");
+            this.imageList1.Images.SetKeyName(1, "folder_Open_16xLG.png");
+            this.imageList1.Images.SetKeyName(2, "callout_16xLG.png");
             // 
             // panelBotones
             // 
@@ -118,7 +129,7 @@
             this.panelBotones.Controls.Add(this.btnFAAA);
             this.panelBotones.Location = new System.Drawing.Point(1, 307);
             this.panelBotones.Name = "panelBotones";
-            this.panelBotones.Size = new System.Drawing.Size(311, 297);
+            this.panelBotones.Size = new System.Drawing.Size(312, 297);
             this.panelBotones.TabIndex = 3;
             this.panelBotones.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBotones_Paint);
             // 
@@ -135,7 +146,7 @@
             this.btnFAAA.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFAAA.Location = new System.Drawing.Point(0, 0);
             this.btnFAAA.Name = "btnFAAA";
-            this.btnFAAA.Size = new System.Drawing.Size(309, 30);
+            this.btnFAAA.Size = new System.Drawing.Size(299, 30);
             this.btnFAAA.TabIndex = 7;
             this.btnFAAA.Text = "Modulos Instalados";
             this.btnFAAA.UseVisualStyleBackColor = false;
@@ -395,12 +406,6 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // FormMenu
             // 

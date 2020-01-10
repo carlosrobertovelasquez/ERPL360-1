@@ -159,13 +159,15 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
                             UserLoginCache.CONJUNTO = CmbConjunto.GetItemText(CmbConjunto.SelectedItem);
                         }
 
-                       
 
+                        FormWelcome welcom = new FormWelcome();
+                        welcom.Show();
+                        this.Hide();
 
                         FormMenu mainMenu = new FormMenu();
-                        mainMenu.Show();
+                        //mainMenu.Show();
                         mainMenu.FormClosed += Logout;
-                        this.Hide();
+                        //this.Hide();
                     }
                     else
                     {

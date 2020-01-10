@@ -244,10 +244,8 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtUsuario;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
-        private System.Windows.Forms.TextBox txtContrasena;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAcceder;
@@ -256,5 +254,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         public System.Windows.Forms.Label lblErrorMessage;
         public System.Windows.Forms.ComboBox CmbConjunto;
+        public System.Windows.Forms.TextBox txtUsuario;
+        public System.Windows.Forms.TextBox txtContrasena;
     }
 }

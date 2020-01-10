@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Logistika360.ERP.ERPADMIN.Common.Cache;
 
 namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
 {
@@ -48,17 +49,39 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
             {
                 timer2.Stop();
                 this.Close();
+
+                FormMenu mainMenu = new FormMenu();
+                mainMenu.Show();
+                mainMenu.FormClosed += Logout;
+                this.Hide();
+
             }
         }
 
+        private void Logout(object sender, FormClosedEventArgs e)
+        {
+            FormLogin login = new FormLogin();
+
+            
+            login.txtContrasena.Text = "CONTRASEÑA";
+          //  login.UseSystemPasswordChar = false;
+            login.Text = "USUARIO";
+            login.lblErrorMessage.Visible = false;
+            login.Show();
+            login.txtUsuario.Focus();
+        }
+
+
         private void FormWelcome_Load(object sender, EventArgs e)
         {
+            lblUsername.Text = UserLoginCache.NOMBRE;
+
             this.Opacity = 0.0;
             circularProgressBar1.Value = 0;
             circularProgressBar1.Minimum = 0;
             circularProgressBar1.Maximum = 100;
             timer1.Start();
-        }
+        } 
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {

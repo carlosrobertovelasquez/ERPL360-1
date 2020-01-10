@@ -139,7 +139,7 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
 
         private void agregarMenu()
         {
-            int f;
+            
             int valorInicial = 0;
             int valorAncho = 30;
             ModuloInstaladoModel modulos = new ModuloInstaladoModel();
@@ -191,49 +191,43 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
         private void btnFA_Click(object sender1, EventArgs e1, string accion,string nombreModulo)
         {
             treeMenu.Nodes.Clear();
-           
+            btnnombreModulo.Text = "";
+            
             btnnombreModulo.Visible = true;
             btnnombreModulo.Text = nombreModulo;
             var _accion = accion;
 
 
             CrearNodoDelPadre(Int32.Parse(_accion),null);
-
+            treeMenu.Nodes.Add("", "Acerca de ...",imageIndex:2,selectedImageIndex:2);
         }
 
         private void CrearNodoDelPadre(int indicePadre,TreeNode nodoPadre)
         {
 
-        
-          //  AccionModel nombreaccion = new AccionModel();
-
             ParentescoModel padres = new ParentescoModel();
             DataTable dtsN = padres.Nodos();
-
             DataView  dataViewHijos =new DataView  (dtsN);
             dataViewHijos.RowFilter = dtsN.Columns["PADRE"].ColumnName + "=" + indicePadre;
-
             foreach (DataRowView dataRowCurrent in dataViewHijos)
             {
-                   
                 TreeNode nuevoNodo = new TreeNode();
                 nuevoNodo.Text = dataRowCurrent["NOMBREACCION"].ToString().Trim();
                 nuevoNodo.Name = dataRowCurrent["ACCION"].ToString().Trim();
+                nuevoNodo.Tag= dataRowCurrent["NOMBRECONSTANTE"].ToString().Trim();
                 nuevoNodo.ImageIndex = 0;
                 nuevoNodo.SelectedImageIndex = 1;
                 if (nodoPadre == null)
                 {
                     treeMenu.Nodes.Add(nuevoNodo);
-
                 }
                 else
                 {
                     nodoPadre.Nodes.Add(nuevoNodo);
                 }
                 CrearNodoDelPadre(Int32.Parse(dataRowCurrent["ACCION"].ToString()), nuevoNodo);
+                
             }
-
-
             
         }
 
@@ -249,6 +243,18 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
         private void btnFA_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void treeMenu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void treeMenu_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            TreeNode node = sender as TreeNode;
+            if (node != null)
+                MessageBox.Show(node.Text);
         }
     }
 }

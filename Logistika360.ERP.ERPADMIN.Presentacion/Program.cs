@@ -17,7 +17,7 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Forms.FormLogin());
-
+            //Application.Run(new Forms.demo());
         }
     }
 }
