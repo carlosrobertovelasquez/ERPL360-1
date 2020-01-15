@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ERPL360DataSet" targetNamespace="http://tempuri.org/ERPL360DataSet.xsd" xmlns:mstns="http://tempuri.org/ERPL360DataSet.xsd" xmlns="http://tempuri.org/ERPL360DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="conERP360" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="conERP360 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Logistika360.ERP.ERPADMIN.Presentacion.Properties.Settings.GlobalReference.Default.conERP360" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PARENTESCOTableAdapter" GeneratorDataComponentClassName="PARENTESCOTableAdapter" Name="PARENTESCO" UserDataComponentName="PARENTESCOTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="conERP360 (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        PA.ACCION, PA.PADRE, PA.NUMEROHERMANO, AC.NOMBREACCION, AC.NOMBRECONSTANTE
+FROM            ERPL360.PARENTESCO AS PA INNER JOIN
+                         ERPL360.ACCION AS AC ON PA.ACCION = AC.ACCION
+WHERE        (AC.ESMODULO = 'N') AND (AC.TIPO IN ('F', 'C', 'A')) AND (AC.SUBTIPO IN ('M', 'E', 'P', 'R', 'C', 'T', 'A', 'G'))
+ORDER BY PA.NUMEROHERMANO</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ACCION" DataSetColumn="ACCION" />
+              <Mapping SourceColumn="PADRE" DataSetColumn="PADRE" />
+              <Mapping SourceColumn="NUMEROHERMANO" DataSetColumn="NUMEROHERMANO" />
+              <Mapping SourceColumn="NOMBREACCION" DataSetColumn="NOMBREACCION" />
+              <Mapping SourceColumn="NOMBRECONSTANTE" DataSetColumn="NOMBRECONSTANTE" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ERPL360DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ERPL360DataSet" msprop:Generator_UserDSName="ERPL360DataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="PARENTESCO" msprop:Generator_TableClassName="PARENTESCODataTable" msprop:Generator_TableVarName="tablePARENTESCO" msprop:Generator_RowChangedName="PARENTESCORowChanged" msprop:Generator_TablePropName="PARENTESCO" msprop:Generator_RowDeletingName="PARENTESCORowDeleting" msprop:Generator_RowChangingName="PARENTESCORowChanging" msprop:Generator_RowEvHandlerName="PARENTESCORowChangeEventHandler" msprop:Generator_RowDeletedName="PARENTESCORowDeleted" msprop:Generator_RowClassName="PARENTESCORow" msprop:Generator_UserTableName="PARENTESCO" msprop:Generator_RowEvArgName="PARENTESCORowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ACCION" msprop:Generator_ColumnVarNameInTable="columnACCION" msprop:Generator_ColumnPropNameInRow="ACCION" msprop:Generator_ColumnPropNameInTable="ACCIONColumn" msprop:Generator_UserColumnName="ACCION" type="xs:int" />
+              <xs:element name="PADRE" msprop:Generator_ColumnVarNameInTable="columnPADRE" msprop:Generator_ColumnPropNameInRow="PADRE" msprop:Generator_ColumnPropNameInTable="PADREColumn" msprop:Generator_UserColumnName="PADRE" type="xs:int" />
+              <xs:element name="NUMEROHERMANO" msprop:Generator_ColumnVarNameInTable="columnNUMEROHERMANO" msprop:Generator_ColumnPropNameInRow="NUMEROHERMANO" msprop:Generator_ColumnPropNameInTable="NUMEROHERMANOColumn" msprop:Generator_UserColumnName="NUMEROHERMANO" type="xs:short" />
+              <xs:element name="NOMBREACCION" msprop:Generator_ColumnVarNameInTable="columnNOMBREACCION" msprop:Generator_ColumnPropNameInRow="NOMBREACCION" msprop:Generator_ColumnPropNameInTable="NOMBREACCIONColumn" msprop:Generator_UserColumnName="NOMBREACCION">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NOMBRECONSTANTE" msprop:Generator_ColumnVarNameInTable="columnNOMBRECONSTANTE" msprop:Generator_ColumnPropNameInRow="NOMBRECONSTANTE" msprop:Generator_ColumnPropNameInTable="NOMBRECONSTANTEColumn" msprop:Generator_UserColumnName="NOMBRECONSTANTE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="18" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:PARENTESCO" />
+      <xs:field xpath="mstns:ACCION" />
+      <xs:field xpath="mstns:PADRE" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

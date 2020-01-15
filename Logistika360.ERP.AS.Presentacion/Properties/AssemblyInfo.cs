@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Logistika360.ERP.AS.Presentacion")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
-[assembly: Guid("45c64359-8cbf-4b86-981b-47e2e191e286")]
+[assembly: Guid("c9ce81ac-0b7c-4964-9e62-b5c5090a0c5c")]
 
 // La información de versión de un ensamblado consta de los cuatro valores siguientes:
 //

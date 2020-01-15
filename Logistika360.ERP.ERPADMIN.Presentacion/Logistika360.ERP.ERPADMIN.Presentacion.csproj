@@ -80,6 +80,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ERPL360DataSet.cs">
+      <DependentUpon>ERPL360DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPL360DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ERPL360DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AS\Usuario\FormUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,12 +99,6 @@
     </Compile>
     <Compile Include="Forms\AS\Usuario\MDIUsuario.Designer.cs">
       <DependentUpon>MDIUsuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\demo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\demo.Designer.cs">
-      <DependentUpon>demo.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormLogin.cs">
       <SubType>Form</SubType>
@@ -130,9 +132,6 @@
     <EmbeddedResource Include="Forms\AS\Usuario\MDIUsuario.resx">
       <DependentUpon>MDIUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\demo.resx">
-      <DependentUpon>demo.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,6 +154,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ERPL360DataSet.xsc">
+      <DependentUpon>ERPL360DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ERPL360DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ERPL360DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ERPL360DataSet.xss">
+      <DependentUpon>ERPL360DataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -173,6 +183,10 @@
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Logistika360.ERP.AS.Presentacion\Logistika360.ERP.AS.Presentacion.csproj">
+      <Project>{c9ce81ac-0b7c-4964-9e62-b5c5090a0c5c}</Project>
+      <Name>Logistika360.ERP.AS.Presentacion</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Logistika360.ERP.ERPADMIN.Common\Logistika360.ERP.ERPADMIN.Common.csproj">
       <Project>{0c3f8f03-3830-471c-aa0f-de7255d5b3e9}</Project>
       <Name>Logistika360.ERP.ERPADMIN.Common</Name>

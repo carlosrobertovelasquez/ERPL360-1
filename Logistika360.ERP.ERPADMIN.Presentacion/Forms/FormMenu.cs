@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Logistika360.ERP.ERPADMIN.Common.Cache;
 using Logistika360.ERP.ERPADMIN.Domain.Models;
+using Logistika360.ERP.AS.Presentacion;
+using Logistika360.ERP.AS.Presentacion.Seguridad.Usuario;
 
 namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
 {
@@ -141,7 +143,7 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
         {
             
             int valorInicial = 0;
-            int valorAncho = 30;
+            int valorAncho = 22;
             ModuloInstaladoModel modulos = new ModuloInstaladoModel();
             var validarModulos = modulos.modulos(UserLoginCache.CONJUNTO,UserLoginCache.USUARIO);
 
@@ -155,10 +157,11 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
                 btnCG.Cursor = System.Windows.Forms.Cursors.Hand;
                 btnCG.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
                 btnCG.FlatStyle = System.Windows.Forms.FlatStyle.System;
-                btnCG.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                btnCG.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 btnCG.ForeColor = System.Drawing.Color.White;
                 btnCG.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                btnCG.Size = new System.Drawing.Size(312, 32);
+                btnCG.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+                btnCG.Size = new System.Drawing.Size(312, 25);
                 btnCG.Location = new System.Drawing.Point(-1, valorInicial);
                 btnCG.Name = NombreBoton;
                 btnCG.TabIndex = 7;
@@ -209,6 +212,7 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
             DataTable dtsN = padres.Nodos();
             DataView  dataViewHijos =new DataView  (dtsN);
             dataViewHijos.RowFilter = dtsN.Columns["PADRE"].ColumnName + "=" + indicePadre;
+
             foreach (DataRowView dataRowCurrent in dataViewHijos)
             {
                 TreeNode nuevoNodo = new TreeNode();
@@ -225,10 +229,10 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
                 {
                     nodoPadre.Nodes.Add(nuevoNodo);
                 }
-                CrearNodoDelPadre(Int32.Parse(dataRowCurrent["ACCION"].ToString()), nuevoNodo);
-                
+                CrearNodoDelPadre(Int32.Parse(dataRowCurrent["ACCION"].ToString()), nuevoNodo);   
             }
             
+
         }
 
 
@@ -252,9 +256,44 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
 
         private void treeMenu_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            TreeNode node = sender as TreeNode;
-            if (node != null)
-                MessageBox.Show(node.Text);
+
+            
+
         }
+
+        private void treeMenu_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+
+
+            string constante;
+            string accion;
+
+            accion = treeMenu.SelectedNode.Name;
+            constante = e.Node.Tag.ToString();
+
+
+            AbriFormInPanel(new FormUsuario());
+
+            //FormUsuario fr = new FormUsuario();
+            //fr.Show();
+
+        }
+
+        private void AbriFormInPanel(object Formhijo)
+        {
+            if (this.panelContenedor.Controls.Count>0)
+            {
+                this.panelContenedor.Controls.RemoveAt(0);
+                Form fh = Formhijo as Form;
+                fh.TopLevel = false;
+                fh.Dock = DockStyle.Fill;
+                this.panelContenedor.Controls.Add(fh);
+                this.panelContenedor.Tag = fh;
+                fh.Show();
+            }
+        }
+
+
     }
 }

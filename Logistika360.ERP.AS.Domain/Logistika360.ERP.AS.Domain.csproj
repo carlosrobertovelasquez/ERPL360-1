@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3DD4748F-0724-48E7-8959-2404B1EAF922}</ProjectGuid>
+    <ProjectGuid>{E5A6332F-6C25-4C27-AEB6-169F2CD68E5B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Logistika360.ERP.AS.Domain</RootNamespace>
@@ -42,6 +42,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Services\" />
+    <Folder Include="ValueObjects\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Logistika360.ERP.ERPADMIN.Donain\Logistika360.ERP.ERPADMIN.Domain.csproj">
+      <Project>{2aa855b0-7cda-476d-a83a-38eabe59df42}</Project>
+      <Name>Logistika360.ERP.ERPADMIN.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -51,11 +51,6 @@
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.lbfecha = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
-            this.PanelCliente = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblCantCliente = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.MenuVertical.SuspendLayout();
             this.panelBotones.SuspendLayout();
@@ -67,8 +62,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconocerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnslide)).BeginInit();
             this.panelContenedor.SuspendLayout();
-            this.PanelCliente.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuVertical
@@ -102,15 +95,16 @@
             // 
             this.treeMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.treeMenu.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treeMenu.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeMenu.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeMenu.FullRowSelect = true;
             this.treeMenu.ImageIndex = 0;
             this.treeMenu.ImageList = this.imageList1;
             this.treeMenu.Location = new System.Drawing.Point(4, 97);
             this.treeMenu.Name = "treeMenu";
             this.treeMenu.SelectedImageIndex = 0;
-            this.treeMenu.Size = new System.Drawing.Size(306, 208);
+            this.treeMenu.Size = new System.Drawing.Size(306, 248);
             this.treeMenu.TabIndex = 3;
+            this.treeMenu.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeMenu_AfterSelect);
             this.treeMenu.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeMenu_NodeMouseClick);
             this.treeMenu.Click += new System.EventHandler(this.treeMenu_Click);
             // 
@@ -127,9 +121,9 @@
             this.panelBotones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panelBotones.AutoScroll = true;
             this.panelBotones.Controls.Add(this.btnFAAA);
-            this.panelBotones.Location = new System.Drawing.Point(1, 307);
+            this.panelBotones.Location = new System.Drawing.Point(1, 365);
             this.panelBotones.Name = "panelBotones";
-            this.panelBotones.Size = new System.Drawing.Size(312, 297);
+            this.panelBotones.Size = new System.Drawing.Size(312, 239);
             this.panelBotones.TabIndex = 3;
             this.panelBotones.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBotones_Paint);
             // 
@@ -141,12 +135,12 @@
             this.btnFAAA.FlatAppearance.BorderSize = 0;
             this.btnFAAA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnFAAA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFAAA.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFAAA.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFAAA.ForeColor = System.Drawing.Color.Black;
             this.btnFAAA.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFAAA.Location = new System.Drawing.Point(0, 0);
             this.btnFAAA.Name = "btnFAAA";
-            this.btnFAAA.Size = new System.Drawing.Size(299, 30);
+            this.btnFAAA.Size = new System.Drawing.Size(299, 24);
             this.btnFAAA.TabIndex = 7;
             this.btnFAAA.Text = "Modulos Instalados";
             this.btnFAAA.UseVisualStyleBackColor = false;
@@ -308,9 +302,9 @@
             // 
             // panelContenedor
             // 
+            this.panelContenedor.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.panelContenedor.Controls.Add(this.lbfecha);
             this.panelContenedor.Controls.Add(this.lblHora);
-            this.panelContenedor.Controls.Add(this.PanelCliente);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelContenedor.ForeColor = System.Drawing.Color.White;
@@ -344,65 +338,6 @@
             this.lblHora.Tag = "";
             this.lblHora.Text = "Hora";
             // 
-            // PanelCliente
-            // 
-            this.PanelCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.PanelCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanelCliente.Controls.Add(this.label3);
-            this.PanelCliente.Controls.Add(this.lblCantCliente);
-            this.PanelCliente.Controls.Add(this.pictureBox3);
-            this.PanelCliente.Controls.Add(this.button1);
-            this.PanelCliente.Location = new System.Drawing.Point(36, 56);
-            this.PanelCliente.Name = "PanelCliente";
-            this.PanelCliente.Size = new System.Drawing.Size(114, 164);
-            this.PanelCliente.TabIndex = 0;
-            this.PanelCliente.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelCliente_Paint);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.label3.Location = new System.Drawing.Point(24, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 20);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Clientes";
-            // 
-            // lblCantCliente
-            // 
-            this.lblCantCliente.AutoSize = true;
-            this.lblCantCliente.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.lblCantCliente.Location = new System.Drawing.Point(29, 134);
-            this.lblCantCliente.Name = "lblCantCliente";
-            this.lblCantCliente.Size = new System.Drawing.Size(45, 20);
-            this.lblCantCliente.TabIndex = 1;
-            this.lblCantCliente.Text = "1,000";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(9, 58);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(100, 73);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Enabled = false;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button1.Location = new System.Drawing.Point(-2, -2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 31);
-            this.button1.TabIndex = 1;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -433,9 +368,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnslide)).EndInit();
             this.panelContenedor.ResumeLayout(false);
             this.panelContenedor.PerformLayout();
-            this.PanelCliente.ResumeLayout(false);
-            this.PanelCliente.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -456,11 +388,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblConjunto;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel PanelCliente;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label lblCantCliente;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lbfecha;
