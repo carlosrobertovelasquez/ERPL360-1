@@ -99,7 +99,7 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
 
         private void btnAS_Click(object sender, EventArgs e)
         {
-            AbrirFormInPanel(new AS.Usuario.FormUsuario());
+          //  AbrirFormInPanel(new AS.Usuario.FormUsuario());
         }
 
         private void MenuVertical_Paint(object sender, PaintEventArgs e)
@@ -235,10 +235,6 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
 
         }
 
-
-        
-
-
         private void panelBotones_Paint(object sender, PaintEventArgs e)
         {
 
@@ -257,12 +253,31 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
         private void treeMenu_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
 
+           
+
+           
             
+
+
 
         }
 
         private void treeMenu_AfterSelect(object sender, TreeViewEventArgs e)
         {
+
+
+
+            if (this.panelContenedor.Controls.Count > 0)
+                this.panelContenedor.Controls.RemoveAt(0);
+            FormUsuario form = Application.OpenForms.OfType<FormUsuario>().FirstOrDefault();
+            FormUsuario fr = new FormUsuario();
+            fr.TopLevel = false;
+            this.panelContenedor.Controls.Add(fr);
+            this.panelContenedor.Tag = fr;
+            fr.BringToFront();
+            fr.Show();
+
+
 
 
 
@@ -273,27 +288,13 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
             constante = e.Node.Tag.ToString();
 
 
-            AbriFormInPanel(new FormUsuario());
+            //AbriFormInPanel(new FormUsuario());
 
-            //FormUsuario fr = new FormUsuario();
-            //fr.Show();
+            
 
         }
 
-        private void AbriFormInPanel(object Formhijo)
-        {
-            if (this.panelContenedor.Controls.Count>0)
-            {
-                this.panelContenedor.Controls.RemoveAt(0);
-                Form fh = Formhijo as Form;
-                fh.TopLevel = false;
-                fh.Dock = DockStyle.Fill;
-                this.panelContenedor.Controls.Add(fh);
-                this.panelContenedor.Tag = fh;
-                fh.Show();
-            }
-        }
-
+       
 
     }
 }

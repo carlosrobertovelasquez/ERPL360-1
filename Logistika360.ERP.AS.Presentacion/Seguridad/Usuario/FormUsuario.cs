@@ -77,6 +77,35 @@ namespace Logistika360.ERP.AS.Presentacion.Seguridad.Usuario
         private void MenuSuperiorSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+            
+        }
+
+        private void MenuSuperior_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void MenuSuperiorNuevo_Click(object sender, EventArgs e)
+        {
+
+
+
+            FormPrivilegiosdeUsuario fr = new FormPrivilegiosdeUsuario();
+            
+            fr.Show();
+        }
+
+        private void dwgUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            FormPrivilegiosdeUsuario fr = new FormPrivilegiosdeUsuario();
+            fr.txtusuario.Text= dwgUsuarios.CurrentRow.Cells[0].Value.ToString();
+            fr.txtusuario.Enabled = false;
+            fr.txtnombre.Text= dwgUsuarios.CurrentRow.Cells[1].Value.ToString();
+ 
+            //fr.chbActivo.Checked= dwgUsuarios.CurrentRow.Cells[2].Value.;
+            fr.txtcorreo.Text= dwgUsuarios.CurrentRow.Cells[3].Value.ToString();
+            fr.txtcelular.Text= dwgUsuarios.CurrentRow.Cells[4].Value.ToString();
+            fr.Show();
         }
     }
 }

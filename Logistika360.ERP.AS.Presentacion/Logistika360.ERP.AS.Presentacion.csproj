@@ -61,6 +61,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seguridad\Usuario\FormPrivilegiosdeUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\Usuario\FormPrivilegiosdeUsuario.Designer.cs">
+      <DependentUpon>FormPrivilegiosdeUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Seguridad\Usuario\FormUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,7 +97,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Seguridad\Usuario\FormPrivilegiosdeUsuario.resx">
+      <DependentUpon>FormPrivilegiosdeUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\Usuario\FormUsuario.resx">
       <DependentUpon>FormUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,6 +141,36 @@
       <Project>{2aa855b0-7cda-476d-a83a-38eabe59df42}</Project>
       <Name>Logistika360.ERP.ERPADMIN.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4_icon-icons.com_68889.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\094filter_99905.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1486565571-microsoft-office-excel_81549.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_document_print_15785.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Create_New-80_icon-icons.com_57345.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_delete_256_icon-icons.com_75995.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Help_icon-icons.com_73700 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Newfile_page_document_empty_6315 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_17814.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign-emergency-code-sos_63_icon-icons.com_57219.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

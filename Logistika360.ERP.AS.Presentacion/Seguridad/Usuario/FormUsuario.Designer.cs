@@ -81,9 +81,10 @@
             this.MenuSuperiorSalir});
             this.MenuSuperior.Location = new System.Drawing.Point(0, 0);
             this.MenuSuperior.Name = "MenuSuperior";
-            this.MenuSuperior.Size = new System.Drawing.Size(597, 39);
+            this.MenuSuperior.Size = new System.Drawing.Size(434, 39);
             this.MenuSuperior.TabIndex = 0;
             this.MenuSuperior.Text = "toolStrip1";
+            this.MenuSuperior.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuSuperior_ItemClicked);
             // 
             // MenuSuperiorNuevo
             // 
@@ -94,6 +95,7 @@
             this.MenuSuperiorNuevo.Size = new System.Drawing.Size(36, 36);
             this.MenuSuperiorNuevo.Text = "Nuevo";
             this.MenuSuperiorNuevo.ToolTipText = "Nuevo";
+            this.MenuSuperiorNuevo.Click += new System.EventHandler(this.MenuSuperiorNuevo_Click);
             // 
             // MenuSuperiorEditar
             // 
@@ -249,8 +251,9 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dwgUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dwgUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dwgUsuarios.Size = new System.Drawing.Size(597, 411);
+            this.dwgUsuarios.Size = new System.Drawing.Size(434, 237);
             this.dwgUsuarios.TabIndex = 1;
+            this.dwgUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dwgUsuarios_CellContentClick);
             // 
             // Column1
             // 
@@ -288,12 +291,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(597, 450);
+            this.ClientSize = new System.Drawing.Size(434, 276);
             this.Controls.Add(this.dwgUsuarios);
             this.Controls.Add(this.MenuSuperior);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "FormUsuario";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormUsuario";
             this.Load += new System.EventHandler(this.FormUsuario_Load);
             this.MenuSuperior.ResumeLayout(false);
