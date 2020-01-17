@@ -55,5 +55,10 @@ namespace Logistika360.ERP.ERPADMIN.DataAccess.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public int Remove2(string valor1, string valor2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IVendedorRepository.cs" />
+    <Compile Include="Entities\Vendedor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\VendedorRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Logistika360.ERP.ERPADMIN.DataAccess\Logistika360.ERP.ERPADMIN.DataAccess.csproj">
@@ -49,10 +52,6 @@
       <Name>Logistika360.ERP.ERPADMIN.DataAccess</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Contracts\" />
-    <Folder Include="Entities\" />
-    <Folder Include="Repositories\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

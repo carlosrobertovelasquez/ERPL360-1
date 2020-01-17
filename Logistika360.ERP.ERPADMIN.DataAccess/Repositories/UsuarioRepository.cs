@@ -132,8 +132,9 @@ namespace Logistika360.ERP.ERPADMIN.DataAccess.Repositories
             return ExecuteNonQuery(delete);
         }
 
-         
-
-        
+        public int Remove2(string valor1, string valor2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

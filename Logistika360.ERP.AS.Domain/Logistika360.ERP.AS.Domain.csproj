@@ -41,14 +41,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\VendedorModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="Services\" />
     <Folder Include="ValueObjects\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Logistika360.ERP.AS.Common\Logistika360.ERP.AS.Common.csproj">
+      <Project>{de0c01b6-8d29-4f05-b585-dc902dc4f875}</Project>
+      <Name>Logistika360.ERP.AS.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logistika360.ERP.AS.DataAccess\Logistika360.ERP.AS.DataAccess.csproj">
+      <Project>{64ee8b06-8a0e-4196-a9f4-f38fc9fa898f}</Project>
+      <Name>Logistika360.ERP.AS.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logistika360.ERP.ERPADMIN.Common\Logistika360.ERP.ERPADMIN.Common.csproj">
+      <Project>{0c3f8f03-3830-471c-aa0f-de7255d5b3e9}</Project>
+      <Name>Logistika360.ERP.ERPADMIN.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logistika360.ERP.ERPADMIN.DataAccess\Logistika360.ERP.ERPADMIN.DataAccess.csproj">
+      <Project>{52f6ee4c-9a7a-4763-a63a-fae73bbbcce3}</Project>
+      <Name>Logistika360.ERP.ERPADMIN.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Logistika360.ERP.ERPADMIN.Donain\Logistika360.ERP.ERPADMIN.Domain.csproj">
       <Project>{2aa855b0-7cda-476d-a83a-38eabe59df42}</Project>
       <Name>Logistika360.ERP.ERPADMIN.Domain</Name>

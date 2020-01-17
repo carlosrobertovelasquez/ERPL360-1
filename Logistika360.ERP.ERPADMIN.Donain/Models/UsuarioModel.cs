@@ -114,6 +114,8 @@ namespace Logistika360.ERP.ERPADMIN.Domain.Models
             }
             return message;
         }
+
+
         public List<UsuarioModel> GetAll()
         {
             var usuarioDataModel = usuarioRepository.GetAll();
