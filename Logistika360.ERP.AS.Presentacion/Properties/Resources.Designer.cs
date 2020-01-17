@@ -103,6 +103,16 @@ namespace Logistika360.ERP.AS.Presentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap copy_paste_document_theuser_1579 {
+            get {
+                object obj = ResourceManager.GetObject("copy_paste_document_theuser_1579", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Create_New_80_icon_icons_com_57345 {
             get {
                 object obj = ResourceManager.GetObject("Create_New-80_icon-icons.com_57345", resourceCulture);
@@ -116,6 +126,16 @@ namespace Logistika360.ERP.AS.Presentacion.Properties {
         internal static System.Drawing.Bitmap document_delete_256_icon_icons_com_75995 {
             get {
                 object obj = ResourceManager.GetObject("document_delete_256_icon-icons.com_75995", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap first_48_46180 {
+            get {
+                object obj = ResourceManager.GetObject("first-48_46180", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +173,69 @@ namespace Logistika360.ERP.AS.Presentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Save_37110 {
+            get {
+                object obj = ResourceManager.GetObject("Save_37110", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap savetheapplication_guardar_2958 {
+            get {
+                object obj = ResourceManager.GetObject("savetheapplication_guardar_2958", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sign_emergency_code_sos_63_icon_icons_com_57219 {
             get {
                 object obj = ResourceManager.GetObject("sign-emergency-code-sos_63_icon-icons.com_57219", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Undo_icon_icons_com_73701 {
+            get {
+                object obj = ResourceManager.GetObject("Undo_icon-icons.com_73701", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap User_36491 {
+            get {
+                object obj = ResourceManager.GetObject("User_36491", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wondicon_ui_free_next29_111245 {
+            get {
+                object obj = ResourceManager.GetObject("wondicon-ui-free-next29_111245", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wondicon_ui_free_next68_111215 {
+            get {
+                object obj = ResourceManager.GetObject("wondicon-ui-free-next68_111215", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

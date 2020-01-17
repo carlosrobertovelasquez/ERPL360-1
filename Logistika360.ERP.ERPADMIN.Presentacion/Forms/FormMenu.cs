@@ -91,9 +91,10 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
                 this.panelContenedor.Controls.RemoveAt(0);
             Form fh = Formhijo as Form;
             fh.TopLevel = false;
-            fh.Dock = DockStyle.Fill;
+          //  fh.Dock = DockStyle.Fill;
             this.panelContenedor.Controls.Add(fh);
             this.panelContenedor.Tag = fh;
+            fh.Location = new Point((panelContenedor.Width - fh.Width) / 2, (panelContenedor.Height - fh.Height) / 2);
             fh.Show();
         }
 
@@ -267,28 +268,29 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
 
 
 
-            if (this.panelContenedor.Controls.Count > 0)
-                this.panelContenedor.Controls.RemoveAt(0);
-            FormUsuario form = Application.OpenForms.OfType<FormUsuario>().FirstOrDefault();
-            FormUsuario fr = new FormUsuario();
-            fr.TopLevel = false;
-            this.panelContenedor.Controls.Add(fr);
-            this.panelContenedor.Tag = fr;
-            fr.BringToFront();
-            fr.Show();
+            //if (this.panelContenedor.Controls.Count > 0)
+            //    this.panelContenedor.Controls.RemoveAt(0);
+            //FormUsuario form = Application.OpenForms.OfType<FormUsuario>().FirstOrDefault();
+            //FormUsuario fr = new FormUsuario();
+            //fr.TopLevel = false;
+            //this.panelContenedor.Controls.Add(fr);
+            //this.panelContenedor.Tag = fr;
+            //fr.BringToFront();
+            //fr.Location = new Point((panelContenedor.Width - fr.Width) / 2, (panelContenedor.Height - fr.Height) / 2);
+            //fr.Show();
 
 
 
 
 
-            string constante;
-            string accion;
+            //string constante;
+            //string accion;
 
-            accion = treeMenu.SelectedNode.Name;
-            constante = e.Node.Tag.ToString();
+            //accion = treeMenu.SelectedNode.Name;
+            //constante = e.Node.Tag.ToString();
 
-
-            //AbriFormInPanel(new FormUsuario());
+            AbrirFormInPanel(new FormUsuario());
+            
 
             
 

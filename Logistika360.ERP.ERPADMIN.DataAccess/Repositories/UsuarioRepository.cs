@@ -22,7 +22,7 @@ namespace Logistika360.ERP.ERPADMIN.DataAccess.Repositories
         {
             selectAll = "select * from ERPL360.Usuario";
             insert = "insert into ERPL360.Usuario(USUARIO,NOMBRE,TIPO,ACTIVO,REQ_CAMBIO_CLAVE,FRECUENCIA_CLAVE,FECHA_ULT_CLAVE,MAX_INTENTOS_CONEX,CLAVE,CORREO_ELECTRONICO,TIPO_ACCESO,CELULAR,TIPO_PERSONALIZADO) values(@USUARIO,@NOMBRE,@TIPO,@ACTIVO,@REQ_CAMBIO_CLAVE,@FRECUENCIA_CLAVE,@FECHA_ULT_CLAVE,@MAX_INTENTOS_CONEX,@CLAVE,@CORREO_ELECTRONICO,@TIPO_ACCESO,@CELULAR,@TIPO_PERSONALIZADO)";
-            update = "update ERPL360.Usuario set NOMBRE=@NOMBRE,TIPO=@TIPO,ACTIVO=@ACTIVO,REQ_CAMBIO_CLAVE=@REQ_CAMBIO_CLAVE,FRECUENCIA_CLAVE=@FRECUENCIA_CLAVE,FECHA_ULT_CLAVE=@FECHA_ULT_CLAVE,MAX_INTENTOS_CONEX=@MAX_INTENTOS_CONEX,CLAVE=@CLAVE,CORREO_ELECTRONICO=@CORREO_ELECTRONICO,TIPO_ACCESO=@TIPO_ACCESO,CELULAR=@CELULAR,TIPO_PERSONALIZADO=@TIPO_PERSONALIZADO where USUARIO=@USUARIO ";
+            update = "update ERPL360.Usuario set NOMBRE=@NOMBRE,TIPO=@TIPO,ACTIVO=@ACTIVO,REQ_CAMBIO_CLAVE=@REQ_CAMBIO_CLAVE,FRECUENCIA_CLAVE=@FRECUENCIA_CLAVE,FECHA_ULT_CLAVE=@FECHA_ULT_CLAVE,MAX_INTENTOS_CONEX=@MAX_INTENTOS_CONEX,CORREO_ELECTRONICO=@CORREO_ELECTRONICO,TIPO_ACCESO=@TIPO_ACCESO,CELULAR=@CELULAR,TIPO_PERSONALIZADO=@TIPO_PERSONALIZADO where USUARIO=@USUARIO ";
             delete = "delete ERPL360.Usuario where USUARIO=@USUARIO";
             usuario = "select * from ERPL360.Usuario where USUARIO=@USUARIO and CLAVE=@CLAVE and ACTIVO=@ACTIVO";
         }
@@ -57,7 +57,7 @@ namespace Logistika360.ERP.ERPADMIN.DataAccess.Repositories
             parameters.Add(new SqlParameter("@FRECUENCIA_CLAVE", entity.FRECUENCIA_CLAVE));
             parameters.Add(new SqlParameter("@FECHA_ULT_CLAVE", entity.FECHA_ULT_CLAVE));
             parameters.Add(new SqlParameter("@MAX_INTENTOS_CONEX", entity.MAX_INTENTOS_CONEX));
-            parameters.Add(new SqlParameter("@CLAVE", entity.CLAVE));
+            
             parameters.Add(new SqlParameter("@CORREO_ELECTRONICO", entity.CORREO_ELECTRONICO));
             parameters.Add(new SqlParameter("@TIPO_ACCESO", entity.TIPO_ACCESO));
             parameters.Add(new SqlParameter("@CELULAR", entity.CELULAR));
@@ -78,15 +78,15 @@ namespace Logistika360.ERP.ERPADMIN.DataAccess.Repositories
                     NOMBRE= item[1].ToString(),
                     TIPO= item[2].ToString(),
                     ACTIVO= item[3].ToString(),
-                    REQ_CAMBIO_CLAVE= item[4].ToString(),
-                    FRECUENCIA_CLAVE= item[5].ToString(),
-                    FECHA_ULT_CLAVE=Convert.ToDateTime(item[6]),
-                    MAX_INTENTOS_CONEX= item[7].ToString(),
-                    CLAVE= item[8].ToString(),
-                    CORREO_ELECTRONICO= item[9].ToString(),
-                    TIPO_ACCESO= item[10].ToString(),
-                    CELULAR= item[11].ToString(),
-                    TIPO_PERSONALIZADO= item[12].ToString(),
+                    REQ_CAMBIO_CLAVE=item[4].ToString(),
+                    FRECUENCIA_CLAVE= Convert.ToDecimal(item[11]),
+                    FECHA_ULT_CLAVE=Convert.ToDateTime(item[5]),
+                    MAX_INTENTOS_CONEX=Convert.ToDecimal( item[12]),
+                    CLAVE= item[6].ToString(),
+                    CORREO_ELECTRONICO= item[7].ToString(),
+                    TIPO_ACCESO= item[8].ToString(),
+                    CELULAR= item[9].ToString(),
+                    TIPO_PERSONALIZADO= item[10].ToString(),
                 });
             }
             return listUsuario;
@@ -111,14 +111,14 @@ namespace Logistika360.ERP.ERPADMIN.DataAccess.Repositories
                     TIPO = item[2].ToString(),
                     ACTIVO = item[3].ToString(),
                     REQ_CAMBIO_CLAVE = item[4].ToString(),
-                    FRECUENCIA_CLAVE = item[5].ToString(),
-                    FECHA_ULT_CLAVE = Convert.ToDateTime(item[6]),
-                    MAX_INTENTOS_CONEX = item[7].ToString(),
-                    CLAVE = item[8].ToString(),
-                    CORREO_ELECTRONICO = item[9].ToString(),
-                    TIPO_ACCESO = item[10].ToString(),
-                    CELULAR = item[11].ToString(),
-                    TIPO_PERSONALIZADO = item[12].ToString(),
+                    FECHA_ULT_CLAVE = Convert.ToDateTime(item[5]), 
+                    CLAVE = item[6].ToString(),
+                    CORREO_ELECTRONICO = item[7].ToString(),
+                    TIPO_ACCESO = item[8].ToString(),
+                    CELULAR = item[9].ToString(),
+                    TIPO_PERSONALIZADO = item[10].ToString(),
+                    FRECUENCIA_CLAVE =Convert.ToDecimal( item[11]),
+                    MAX_INTENTOS_CONEX =Convert.ToDecimal( item[12]),
                 });
             }
             return listUsuario;

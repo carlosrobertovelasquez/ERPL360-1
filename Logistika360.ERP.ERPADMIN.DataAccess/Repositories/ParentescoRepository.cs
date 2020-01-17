@@ -107,5 +107,51 @@ namespace Logistika360.ERP.ERPADMIN.DataAccess.Repositories
 
             return dt;
         }
+
+        public DataTable arbolMenuPrivilegios()
+        {
+            
+
+            try
+            {
+                DataSet dts = new DataSet();
+                DataSet union = new DataSet();
+                String connectionString;
+                connectionString = ConfigurationManager.ConnectionStrings["conERPL360"].ConnectionString;
+                conn = new SqlConnection(connectionString);
+                String Sequel = "select PA.ACCION,PA.PADRE,PA.NUMEROHERMANO ,AC.NOMBREACCION,AC.NOMBRECONSTANTE FROM ERPL360.PARENTESCO PA ,ERPL360.ACCION AC WHERE AC.ACCION=PA.ACCION ";
+                SqlDataAdapter da2 = new SqlDataAdapter(Sequel, conn);
+                DataTable dt2 = new DataTable();
+                da2.Fill(dt2);
+               // union.Tables.Add(dt2);
+                conn.Open();
+
+                //UNION  
+
+                //conn = new SqlConnection(connectionString);
+                //String Sequel2 = "select pr.ACCION,pr.padre,ac.NOMBREACCION, 'N' as ACTIVO from erpl360.PARENTESCO pr, erpL360.ACCION ac where pr.ACCION = ac.ACCION and pr.accion NOT in (select accion from erpL360.PRIVILEGIO_EX where CONJUNTO = 'CINCOH' and USUARIO = 'JVALLE')  ";
+                //SqlDataAdapter da3 = new SqlDataAdapter(Sequel2, conn);
+                //DataTable dt3 = new DataTable();
+                //da3.Fill(dt3);
+                //union.Tables.Add(dt2);
+                //conn.Open();
+
+
+
+                return dt2;
+            }
+            catch (Exception ex)
+            {
+                DataTable dts2 = new DataTable();
+                var error = ex.Message;
+                return dts2;
+            }
+
+
+           
+
+
+            
+        }
     }
 }

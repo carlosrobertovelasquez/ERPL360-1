@@ -11,5 +11,7 @@ namespace Logistika360.ERP.ERPADMIN.DataAccess.Contracts
     {
         List<Parentesco> ICargaNodos(string PADRE);
         DataTable arbol();
+        DataTable arbolMenuPrivilegios();
+        
     }
 }

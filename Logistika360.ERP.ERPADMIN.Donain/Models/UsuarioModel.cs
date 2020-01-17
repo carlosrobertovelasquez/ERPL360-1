@@ -19,9 +19,9 @@ namespace Logistika360.ERP.ERPADMIN.Domain.Models
         private string TIPO;
         private string ACTIVO;
         private string REQ_CAMBIO_CLAVE;
-        private string FRECUENCIA_CLAVE;
+        private decimal FRECUENCIA_CLAVE;
         private DateTime FECHA_ULT_CLAVE;
-        private string MAX_INTENTOS_CONEX;
+        private decimal MAX_INTENTOS_CONEX;
         private string CLAVE;
         private string CORREO_ELECTRONICO;
         private string TIPO_ACCESO;
@@ -37,16 +37,16 @@ namespace Logistika360.ERP.ERPADMIN.Domain.Models
         public string NOMBRE1 { get => NOMBRE; set => NOMBRE = value; }
         public string TIPO1 { get => TIPO; set => TIPO = value; }
         public string ACTIVO1 { get => ACTIVO; set => ACTIVO = value; }
-        [Required(ErrorMessage = "Campo  No puede quedar Vacio")]
-        [RegularExpression("([0-9]+)",ErrorMessage ="Solo se pueden Digitar Numeros")]
+      //  [Required(ErrorMessage = "Campo  No puede quedar Vacio Cambio Clave")]
+      //  [RegularExpression("([0-9]+)",ErrorMessage ="Solo se pueden Digitar Numeros")]
         public string REQ_CAMBIO_CLAVE1 { get => REQ_CAMBIO_CLAVE; set => REQ_CAMBIO_CLAVE = value; }
-        public string FRECUENCIA_CLAVE1 { get => FRECUENCIA_CLAVE; set => FRECUENCIA_CLAVE = value; }
+        public decimal FRECUENCIA_CLAVE1 { get => FRECUENCIA_CLAVE; set => FRECUENCIA_CLAVE = value; }
         public DateTime FECHA_ULT_CLAVE1 { get => FECHA_ULT_CLAVE; set => FECHA_ULT_CLAVE = value; }
-        [Required(ErrorMessage = "Campo  No puede quedar Vacio")]
-        public string MAX_INTENTOS_CONEX1 { get => MAX_INTENTOS_CONEX; set => MAX_INTENTOS_CONEX = value; }
-        [Required(ErrorMessage = "Campo  No puede quedar Vacio")]
+      //  [Required(ErrorMessage = "Campo  No puede quedar Vacio Intento Conexiones")]
+        public decimal MAX_INTENTOS_CONEX1 { get => MAX_INTENTOS_CONEX; set => MAX_INTENTOS_CONEX = value; }
         public string CLAVE1 { get => CLAVE; set => CLAVE = value; }
-        [Required(ErrorMessage = "Campo  No puede quedar Vacio")]
+        [Required(ErrorMessage = "Campo  No puede quedar Vacio correo")]
+        [EmailAddress]
         public string CORREO_ELECTRONICO1 { get => CORREO_ELECTRONICO; set => CORREO_ELECTRONICO = value; }
         public string TIPO_ACCESO1 { get => TIPO_ACCESO; set => TIPO_ACCESO = value; }
         public string CELULAR1 { get => CELULAR; set => CELULAR = value; }
@@ -68,7 +68,7 @@ namespace Logistika360.ERP.ERPADMIN.Domain.Models
                 usuarioDataModel.NOMBRE = NOMBRE1;
                 usuarioDataModel.TIPO = TIPO1;
                 usuarioDataModel.ACTIVO = ACTIVO1;
-                usuarioDataModel.REQ_CAMBIO_CLAVE = REQ_CAMBIO_CLAVE1;
+                usuarioDataModel.REQ_CAMBIO_CLAVE =  REQ_CAMBIO_CLAVE1;
                 usuarioDataModel.FRECUENCIA_CLAVE = FRECUENCIA_CLAVE1;
                 usuarioDataModel.FECHA_ULT_CLAVE = FECHA_ULT_CLAVE1;
                 usuarioDataModel.MAX_INTENTOS_CONEX = MAX_INTENTOS_CONEX1;
@@ -145,6 +145,7 @@ namespace Logistika360.ERP.ERPADMIN.Domain.Models
             return GetAll().FindAll(e => e.USUARIO.Contains(filter) || e.NOMBRE.Contains(filter));
         }
 
+   
         public List<UsuarioModel> login(string usuario, string contrasena, string activo)
         {
 

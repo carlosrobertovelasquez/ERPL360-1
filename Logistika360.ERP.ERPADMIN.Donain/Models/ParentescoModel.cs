@@ -72,5 +72,12 @@ namespace Logistika360.ERP.ERPADMIN.Domain.Models
         }
 
 
+        public DataTable arbolMenuPrivilegios()
+        {
+            DataTable arbolMenuPrivilegios = parentescoRepository.arbolMenuPrivilegios();
+            return arbolMenuPrivilegios;
+        }
+
+
     }
 }
