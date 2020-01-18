@@ -14,6 +14,9 @@ using Logistika360.ERP.ERPADMIN.Common.Cache;
 using Logistika360.ERP.ERPADMIN.Domain.Models;
 using Logistika360.ERP.AS.Presentacion;
 using Logistika360.ERP.AS.Presentacion.Seguridad.Usuario;
+using Logistika360.ERP.AS.Presentacion.Tablas.Funcionarios.Vendedor;
+using Logistika360.ERP.AS.Presentacion.Tablas;
+using Logistika360.ERP.AS.Presentacion.Tablas.Funcionarios.Cobrador;
 
 namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
 {
@@ -85,11 +88,11 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
 
         }
 
-        private void AbrirFormInPanel(object Formhijo)
+        private void AbrirFormInPanel(object Fromhijo)
         {
             if (this.panelContenedor.Controls.Count > 0)
                 this.panelContenedor.Controls.RemoveAt(0);
-            Form fh = Formhijo as Form;
+            Form fh = Fromhijo as Form;
             fh.TopLevel = false;
           //  fh.Dock = DockStyle.Fill;
             this.panelContenedor.Controls.Add(fh);
@@ -283,16 +286,45 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
 
 
 
-            //string constante;
-            //string accion;
+            string constante;
+            string accion;
 
-            //accion = treeMenu.SelectedNode.Name;
-            //constante = e.Node.Tag.ToString();
+            accion = treeMenu.SelectedNode.Name;
+            constante = e.Node.Tag.ToString();
+            PrivilegioEXModel privilegioEX = new PrivilegioEXModel();
+            var privilegiosex = privilegioEX.FindByUsuario(UserLoginCache.USUARIO, UserLoginCache.CONJUNTO,constante);
 
-            AbrirFormInPanel(new FormUsuario());
-            
+            var llamarformulario = privilegiosex.Count();
 
-            
+            if (llamarformulario==1)
+            {
+                switch (constante)
+                {
+                    case "AS_VENDEDORES":
+                        AbrirFormInPanel(new Vendedores());
+                        break;
+                    case "AS_COBRADOR":
+                        AbrirFormInPanel(new COBRADOR());
+                        break;
+                    
+                       
+                }
+                 //AbrirFormInPanel(new AS_VENDEDORES());
+                
+                //AbrirFormInPanel(new FormUsuario());
+            }
+
+
+            //AbrirFormInPanel(new Vendedores());
+
+
+
+
+
+
+
+
+
 
         }
 

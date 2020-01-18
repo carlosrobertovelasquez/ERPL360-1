@@ -142,15 +142,18 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
                 if (CmbConjunto.GetItemText(CmbConjunto.SelectedItem) != "Seleccionar Empresa")
                 {
                     UsuarioModel user = new UsuarioModel();
-                    
+                    PrivilegioEXModel privilegioEX = new PrivilegioEXModel();
                     var ACTIVO = "S";
                     var validarLogin = user.login( txtUsuario.Text, txtContrasena.Text,ACTIVO);
-                   
+                    
 
                    if (validarLogin.Count()>0  )
                       
                     {
-                                               
+                        
+
+                        //Guardamos En Cache Los privilegios de Usuario
+                        
                         foreach (var item in validarLogin)
                         {
                             UserLoginCache.USUARIO = item.USUARIO1;

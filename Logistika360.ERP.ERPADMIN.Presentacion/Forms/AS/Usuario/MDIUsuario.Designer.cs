@@ -1,4 +1,4 @@
-﻿namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms.AS.Usuario
+﻿namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms.AS_VENDEDORES.Usuario
 {
     partial class MDIUsuario
     {

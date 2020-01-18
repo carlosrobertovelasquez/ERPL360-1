@@ -75,17 +75,18 @@ namespace Logistika360.ERP.AS.DataAccess.Repositories
                 {
                     VENDEDOR = item[0].ToString(),
                     CONJUNTO = item[1].ToString(),
-                    EMPLEADO = item[2].ToString(),
+                    NOMBRE=item[2].ToString(),
+                    EMPLEADO = item[3].ToString(),
                     COMISION = Convert.ToDecimal( item[4].ToString()),
-                    CTR_COMISION =  item[11].ToString(),
-                    CTA_COMISION = item[5].ToString(),
-                    CORREO = item[12].ToString(),
-                    ACTIVO = item[3].ToString(),
-                    TELEFONO = item[6].ToString(),
-                    UpdatedBy = item[7].ToString(),
-                    RecordDate = Convert.ToDateTime( item[8]),
-                    CreatedBy = item[10].ToString(),
-                    CreateDate =Convert.ToDateTime( item[9]),
+                    CTR_COMISION =  item[5].ToString(),
+                    CTA_COMISION = item[6].ToString(),
+                    CORREO = item[7].ToString(),
+                    ACTIVO = item[8].ToString(),
+                    TELEFONO = item[9].ToString(),
+                    RecordDate = Convert.ToDateTime(item[10]),
+                    CreateDate = Convert.ToDateTime(item[11]),
+                    CreatedBy = item[12].ToString(),
+                    UpdatedBy = item[13].ToString(),
                     
                 });
             }

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Logistika360.ERP.ERPADMIN.Domain.Models;
 using Logistika360.ERP.ERPADMIN.Domain.ValueObjects;
 
-namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms.AS.Usuario
+namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms.AS_VENDEDORES.Usuario
 {
     public partial class MDIUsuario : Form
     {

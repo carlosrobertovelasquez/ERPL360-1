@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Logistika360.ERP.AS.Presentacion.Tablas.Vendedor
+namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
 {
-    public partial class FormVendedor : Form
+    public partial class FomPlatillagrid : Form
     {
-        public FormVendedor()
+        public FomPlatillagrid()
         {
             InitializeComponent();
         }

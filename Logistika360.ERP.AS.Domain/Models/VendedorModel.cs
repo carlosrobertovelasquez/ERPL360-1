@@ -114,6 +114,32 @@ namespace Logistika360.ERP.AS.Domain.Models
             return message;
         }
 
+        public List<VendedorModel> GetAll()
+        {
+            var vendedorDataModel = vendedorRepository.GetAll();
+            var listVendedor = new List<VendedorModel>();
+            foreach (Vendedor item in vendedorDataModel)
+            {
+                listVendedor.Add(new VendedorModel
+                {
+                    Vendedor1 = item.VENDEDOR,
+                    Conjunto1 = item.CONJUNTO,
+                    Nombre1 = item.NOMBRE,
+                    Empleado1 = item.EMPLEADO,
+                    Comision1 = item.COMISION,
+                    Ctr_comision1 = item.CTR_COMISION,
+                    Cta_comision1 = item.CTA_COMISION,
+                    Correo1 = item.CORREO,
+                    Activo1 = item.ACTIVO,
+                    Telefono1 = item.TELEFONO,
+                    RecordDate1 = item.RecordDate,
+                    CreateDate1 = item.CreateDate,
+                    CreatedBy = item.CreatedBy,
+                    UpdatedBy1 = item.UpdatedBy,
+                });
+            }
+            return listVendedor;
+        }
 
 
 

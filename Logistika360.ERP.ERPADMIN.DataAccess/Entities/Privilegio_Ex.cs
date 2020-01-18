@@ -12,5 +12,6 @@ namespace Logistika360.ERP.ERPADMIN.DataAccess.Entities
         public string CONJUNTO { get; set; }
         public int ACCION { get; set; }
         public string ACTIVO { get; set; }
+        public string NOMBRECONSTANTE { get; set; }
     }
 }

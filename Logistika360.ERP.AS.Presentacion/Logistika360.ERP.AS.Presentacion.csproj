@@ -60,6 +60,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormsPlantillas\FormPlantillaGridSmall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsPlantillas\FormPlantillaGridSmall.Designer.cs">
+      <DependentUpon>FormPlantillaGridSmall.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helps\DataValidation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,14 +87,29 @@
     <Compile Include="Tablas\Categoria\CategoriaCliente\FormCategoriaCliente.Designer.cs">
       <DependentUpon>FormCategoriaCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tablas\Funcionarios\Vendedor\FormVendedor.cs">
+    <Compile Include="Tablas\Funcionarios\Cobrador\COBRADOR.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tablas\Funcionarios\Vendedor\FormVendedor.Designer.cs">
-      <DependentUpon>FormVendedor.cs</DependentUpon>
+    <Compile Include="Tablas\Funcionarios\Cobrador\COBRADOR.Designer.cs">
+      <DependentUpon>COBRADOR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tablas\Funcionarios\Vendedor\AS_VENDEDORES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tablas\Funcionarios\Vendedor\AS_VENDEDORES.Designer.cs">
+      <DependentUpon>AS_VENDEDORES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tablas\Funcionarios\Vendedor\Vendedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tablas\Funcionarios\Vendedor\Vendedores.Designer.cs">
+      <DependentUpon>Vendedores.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsPlantillas\FormPlantillaGridSmall.resx">
+      <DependentUpon>FormPlantillaGridSmall.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -110,6 +131,12 @@
     <EmbeddedResource Include="Tablas\Categoria\CategoriaCliente\FormCategoriaCliente.resx">
       <DependentUpon>FormCategoriaCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tablas\Funcionarios\Cobrador\COBRADOR.resx">
+      <DependentUpon>COBRADOR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tablas\Funcionarios\Vendedor\Vendedores.resx">
+      <DependentUpon>Vendedores.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -129,12 +156,15 @@
     <Folder Include="Reportes\" />
     <Folder Include="Tablas\Categoria\CategoriaProveedor\" />
     <Folder Include="Tablas\Categoria\NivelPrecio\" />
-    <Folder Include="Tablas\Funcionarios\Cobrador\" />
     <Folder Include="Tablas\Pais\" />
     <Folder Include="Tablas\Ruta\" />
     <Folder Include="Tablas\Zona\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Logistika360.ERP.AS.Domain\Logistika360.ERP.AS.Domain.csproj">
+      <Project>{e5a6332f-6c25-4c27-aeb6-169f2cd68e5b}</Project>
+      <Name>Logistika360.ERP.AS.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Logistika360.ERP.ERPADMIN.Common\Logistika360.ERP.ERPADMIN.Common.csproj">
       <Project>{0c3f8f03-3830-471c-aa0f-de7255d5b3e9}</Project>
       <Name>Logistika360.ERP.ERPADMIN.Common</Name>

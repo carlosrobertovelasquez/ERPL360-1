@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms.AS.Usuario
+namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms.AS_VENDEDORES.Usuario
 {
     public partial class FormUsuario : Form
     {
