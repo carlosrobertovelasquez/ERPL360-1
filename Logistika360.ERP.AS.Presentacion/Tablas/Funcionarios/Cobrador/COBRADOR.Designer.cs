@@ -36,7 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(362, 297);
             this.Name = "COBRADOR";
-            this.Text = "COBRADOR";
+            this.Text = "Cobrador";
             this.Load += new System.EventHandler(this.COBRADOR_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

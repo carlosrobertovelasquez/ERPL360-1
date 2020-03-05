@@ -12,11 +12,13 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Logistika360.ERP.ERPADMIN.Common.Cache;
 using Logistika360.ERP.ERPADMIN.Domain.Models;
-using Logistika360.ERP.AS.Presentacion;
+using Logistika360.ERP.AS.Presentacion.Forms;
 using Logistika360.ERP.AS.Presentacion.Seguridad.Usuario;
 using Logistika360.ERP.AS.Presentacion.Tablas.Funcionarios.Vendedor;
 using Logistika360.ERP.AS.Presentacion.Tablas;
 using Logistika360.ERP.AS.Presentacion.Tablas.Funcionarios.Cobrador;
+using Logistika360.ERP.AS.Presentacion.Tablas.Zona;
+using Logistika360.ERP.AS.Presentacion.Administracion;
 
 namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
 {
@@ -92,14 +94,13 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
         {
             if (this.panelContenedor.Controls.Count > 0)
                 this.panelContenedor.Controls.RemoveAt(0);
-            Form fh = Fromhijo as Form;
-            fh.TopLevel = false;
-          //  fh.Dock = DockStyle.Fill;
-            this.panelContenedor.Controls.Add(fh);
-            this.panelContenedor.Tag = fh;
-            fh.Location = new Point((panelContenedor.Width - fh.Width) / 2, (panelContenedor.Height - fh.Height) / 2);
-            fh.Show();
-        }
+                Form fh = Fromhijo as Form;
+                fh.TopLevel = false;
+               this.panelContenedor.Controls.Add(fh);
+               this.panelContenedor.Tag = fh;
+               fh.Location = new Point((panelContenedor.Width - fh.Width) / 2, (panelContenedor.Height - fh.Height) / 2);
+               fh.Show();
+          }
 
         private void btnAS_Click(object sender, EventArgs e)
         {
@@ -129,8 +130,7 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
 
         private void LoadUserData()
         {
-            lblUsuario.Text = UserLoginCache.USUARIO;
-           
+            lblUsuario.Text = UserLoginCache.USUARIO;   
             lblConjunto.Text = UserLoginCache.CONJUNTO;
         }
 
@@ -139,23 +139,20 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
             timer1.Enabled = true;
             LoadUserData();
             agregarMenu();
-
-
         }
 
         private void agregarMenu()
         {
-            
-            int valorInicial = 0;
+             int valorInicial = 0;
             int valorAncho = 22;
             ModuloInstaladoModel modulos = new ModuloInstaladoModel();
-            var validarModulos = modulos.modulos(UserLoginCache.CONJUNTO,UserLoginCache.USUARIO);
+            var ModulosInstalados = modulos.modulos(UserLoginCache.CONJUNTO,UserLoginCache.USUARIO);
 
-            foreach (var item in validarModulos)
+            foreach (var item in ModulosInstalados)
             {
                 valorInicial = valorInicial + valorAncho;
                 var NombreBoton = "btn" + item.NOMBRECONSTANTE;
-
+          
                 Button btnCG = new Button();
                 btnCG.FlatAppearance.BorderSize = 0;
                 btnCG.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -165,7 +162,7 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
                 btnCG.ForeColor = System.Drawing.Color.White;
                 btnCG.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
                 btnCG.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                btnCG.Size = new System.Drawing.Size(312, 25);
+                btnCG.Size = new System.Drawing.Size(312, 30);
                 btnCG.Location = new System.Drawing.Point(-1, valorInicial);
                 btnCG.Name = NombreBoton;
                 btnCG.TabIndex = 7;
@@ -177,10 +174,8 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
                 panelBotones.Controls.Add(nombreModulo);
                 accion.Text = item.ACCION;
                 nombreModulo.Text = item.NOMBREACCION;
-                btnCG.Click += new System.EventHandler((sender1,e1) => btnFA_Click(sender1,e1,accion.Text,nombreModulo.Text));
-                
+                btnCG.Click += new System.EventHandler((sender1,e1) => btnFA_Click(sender1,e1,accion.Text,nombreModulo.Text));      
                 panelBotones.Controls.Add(btnCG);
-
             }
         }
 
@@ -203,8 +198,6 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
             btnnombreModulo.Visible = true;
             btnnombreModulo.Text = nombreModulo;
             var _accion = accion;
-
-
             CrearNodoDelPadre(Int32.Parse(_accion),null);
             treeMenu.Nodes.Add("", "Acerca de ...",imageIndex:2,selectedImageIndex:2);
         }
@@ -251,16 +244,62 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
 
         private void treeMenu_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         private void treeMenu_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
 
-           
+            string constante;
+            string accion;
 
-           
-            
+          //  accion = treeMenu.SelectedNode.Name;
+            constante = e.Node.Tag.ToString();
+            PrivilegioEXModel privilegioEX = new PrivilegioEXModel();
+            var privilegiosex = privilegioEX.FindByUsuario(UserLoginCache.USUARIO, UserLoginCache.CONJUNTO, constante);
+
+            var llamarformulario = privilegiosex.Count();
+
+          if (llamarformulario == 1)
+            {
+                switch (constante)
+                {
+                    case "AS_VENDEDORES":
+                        AbrirFormInPanel(new Vendedores());
+
+                        break;
+                    case "AS_COBRADOR":
+                        AbrirFormInPanel(new COBRADOR());
+                        break;
+                    case "AS_GLOBALES":
+
+                        AbrirFormInPanel(new GLOBALES());
+                        break;
+                    case "AS_SISGLOBALES":
+                        AbrirFormInPanel(new SISGLOBALES());
+                        break;
+                    case "AS_PAISES":
+                        AbrirFormInPanel(new Pais());
+                       break;
+                    case "AS_ZONAS":
+                        AbrirFormInPanel(new Zona());
+                        break;
+                    case "AS_RUTAS":
+                        AbrirFormInPanel(new Ruta());
+                        break;
+                }
+                //AbrirFormInPanel(new AS_VENDEDORES());
+
+                //AbrirFormInPanel(new FormUsuario());
+            }
+            else
+            {
+                MessageBox.Show("No tiene privilegios en este Opcion");
+            }
+
+
+
+
 
 
 
@@ -270,49 +309,68 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
         {
 
 
-
-            //if (this.panelContenedor.Controls.Count > 0)
-            //    this.panelContenedor.Controls.RemoveAt(0);
-            //FormUsuario form = Application.OpenForms.OfType<FormUsuario>().FirstOrDefault();
-            //FormUsuario fr = new FormUsuario();
-            //fr.TopLevel = false;
-            //this.panelContenedor.Controls.Add(fr);
-            //this.panelContenedor.Tag = fr;
-            //fr.BringToFront();
-            //fr.Location = new Point((panelContenedor.Width - fr.Width) / 2, (panelContenedor.Height - fr.Height) / 2);
-            //fr.Show();
-
+             ////if (this.panelContenedor.Controls.Count > 0)
+            ////    this.panelContenedor.Controls.RemoveAt(0);
+            ////FormUsuario form = Application.OpenForms.OfType<FormUsuario>().FirstOrDefault();
+            ////FormUsuario fr = new FormUsuario();
+            ////fr.TopLevel = false;
+            ////this.panelContenedor.Controls.Add(fr);
+            ////this.panelContenedor.Tag = fr;
+            ////fr.BringToFront();
+            ////fr.Location = new Point((panelContenedor.Width - fr.Width) / 2, (panelContenedor.Height - fr.Height) / 2);
+            ////fr.Show();
 
 
 
 
-            string constante;
-            string accion;
 
-            accion = treeMenu.SelectedNode.Name;
-            constante = e.Node.Tag.ToString();
-            PrivilegioEXModel privilegioEX = new PrivilegioEXModel();
-            var privilegiosex = privilegioEX.FindByUsuario(UserLoginCache.USUARIO, UserLoginCache.CONJUNTO,constante);
+            //string constante;
+            //string accion;
 
-            var llamarformulario = privilegiosex.Count();
+            //accion = treeMenu.SelectedNode.Name;
+            //constante = e.Node.Tag.ToString();
+            //PrivilegioEXModel privilegioEX = new PrivilegioEXModel();
+            //var privilegiosex = privilegioEX.FindByUsuario(UserLoginCache.USUARIO, UserLoginCache.CONJUNTO,constante);
 
-            if (llamarformulario==1)
-            {
-                switch (constante)
-                {
-                    case "AS_VENDEDORES":
-                        AbrirFormInPanel(new Vendedores());
-                        break;
-                    case "AS_COBRADOR":
-                        AbrirFormInPanel(new COBRADOR());
-                        break;
-                    
-                       
-                }
-                 //AbrirFormInPanel(new AS_VENDEDORES());
-                
-                //AbrirFormInPanel(new FormUsuario());
-            }
+            //var llamarformulario = privilegiosex.Count();
+
+            //MessageBox.Show(constante);
+
+            //const string AS_VENDEDORES = "Vendedores";
+
+            //Form fr = new Form();
+
+
+
+            //AbrirFormInPanel(new AS_VENDEDORES());
+
+
+
+            //if (llamarformulario==1)
+            //{
+            //    switch (constante)
+            //    {
+            //        case "AS_VENDEDORES":
+            //            AbrirFormInPanel(new Vendedores());
+
+            //            break;
+            //        case "AS_COBRADOR":
+            //            AbrirFormInPanel(new COBRADOR());
+            //            break;
+            //        case "AS_GLOBALES":
+
+            //            AbrirFormInPanel(new GLOBALES());
+            //            break;
+            //        case "AS_SISGLOBALES":
+            //            AbrirFormInPanel(new SISGLOBALES());
+
+            //            break;
+
+            //    }
+            //     //AbrirFormInPanel(new AS_VENDEDORES());
+
+            //    //AbrirFormInPanel(new FormUsuario());
+            //}
 
 
             //AbrirFormInPanel(new Vendedores());

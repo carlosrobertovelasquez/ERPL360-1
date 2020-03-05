@@ -10,6 +10,7 @@ namespace Logistika360.ERP.AS.DataAccess.Contracts
 {
     public interface IVendedorRepository:IGenericRepository<Vendedor>
     {
+       
     }
 
     

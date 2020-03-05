@@ -53,7 +53,6 @@
             this.lblHora = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.MenuVertical.SuspendLayout();
-            this.panelBotones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.BarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconorestaurar)).BeginInit();
@@ -67,6 +66,7 @@
             // MenuVertical
             // 
             this.MenuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.MenuVertical.Controls.Add(this.btnFAAA);
             this.MenuVertical.Controls.Add(this.btnnombreModulo);
             this.MenuVertical.Controls.Add(this.treeMenu);
             this.MenuVertical.Controls.Add(this.panelBotones);
@@ -120,10 +120,9 @@
             // 
             this.panelBotones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panelBotones.AutoScroll = true;
-            this.panelBotones.Controls.Add(this.btnFAAA);
-            this.panelBotones.Location = new System.Drawing.Point(1, 365);
+            this.panelBotones.Location = new System.Drawing.Point(0, 341);
             this.panelBotones.Name = "panelBotones";
-            this.panelBotones.Size = new System.Drawing.Size(312, 239);
+            this.panelBotones.Size = new System.Drawing.Size(312, 255);
             this.panelBotones.TabIndex = 3;
             this.panelBotones.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBotones_Paint);
             // 
@@ -135,12 +134,12 @@
             this.btnFAAA.FlatAppearance.BorderSize = 0;
             this.btnFAAA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnFAAA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFAAA.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFAAA.ForeColor = System.Drawing.Color.Black;
+            this.btnFAAA.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFAAA.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnFAAA.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFAAA.Location = new System.Drawing.Point(0, 0);
+            this.btnFAAA.Location = new System.Drawing.Point(3, 321);
             this.btnFAAA.Name = "btnFAAA";
-            this.btnFAAA.Size = new System.Drawing.Size(299, 24);
+            this.btnFAAA.Size = new System.Drawing.Size(304, 34);
             this.btnFAAA.TabIndex = 7;
             this.btnFAAA.Text = "Modulos Instalados";
             this.btnFAAA.UseVisualStyleBackColor = false;
@@ -302,12 +301,12 @@
             // 
             // panelContenedor
             // 
-            this.panelContenedor.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panelContenedor.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panelContenedor.Controls.Add(this.lbfecha);
             this.panelContenedor.Controls.Add(this.lblHora);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelContenedor.ForeColor = System.Drawing.Color.White;
+            this.panelContenedor.ForeColor = System.Drawing.Color.Black;
             this.panelContenedor.Location = new System.Drawing.Point(312, 50);
             this.panelContenedor.Name = "panelContenedor";
             this.panelContenedor.Size = new System.Drawing.Size(988, 600);
@@ -357,7 +356,6 @@
             this.Text = "FormMenu";
             this.Load += new System.EventHandler(this.FormMenu_Load);
             this.MenuVertical.ResumeLayout(false);
-            this.panelBotones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.BarraTitulo.ResumeLayout(false);
             this.BarraTitulo.PerformLayout();

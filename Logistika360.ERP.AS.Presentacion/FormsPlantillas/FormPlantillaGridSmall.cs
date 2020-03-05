@@ -30,7 +30,7 @@ namespace Logistika360.ERP.AS.Presentacion.FormsPlantillas
         {
 
         }
-        public virtual void Consultar()
+        public virtual void Editar()
         {
 
         }
@@ -45,9 +45,31 @@ namespace Logistika360.ERP.AS.Presentacion.FormsPlantillas
 
         }
 
-        public virtual void Excel()
+        public virtual void Excel( DataGridView dgvDatos)
         {
+            SaveFileDialog fichero = new SaveFileDialog();
+            fichero.Filter = "Excel (*.xls)|*.xls";
+            if (fichero.ShowDialog()==DialogResult.OK)
+            {
+                Microsoft.Office.Interop.Excel.Application application;
+                Microsoft.Office.Interop.Excel.Workbook libros_trabajo;
+                Microsoft.Office.Interop.Excel.Worksheet hoja_trabajo;
+                application = new Microsoft.Office.Interop.Excel.Application();
+                libros_trabajo = application.Workbooks.Add();
+                hoja_trabajo = (Microsoft.Office.Interop.Excel.Worksheet)libros_trabajo.Worksheets.get_Item(1);
+                //Recorremos el datagridView rellenado la hoka de trabajo
+                for (int i = 0; i < dgvDatos.Rows.Count-1; i++)
+                {
+                    for (int j = 0; j < dgvDatos.Columns.Count; j++)
+                    {
+                        hoja_trabajo.Cells[i + 1, j + 1] = dgvDatos.Rows[i].Cells[j].Value.ToString();
+                    }
+                }
+                libros_trabajo.SaveAs(fichero.FileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal);
+                libros_trabajo.Close(true);
+                application.Quit();
 
+            }
         }
         public virtual void Refrescar()
         {
@@ -97,7 +119,7 @@ namespace Logistika360.ERP.AS.Presentacion.FormsPlantillas
 
         private void menuExcel_Click(object sender, EventArgs e)
         {
-            Excel();
+            Excel(dgvDatos);
         }
 
         private void menuAyuda_Click(object sender, EventArgs e)
@@ -108,6 +130,16 @@ namespace Logistika360.ERP.AS.Presentacion.FormsPlantillas
         private void menuRefrescar_Click(object sender, EventArgs e)
         {
             Refrescar();
+        }
+
+        private void menu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void menuEditar_Click(object sender, EventArgs e)
+        {
+            Editar();
         }
     }
 }

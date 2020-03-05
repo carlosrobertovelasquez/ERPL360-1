@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Logistika360.ERP.ERPADMIN.DataAccess.Entities
+namespace Logistika360.ERP.AS.DataAccess.Entities
 {
     public class Conjunto
     {
-       public string CONJUNTO { get; set; }
-       public string NOMBRE { get; set; }
+        public string CONJUNTO { get; set; }
+        public string NOMBRE { get; set; }
         public string DIREC1 { get; set; }
         public string DIREC2 { get; set; }
         public string TELEFONO { get; set; }
@@ -17,7 +17,7 @@ namespace Logistika360.ERP.ERPADMIN.DataAccess.Entities
         public string DOBLE_MONEDA { get; set; }
         public string DOBLE_CONTABILIDAD { get; set; }
         public string USA_LOTES { get; set; }
-        public string USA_CENTROS_COSTO { get; set; }
+        public string USAR_CENTROS_COSTO { get; set; }
         public string CONSOLIDA { get; set; }
         public string CONSOLIDADORA { get; set; }
         public string BD_CIA_CONSOLIDAD { get; set; }
@@ -38,7 +38,7 @@ namespace Logistika360.ERP.ERPADMIN.DataAccess.Entities
         public string GLN { get; set; }
         public string UBICACION { get; set; }
         public string IDIOMA { get; set; }
-        public string USA_SUCURSAL { get; set; }
+        public string USA_SUCURSAL { get; set; } 
         public string MASCARA_SUCURSAL { get; set; }
         public string DIRECCION_WEB1 { get; set; }
         public string DIRECCION_WEB2 { get; set; }
@@ -56,7 +56,10 @@ namespace Logistika360.ERP.ERPADMIN.DataAccess.Entities
         public string DIVISION_GEOGRAFICA3 { get; set; }
         public string DIVISION_GEOGRAFICA4 { get; set; }
         public string REGIMEN_FISCAL { get; set; }
-
-        
+        public string INVENTARIO_DOLAR { get; set; }
+        public DateTime RecordDate { get; set; }
+        public string CreatedBy { get; set; }
+        public string UpdatedBy { get; set; }
+        public DateTime CreateDate { get; set; }
     }
 }

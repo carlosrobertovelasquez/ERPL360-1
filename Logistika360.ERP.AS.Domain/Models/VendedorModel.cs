@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using Logistika360.ERP.AS.DataAccess.Contracts;
 using Logistika360.ERP.AS.DataAccess.Entities;
 using Logistika360.ERP.AS.DataAccess.Repositories;
-using Logistika360.ERP.ERPADMIN.Domain.ValueObjects;
+using Logistika360.ERP.AS.Domain.ValueObjects;
 using Logistika360.ERP.ERPADMIN.Common.Cache;
 using Logistika360.ERP.ERPADMIN.DataAccess.Repositories;
-
+using System.ComponentModel.DataAnnotations;
 
 namespace Logistika360.ERP.AS.Domain.Models
 {
@@ -34,13 +34,16 @@ namespace Logistika360.ERP.AS.Domain.Models
         private IVendedorRepository vendedorRepository;
         public EntityState State { private get; set; }
 
+        [Required]
         public string Vendedor1 { get => Vendedor; set => Vendedor = value; }
         public string Conjunto1 { get => Conjunto; set => Conjunto = value; }
+        [Required]
         public string Nombre1 { get => Nombre; set => Nombre = value; }
         public string Empleado1 { get => Empleado; set => Empleado = value; }
         public decimal Comision1 { get => Comision; set => Comision = value; }
         public string Ctr_comision1 { get => Ctr_comision; set => Ctr_comision = value; }
         public string Cta_comision1 { get => Cta_comision; set => Cta_comision = value; }
+        [Required]
         public string Correo1 { get => Correo; set => Correo = value; }
         public string Activo1 { get => Activo; set => Activo = value; }
         public string Telefono1 { get => Telefono; set => Telefono = value; }
@@ -68,7 +71,7 @@ namespace Logistika360.ERP.AS.Domain.Models
                 vendedorModel.EMPLEADO = Empleado1;
                 vendedorModel.COMISION = Comision1;
                 vendedorModel.CTR_COMISION = Ctr_comision1;
-                vendedorModel.CTR_COMISION = Cta_comision1;
+                vendedorModel.CTA_COMISION = Cta_comision1;
                 vendedorModel.CORREO = Correo1;
                 vendedorModel.ACTIVO = Activo1;
                 vendedorModel.TELEFONO = Telefono1;
@@ -141,6 +144,19 @@ namespace Logistika360.ERP.AS.Domain.Models
             return listVendedor;
         }
 
+        public IEnumerable<VendedorModel> VendedorConjunto(string filter1)
+        {
+            return GetAll().FindAll(e => e.Conjunto.Equals(filter1) );
+        }
+        public IEnumerable<VendedorModel> BuscarVendedor(string filter1,string filter2)
+        {
+            return GetAll().FindAll(e => e.Vendedor.Equals(filter1) && e.Conjunto.Equals(filter2));
+        }
+
+         public void borrar(string Vendedor,string Conjunto)
+        {
+            vendedorRepository.Remove2(Vendedor, Conjunto);
+        }
 
 
         public void Dispose()

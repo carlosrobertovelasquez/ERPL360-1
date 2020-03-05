@@ -54,6 +54,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administracion\GLOBALES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\GLOBALES.Designer.cs">
+      <DependentUpon>GLOBALES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\UcPais.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\UcPais.Designer.cs">
+      <DependentUpon>UcPais.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +77,36 @@
     </Compile>
     <Compile Include="FormsPlantillas\FormPlantillaGridSmall.Designer.cs">
       <DependentUpon>FormPlantillaGridSmall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsPlantillas\FormPlantillaMantenimientoSmall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsPlantillas\FormPlantillaMantenimientoSmall.Designer.cs">
+      <DependentUpon>FormPlantillaMantenimientoSmall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FmantenimientoConjunto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FmantenimientoConjunto.Designer.cs">
+      <DependentUpon>FmantenimientoConjunto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FmantenimientoPais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FmantenimientoPais.Designer.cs">
+      <DependentUpon>FmantenimientoPais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Pais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Pais.Designer.cs">
+      <DependentUpon>Pais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SISGLOBALES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SISGLOBALES.Designer.cs">
+      <DependentUpon>SISGLOBALES.cs</DependentUpon>
     </Compile>
     <Compile Include="Helps\DataValidation.cs" />
     <Compile Include="Program.cs" />
@@ -93,11 +135,23 @@
     <Compile Include="Tablas\Funcionarios\Cobrador\COBRADOR.Designer.cs">
       <DependentUpon>COBRADOR.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tablas\Funcionarios\Cobrador\FmantemiminetoCobrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tablas\Funcionarios\Cobrador\FmantemiminetoCobrador.Designer.cs">
+      <DependentUpon>FmantemiminetoCobrador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tablas\Funcionarios\Vendedor\AS_VENDEDORES.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Tablas\Funcionarios\Vendedor\AS_VENDEDORES.Designer.cs">
       <DependentUpon>AS_VENDEDORES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tablas\Funcionarios\Vendedor\FmantenimientoVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tablas\Funcionarios\Vendedor\FmantenimientoVendedor.Designer.cs">
+      <DependentUpon>FmantenimientoVendedor.cs</DependentUpon>
     </Compile>
     <Compile Include="Tablas\Funcionarios\Vendedor\Vendedores.cs">
       <SubType>Form</SubType>
@@ -105,11 +159,53 @@
     <Compile Include="Tablas\Funcionarios\Vendedor\Vendedores.Designer.cs">
       <DependentUpon>Vendedores.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\FmantenimientoRuta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FmantenimientoRuta.Designer.cs">
+      <DependentUpon>FmantenimientoRuta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Ruta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ruta.Designer.cs">
+      <DependentUpon>Ruta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tablas\Zona\AS_ZONAS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tablas\Zona\AS_ZONAS.Designer.cs">
+      <DependentUpon>AS_ZONAS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tablas\Zona\Zona.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tablas\Zona\Zona.Designer.cs">
+      <DependentUpon>Zona.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Administracion\GLOBALES.resx">
+      <DependentUpon>GLOBALES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\UcPais.resx">
+      <DependentUpon>UcPais.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormsPlantillas\FormPlantillaGridSmall.resx">
       <DependentUpon>FormPlantillaGridSmall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsPlantillas\FormPlantillaMantenimientoSmall.resx">
+      <DependentUpon>FormPlantillaMantenimientoSmall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FmantenimientoConjunto.resx">
+      <DependentUpon>FmantenimientoConjunto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FmantenimientoPais.resx">
+      <DependentUpon>FmantenimientoPais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Pais.resx">
+      <DependentUpon>Pais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SISGLOBALES.resx">
+      <DependentUpon>SISGLOBALES.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -134,8 +230,20 @@
     <EmbeddedResource Include="Tablas\Funcionarios\Cobrador\COBRADOR.resx">
       <DependentUpon>COBRADOR.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tablas\Funcionarios\Cobrador\FmantemiminetoCobrador.resx">
+      <DependentUpon>FmantemiminetoCobrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tablas\Funcionarios\Vendedor\FmantenimientoVendedor.resx">
+      <DependentUpon>FmantenimientoVendedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tablas\Funcionarios\Vendedor\Vendedores.resx">
       <DependentUpon>Vendedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FmantenimientoRuta.resx">
+      <DependentUpon>FmantenimientoRuta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Ruta.resx">
+      <DependentUpon>Ruta.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -151,14 +259,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Administracion\" />
     <Folder Include="Procesos\" />
     <Folder Include="Reportes\" />
     <Folder Include="Tablas\Categoria\CategoriaProveedor\" />
     <Folder Include="Tablas\Categoria\NivelPrecio\" />
     <Folder Include="Tablas\Pais\" />
     <Folder Include="Tablas\Ruta\" />
-    <Folder Include="Tablas\Zona\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Logistika360.ERP.AS.Domain\Logistika360.ERP.AS.Domain.csproj">
@@ -227,6 +333,35 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Undo_icon-icons.com_73701.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>6</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

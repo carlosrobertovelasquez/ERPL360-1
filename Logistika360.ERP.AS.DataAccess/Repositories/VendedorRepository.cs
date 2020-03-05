@@ -22,8 +22,9 @@ namespace Logistika360.ERP.AS.DataAccess.Repositories
         public VendedorRepository()
         {
             selectAll = "SELECT * FROM ERPL360.VENDEDOR";
-            insert = "insert into ERPL360.VENDEDOR(VENDEDOR,CONJUNTO,NOMBRE,EMPLEADO,COMISION,CTR_COMISION,CTA_COMISION,CORREO,ACTIVO,TELEFONO,CREATEDBY,CREATEDATE) values(@VENDEDOR,@CONJUNTO,@NOMBRE,@EMPLEADO,@COMISION,@CTR_COMISION,@CTA_COMISION,@CORREO,@ACTIVO,@TELEFONO,@CREATEDBY,@CREATEDATE)";
-            update = "UPDATE ERPL360.VENDEDOR SET NOMBRE=@NOMBRE,EMPLEADO=@EMPLEADO,COMISION=@COMISION,CTR_COMISION=@CTR_COMISION,CTA_COMISION=@CTA_COMISION,CORREO=@CORREO,ACTIVO=@ACTIVO,TELEFONO=@TELEFONO,UPDATEDBY=@UPDATEDBY,RECORDDATE=@RECORDDATE WHERE CONJUNTO=@CONJUNTO AND VENDEDOR=@VENDEDOR ";
+            insert = "insert into ERPL360.VENDEDOR(VENDEDOR,CONJUNTO,NOMBRE,EMPLEADO,COMISION,CTR_COMISION,CTA_COMISION,CORREO,ACTIVO,TELEFONO,CREATEDBY,CREATEDATE,RECORDDATE,UPDATEDBY) values(@VENDEDOR,@CONJUNTO,@NOMBRE,@EMPLEADO,@COMISION,@CTR_COMISION,@CTA_COMISION,@CORREO,@ACTIVO,@TELEFONO,@CREATEDBY,@CREATEDATE,@RECORDDATE,@UPDATEDBY)";
+            update = "UPDATE ERPL360.VENDEDOR SET NOMBRE=@NOMBRE,EMPLEADO=@EMPLEADO,CTR_COMISION=@CTR_COMISION,CTA_COMISION=@CTA_COMISION,CORREO=@CORREO,ACTIVO=@ACTIVO,TELEFONO=@TELEFONO,UPDATEDBY=@UPDATEDBY,RECORDDATE=@RECORDDATE WHERE CONJUNTO=@CONJUNTO AND VENDEDOR=@VENDEDOR ";
+  
             delete = "DELETE ERPL360.VENDEDOR WHERE CONJUNTO=@CONJUNTO AND VENDEDOR=@VENDEDOR";
         }
 
@@ -42,6 +43,8 @@ namespace Logistika360.ERP.AS.DataAccess.Repositories
             parameters.Add(new SqlParameter("@TELEFONO", entity.TELEFONO));
             parameters.Add(new SqlParameter("@CREATEDBY", entity.CreatedBy));
             parameters.Add(new SqlParameter("@CREATEDATE", entity.CreateDate));
+            parameters.Add(new SqlParameter("@RECORDDATE", entity.RecordDate));
+            parameters.Add(new SqlParameter("@UPDATEDBY", entity.UpdatedBy));
             return ExecuteNonQuery(insert);
 
         }
@@ -60,7 +63,7 @@ namespace Logistika360.ERP.AS.DataAccess.Repositories
             parameters.Add(new SqlParameter("@ACTIVO", entity.ACTIVO));
             parameters.Add(new SqlParameter("@TELEFONO", entity.TELEFONO));
             parameters.Add(new SqlParameter("@RECORDDATE", entity.RecordDate));
-            parameters.Add(new SqlParameter("@UPDATEBY", entity.UpdatedBy));
+            parameters.Add(new SqlParameter("@UPDATEDBY", entity.UpdatedBy));
             return ExecuteNonQuery(update);
 
         }
@@ -83,10 +86,12 @@ namespace Logistika360.ERP.AS.DataAccess.Repositories
                     CORREO = item[7].ToString(),
                     ACTIVO = item[8].ToString(),
                     TELEFONO = item[9].ToString(),
-                    RecordDate = Convert.ToDateTime(item[10]),
-                    CreateDate = Convert.ToDateTime(item[11]),
+                    UpdatedBy = item[10].ToString(),
+                    RecordDate = Convert.ToDateTime(item[11]),
                     CreatedBy = item[12].ToString(),
-                    UpdatedBy = item[13].ToString(),
+                    CreateDate = Convert.ToDateTime(item[13]),
+                    
+                    
                     
                 });
             }
@@ -94,17 +99,20 @@ namespace Logistika360.ERP.AS.DataAccess.Repositories
         }
 
         
-        public int Remove(string valor)
+        public int Remove(string VENDEDOR)
         {
             throw new NotImplementedException();
         }
 
         public int Remove2(string VENDEDOR, string CONJUNTO)
         {
+
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@VENDEDOR", VENDEDOR));
             parameters.Add(new SqlParameter("@CONJUNTO", CONJUNTO));
             return ExecuteNonQuery(delete);
+
+            
         }
     }
 }

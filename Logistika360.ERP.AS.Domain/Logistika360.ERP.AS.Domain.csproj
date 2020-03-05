@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,7 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\CobradorModel.cs" />
+    <Compile Include="Models\ConjuntoModel.cs" />
+    <Compile Include="Models\PaisModel.cs" />
+    <Compile Include="Models\RutaModel.cs" />
     <Compile Include="Models\VendedorModel.cs" />
+    <Compile Include="Models\ZonaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueObjects\EntityState.cs" />
   </ItemGroup>
