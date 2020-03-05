@@ -25,7 +25,7 @@ namespace Logistika360.ERP.AS.DataAccess.Repositories
             
                 selectAll = "SELECT * FROM ERPL360.RUTA";
                 insert = "insert into ERPL360.RUTA(RUTA,CONJUNTO,NOMBRE,RecordDate,CreatedBy,UpdatedBy,CreateDate) values(@RUTA,@CONJUNTO,@NOMBRE,@RecordDate,@CreatedBy,@UpdatedBy,@CreateDate)";
-                update = "UPDATE ERPL360.RUTA SET  NOMBRE=@NOMBRE RecordDate=@RecordDate,  UpdatedBy=@UpdatedBy   WHERE CONJUNTO=@CONJUNTO AND RUTA=@RUTA ";
+                update = "UPDATE ERPL360.RUTA SET  NOMBRE=@NOMBRE , RecordDate=@RecordDate,  UpdatedBy=@UpdatedBy   WHERE CONJUNTO=@CONJUNTO AND RUTA=@RUTA ";
                 delete = "DELETE ERPL360.RUTA WHERE CONJUNTO=@CONJUNTO AND RUTA=@RUTA";
             
         }

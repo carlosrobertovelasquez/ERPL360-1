@@ -26,8 +26,11 @@ namespace Logistika360.ERP.AS.Domain.Models
 
         private IZonaRepository zonaRepository;
         public EntityState State { private get; set; }
+        [Required(ErrorMessage = "Ruta no puede quedar Zona")]
+        [StringLength(6, ErrorMessage = "Zona es de Longitud de 6 Carateres Maximo")]
         public string Zona1 { get => Zona; set => Zona = value; }
         public string Conjunto1 { get => Conjunto; set => Conjunto = value; }
+        [Required(ErrorMessage = "Nombre es Obligatorio ")]
         public string Nombre1 { get => Nombre; set => Nombre = value; }
         public string UpdatedBy1 { get => UpdatedBy; set => UpdatedBy = value; }
         public DateTime RecordDate1 { get => RecordDate; set => RecordDate = value; }

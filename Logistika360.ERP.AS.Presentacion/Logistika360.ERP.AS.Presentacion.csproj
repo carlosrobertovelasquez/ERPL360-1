@@ -96,6 +96,12 @@
     <Compile Include="Forms\FmantenimientoPais.Designer.cs">
       <DependentUpon>FmantenimientoPais.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FmantenimientoZona.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FmantenimientoZona.Designer.cs">
+      <DependentUpon>FmantenimientoZona.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Pais.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,16 +177,10 @@
     <Compile Include="Forms\Ruta.Designer.cs">
       <DependentUpon>Ruta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tablas\Zona\AS_ZONAS.cs">
+    <Compile Include="Forms\Zona.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tablas\Zona\AS_ZONAS.Designer.cs">
-      <DependentUpon>AS_ZONAS.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Tablas\Zona\Zona.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Tablas\Zona\Zona.Designer.cs">
+    <Compile Include="Forms\Zona.Designer.cs">
       <DependentUpon>Zona.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Administracion\GLOBALES.resx">
@@ -201,11 +201,17 @@
     <EmbeddedResource Include="Forms\FmantenimientoPais.resx">
       <DependentUpon>FmantenimientoPais.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FmantenimientoZona.resx">
+      <DependentUpon>FmantenimientoZona.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Pais.resx">
       <DependentUpon>Pais.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SISGLOBALES.resx">
       <DependentUpon>SISGLOBALES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Zona.resx">
+      <DependentUpon>Zona.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

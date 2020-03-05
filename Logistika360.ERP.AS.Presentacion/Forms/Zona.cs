@@ -7,37 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using Logistika360.ERP.ERPADMIN.Common.Cache;
 using Logistika360.ERP.AS.Domain.Models;
 using Logistika360.ERP.AS.Domain.ValueObjects;
 
+
 namespace Logistika360.ERP.AS.Presentacion.Forms
 {
-    public partial class Ruta : FormsPlantillas.FormPlantillaGridSmall
+    public partial class Zona : FormsPlantillas.FormPlantillaGridSmall
     {
 
-        private RutaModel ruta = new RutaModel();
+        private ZonaModel zona = new ZonaModel();
         private string refrescar = "N";
 
-
-        public Ruta()
+        public Zona()
         {
             InitializeComponent();
         }
 
-        private void Ruta_Load(object sender, EventArgs e)
-        {
-            this.Text = UserLoginCache.CONJUNTO + " " + "Rutas";
-            Cargargrid();
-        }
         public override void Cargargrid()
         {
 
             if (refrescar == "N")
             {
                 //Agregamos Columnas
-                dgvDatos.Columns.Add("Columna1", "Ruta");
+                dgvDatos.Columns.Add("Columna1", "Zona");
                 dgvDatos.Columns.Add("Columna2", "Nombre");
             }
 
@@ -48,15 +42,15 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
                 dgvDatos.Rows.Clear();
                 DataGridViewRow dgvVendedor = new DataGridViewRow();
                 dgvVendedor.CreateCells(dgvDatos);
-                var LVendedor = ruta.RutaConjunto(UserLoginCache.CONJUNTO);
-               
+                var LZona = zona.ZonaConjunto(UserLoginCache.CONJUNTO);
 
 
-                foreach (var item in LVendedor)
+
+                foreach (var item in LZona)
                 {
-                   
 
-                    dgvDatos.Rows.Add(item.Ruta1, item.Nombre1);
+
+                    dgvDatos.Rows.Add(item.Zona1, item.Nombre1);
                 }
 
 
@@ -70,16 +64,16 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
         public override void Nuevo()
         {
             //Logramos que no se abra mas de una vez el formulario          
-            if (Application.OpenForms["FmantenimientoRuta"] != null)
+            if (Application.OpenForms["FmantenimientoZona"] != null)
             {
-                Application.OpenForms["FmantenimientoRuta"].Activate();
+                Application.OpenForms["FmantenimientoZona"].Activate();
             }
             else
             {
-                FmantenimientoRuta fr = new FmantenimientoRuta();
+                FmantenimientoZona fr = new FmantenimientoZona();
                 fr.txtCodigo.Text = "";
                 fr.txtNombre.Text = "";
-                
+
                 fr.Show();
             }
         }
@@ -89,27 +83,27 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
             if (dgvDatos.SelectedRows.Count > 0)
             {
                 //Logramos que no se abra mas de una vez el formulario          
-                if (Application.OpenForms["FmantemiminetoRuta"] != null)
+                if (Application.OpenForms["FmantenimientoZona"] != null)
                 {
-                    Application.OpenForms["FmantemiminetoRuta"].Activate();
+                    Application.OpenForms["FmantenimientoZona"].Activate();
                 }
                 else
                 {
-                    FmantenimientoRuta fr = new FmantenimientoRuta();
+                    FmantenimientoZona fr = new FmantenimientoZona();
 
                     fr.txtCodigo.Text = dgvDatos.CurrentRow.Cells[0].Value.ToString();
                     fr.txtCodigo.Enabled = false;
 
                     RutaModel vendedor = new RutaModel();
 
-                    var codigoruta = dgvDatos.CurrentRow.Cells[0].Value.ToString();
-                    var buscar = ruta.BuscarRuta(codigoruta, UserLoginCache.CONJUNTO);
+                    var codigozona = dgvDatos.CurrentRow.Cells[0].Value.ToString();
+                    var buscar = zona.BuscarZona(codigozona, UserLoginCache.CONJUNTO);
 
                     foreach (var item in buscar)
                     {
-                        fr.txtCodigo.Text = item.Ruta1.ToString();
+                        fr.txtCodigo.Text = item.Zona1.ToString();
                         fr.txtNombre.Text = item.Nombre1.ToString();
-                        
+
 
                     }
 
@@ -118,7 +112,7 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
             }
             else
             {
-                MessageBox.Show("Requiere Selecionar un Usuario");
+                MessageBox.Show("Requiere Selecionar una Zona");
             }
 
         }
@@ -130,8 +124,8 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
         public override void Borrar()
         {
 
-            const string message = "Esta seguro de Borrar La Ruta";
-            const string caption = "Eliminar Ruta";
+            const string message = "Esta seguro de Borrar La Zona";
+            const string caption = "Eliminar Zona";
             var resultM = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dgvDatos.SelectedRows.Count > 0)
             {
@@ -139,25 +133,29 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
 
                 if (resultM == DialogResult.Yes)
                 {
-                    RutaModel ruta = new RutaModel();
-                    ruta.State = EntityState.Deleted;
-                    ruta.Ruta1 = dgvDatos.CurrentRow.Cells[0].Value.ToString();
-                    ruta.Conjunto1 = UserLoginCache.CONJUNTO;
-                    ruta.SaveChanges();
-                    string result = ruta.SaveChanges();
+                    ZonaModel zona = new ZonaModel();
+                    zona.State = EntityState.Deleted;
+                    zona.Zona1 = dgvDatos.CurrentRow.Cells[0].Value.ToString();
+                    zona.Conjunto1 = UserLoginCache.CONJUNTO;
+                    zona.SaveChanges();
+                    string result = zona.SaveChanges();
                     MessageBox.Show(result);
 
                 }
             }
             else
             {
-                MessageBox.Show("Selecione una Ruta");
+                MessageBox.Show("Selecione una Zona");
 
             }
             Refrescar();
 
         }
 
-
+        private void Zona_Load(object sender, EventArgs e)
+        {
+            this.Text = UserLoginCache.CONJUNTO + " " + "Zona";
+            Cargargrid();
+        }
     }
 }

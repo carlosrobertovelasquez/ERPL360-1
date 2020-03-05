@@ -26,9 +26,11 @@ namespace Logistika360.ERP.AS.Domain.Models
 
         private IRutaRepository rutaRepository;
         public EntityState State { private get; set; }
-
+        [Required(ErrorMessage = "Ruta no puede quedar Vacia")]
+        [StringLength(6,ErrorMessage ="Ruta es de Longitud de 6 Carateres Maximo")]
         public string Ruta1 { get => Ruta; set => Ruta = value; }
         public string Conjunto1 { get => Conjunto; set => Conjunto = value; }
+        [Required(ErrorMessage = "Requiere Registro")]
         public string Nombre1 { get => Nombre; set => Nombre = value; }
         public string UpdatedBy1 { get => UpdatedBy; set => UpdatedBy = value; }
         public DateTime RecordDate1 { get => RecordDate; set => RecordDate = value; }

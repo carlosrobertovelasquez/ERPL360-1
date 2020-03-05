@@ -17,7 +17,6 @@ using Logistika360.ERP.AS.Presentacion.Seguridad.Usuario;
 using Logistika360.ERP.AS.Presentacion.Tablas.Funcionarios.Vendedor;
 using Logistika360.ERP.AS.Presentacion.Tablas;
 using Logistika360.ERP.AS.Presentacion.Tablas.Funcionarios.Cobrador;
-using Logistika360.ERP.AS.Presentacion.Tablas.Zona;
 using Logistika360.ERP.AS.Presentacion.Administracion;
 
 namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
@@ -287,6 +286,7 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
                     case "AS_RUTAS":
                         AbrirFormInPanel(new Ruta());
                         break;
+                    
                 }
                 //AbrirFormInPanel(new AS_VENDEDORES());
 

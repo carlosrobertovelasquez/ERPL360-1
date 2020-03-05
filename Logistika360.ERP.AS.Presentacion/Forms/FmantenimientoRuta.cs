@@ -19,6 +19,7 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
     {
 
         RutaModel rutamodelo = new RutaModel();
+
         public FmantenimientoRuta()
         {
             InitializeComponent();
@@ -128,6 +129,22 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
             txtNombre.CharacterCasing = CharacterCasing.Upper;
+        }
+
+        private void txtCodigo_Validated(object sender, EventArgs e)
+        {
+            RutaModel oRuta = new RutaModel();
+            var existeRuta = oRuta.BuscarRuta(txtCodigo.Text, UserLoginCache.CONJUNTO);
+            var valor = existeRuta.Count();
+
+            if (valor == 1)
+            {
+                const string message = "Ruta ya Existe";
+                const string caption = "Validar Ruta";
+                var resultM = MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCodigo.Focus();
+
+            }
         }
     }
 }
