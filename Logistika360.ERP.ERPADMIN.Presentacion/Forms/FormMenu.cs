@@ -286,7 +286,9 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
                     case "AS_RUTAS":
                         AbrirFormInPanel(new Ruta());
                         break;
-                    
+                    case "AS_CENTRO_COSTO":
+                        AbrirFormInPanel(new CentroCosto());
+                        break;
                 }
                 //AbrirFormInPanel(new AS_VENDEDORES());
 

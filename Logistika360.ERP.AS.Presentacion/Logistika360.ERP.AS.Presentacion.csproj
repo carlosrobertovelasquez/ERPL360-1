@@ -84,6 +84,18 @@
     <Compile Include="FormsPlantillas\FormPlantillaMantenimientoSmall.Designer.cs">
       <DependentUpon>FormPlantillaMantenimientoSmall.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CentroCosto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CentroCosto.Designer.cs">
+      <DependentUpon>CentroCosto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FmantenimientoCentroCosto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FmantenimientoCentroCosto.Designer.cs">
+      <DependentUpon>FmantenimientoCentroCosto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FmantenimientoConjunto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +206,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormsPlantillas\FormPlantillaMantenimientoSmall.resx">
       <DependentUpon>FormPlantillaMantenimientoSmall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CentroCosto.resx">
+      <DependentUpon>CentroCosto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FmantenimientoCentroCosto.resx">
+      <DependentUpon>FmantenimientoCentroCosto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FmantenimientoConjunto.resx">
       <DependentUpon>FmantenimientoConjunto.cs</DependentUpon>

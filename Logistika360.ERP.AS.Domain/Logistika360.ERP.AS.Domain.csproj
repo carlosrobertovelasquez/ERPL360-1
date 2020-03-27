@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\CentroCostoModel.cs" />
     <Compile Include="Models\CobradorModel.cs" />
     <Compile Include="Models\ConjuntoModel.cs" />
     <Compile Include="Models\PaisModel.cs" />
