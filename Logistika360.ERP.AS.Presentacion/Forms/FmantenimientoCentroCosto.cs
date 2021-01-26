@@ -38,22 +38,22 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
             {
 
                 //Procedemos a guardar
-                rutamodelo.State = EntityState.Added;
-                rutamodelo.Ruta1 = txtCodigo.Text;
-                rutamodelo.Nombre1 = txtNombre.Text;
-                rutamodelo.CreatedBy1 = UserLoginCache.USUARIO;
-                rutamodelo.CreateDate1 = DateTime.Today;
-                rutamodelo.UpdatedBy1 = UserLoginCache.USUARIO;
-                rutamodelo.RecordDate1 = DateTime.Today;
-                rutamodelo.Conjunto1 = UserLoginCache.CONJUNTO;
+                centrocostomodelo.State = EntityState.Added;
+                centrocostomodelo.CentroCosto1 = txtCodigo.Text;
+                centrocostomodelo.Descripcion1 = txtNombre.Text;
+                centrocostomodelo.CreatedBy1 = UserLoginCache.USUARIO;
+                centrocostomodelo.CreateDate1 = DateTime.Today;
+                centrocostomodelo.UpdatedBy1 = UserLoginCache.USUARIO;
+                centrocostomodelo.RecordDate1 = DateTime.Today;
+                centrocostomodelo.Conjunto1 = UserLoginCache.CONJUNTO;
 
-                bool valid = new Helps.DataValidation(rutamodelo).Validate();
+                bool valid = new Helps.DataValidation(centrocostomodelo).Validate();
                 if (valid == true)
                 {
-                    string result = rutamodelo.SaveChanges();
+                    string result = centrocostomodelo.SaveChanges();
 
                     MessageBox.Show(result);
-                    rutamodelo.SaveChanges();
+                    centrocostomodelo.SaveChanges();
                 }
 
 
@@ -64,18 +64,18 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
             {
                 //Procedemos a editar                
 
-                rutamodelo.State = EntityState.Modified;
-                rutamodelo.Ruta1 = txtCodigo.Text;
-                rutamodelo.Nombre1 = txtNombre.Text;
-                rutamodelo.UpdatedBy1 = UserLoginCache.USUARIO;
-                rutamodelo.RecordDate1 = DateTime.Today;
-                rutamodelo.Conjunto1 = UserLoginCache.CONJUNTO;
+                centrocostomodelo.State = EntityState.Modified;
+                centrocostomodelo.CentroCosto1 = txtCodigo.Text;
+                centrocostomodelo.Descripcion1 = txtNombre.Text;
+                centrocostomodelo.UpdatedBy1 = UserLoginCache.USUARIO;
+                centrocostomodelo.RecordDate1 = DateTime.Today;
+                centrocostomodelo.Conjunto1 = UserLoginCache.CONJUNTO;
 
-                bool valid = new Helps.DataValidation(rutamodelo).Validate();
+                bool valid = new Helps.DataValidation(centrocostomodelo).Validate();
                 if (valid == true)
                 {
-                    rutamodelo.SaveChanges();
-                    string result = rutamodelo.SaveChanges();
+                    centrocostomodelo.SaveChanges();
+                    string result = centrocostomodelo.SaveChanges();
                     MessageBox.Show(result);
 
 
