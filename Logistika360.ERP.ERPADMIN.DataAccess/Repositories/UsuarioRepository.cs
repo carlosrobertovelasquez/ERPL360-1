@@ -98,7 +98,7 @@ namespace Logistika360.ERP.ERPADMIN.DataAccess.Repositories
             parameters.Add(new SqlParameter("@USUARIO", USUARIO));
             parameters.Add(new SqlParameter("@CLAVE", CLAVE));
             parameters.Add(new SqlParameter("@ACTIVO", ACTIVO));
-
+            
             //var tableResult = ExecuteReader(usuario);
             var tableResult = ExecuteReaderParametros(usuario);
             var listUsuario = new List<Usuario>();
@@ -106,19 +106,19 @@ namespace Logistika360.ERP.ERPADMIN.DataAccess.Repositories
             {
                 listUsuario.Add(new Usuario
                 {
-                    USUARIO = item[0].ToString(),
-                    NOMBRE = item[1].ToString(),
-                    TIPO = item[2].ToString(),
-                    ACTIVO = item[3].ToString(),
-                    REQ_CAMBIO_CLAVE = item[4].ToString(),
-                    FECHA_ULT_CLAVE = Convert.ToDateTime(item[5]), 
-                    CLAVE = item[6].ToString(),
-                    CORREO_ELECTRONICO = item[7].ToString(),
-                    TIPO_ACCESO = item[8].ToString(),
-                    CELULAR = item[9].ToString(),
-                    TIPO_PERSONALIZADO = item[10].ToString(),
-                    FRECUENCIA_CLAVE =Convert.ToDecimal( item[11]),
-                    MAX_INTENTOS_CONEX =Convert.ToDecimal( item[12]),
+                    USUARIO = item[1].ToString(),
+                    NOMBRE = item[2].ToString(),
+                    TIPO = item[3].ToString(),
+                    ACTIVO = item[4].ToString(),
+                    REQ_CAMBIO_CLAVE = item[5].ToString(),
+                    FRECUENCIA_CLAVE = Convert.ToDecimal(item[6]),
+                    FECHA_ULT_CLAVE = Convert.ToDateTime(item[7].ToString()),
+                    MAX_INTENTOS_CONEX = Convert.ToDecimal(item[8]),
+                    CLAVE = item[9].ToString(),
+                    CORREO_ELECTRONICO = item[10].ToString(),
+                    TIPO_ACCESO = item[11].ToString(),
+                    CELULAR = item[12].ToString(),
+                    TIPO_PERSONALIZADO = item[13].ToString(),
                 });
             }
             return listUsuario;

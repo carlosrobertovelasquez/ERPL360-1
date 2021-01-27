@@ -24,7 +24,7 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
 
         public override void Guardar()
         {
-            var numeroPais = oPaismodelo.BuscarPais(txtPais.Text, UserLoginCache.CONJUNTO);
+            var numeroPais = oPaismodelo.BuscarPais(txtPais.Text);
 
             var valor = numeroPais.Count();
 
@@ -33,7 +33,6 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
             {
                 oPaismodelo.State = EntityState.Added;
                 oPaismodelo.PAIS1 = txtPais.Text;
-                oPaismodelo.CONJUNTO1 = UserLoginCache.CONJUNTO;
                 oPaismodelo.NOMBRE1 = txtDescripcion.Text;
                 //Tab de Ventas
                 oPaismodelo.CTR_VENTAS1 = txtFaVentasCentroCosto.Text;
@@ -113,7 +112,7 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
                 oPaismodelo.CreateDate1 = DateTime.Today;
                 oPaismodelo.UpdatedBy1 = UserLoginCache.USUARIO;
                 oPaismodelo.RecordDate1 = DateTime.Today;
-                oPaismodelo.CONJUNTO1 = UserLoginCache.CONJUNTO;
+               
 
                 bool valid = new Helps.DataValidation(oPaismodelo).Validate();
                 if (valid == true)
@@ -147,7 +146,7 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
         private void txtPais_Validated(object sender, EventArgs e)
         {
             PaisModel oPais = new PaisModel();
-            var existePais = oPais.BuscarPais(txtPais.Text,UserLoginCache.CONJUNTO);
+            var existePais = oPais.BuscarPais(txtPais.Text);
             var valor = existePais.Count();
 
             if (valor == 1)

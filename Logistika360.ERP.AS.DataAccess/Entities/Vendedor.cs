@@ -9,7 +9,6 @@ namespace Logistika360.ERP.AS.DataAccess.Entities
    public class Vendedor
     {
         public string VENDEDOR { get; set; }
-        public string CONJUNTO { get; set; }
         public string NOMBRE { get; set; }
         public string EMPLEADO { get; set; }
         public decimal COMISION { get; set; }

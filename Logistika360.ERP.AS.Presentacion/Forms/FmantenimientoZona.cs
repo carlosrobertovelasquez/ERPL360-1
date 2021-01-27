@@ -27,7 +27,7 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
 
 
 
-            var numerousuario = zonamodelo.BuscarZona(txtCodigo.Text, UserLoginCache.CONJUNTO);
+            var numerousuario = zonamodelo.BuscarZona(txtCodigo.Text);
 
             var valor = numerousuario.Count();
 
@@ -43,7 +43,7 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
                 zonamodelo.CreateDate1 = DateTime.Today;
                 zonamodelo.UpdatedBy1 = UserLoginCache.USUARIO;
                 zonamodelo.RecordDate1 = DateTime.Today;
-                zonamodelo.Conjunto1 = UserLoginCache.CONJUNTO;
+                
 
                 bool valid = new Helps.DataValidation(zonamodelo).Validate();
                 if (valid == true)
@@ -67,7 +67,7 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
                 zonamodelo.Nombre1 = txtNombre.Text;
                 zonamodelo.UpdatedBy1 = UserLoginCache.USUARIO;
                 zonamodelo.RecordDate1 = DateTime.Today;
-                zonamodelo.Conjunto1 = UserLoginCache.CONJUNTO;
+                
 
                 bool valid = new Helps.DataValidation(zonamodelo).Validate();
                 if (valid == true)
@@ -113,7 +113,7 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
         private void txtCodigo_Validated(object sender, EventArgs e)
         {
             ZonaModel oZona = new ZonaModel();
-            var existeZona = oZona.BuscarZona(txtCodigo.Text, UserLoginCache.CONJUNTO);
+            var existeZona = oZona.BuscarZona(txtCodigo.Text);
             var valor = existeZona.Count();
 
             if (valor == 1)

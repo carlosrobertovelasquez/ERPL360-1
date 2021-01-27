@@ -20,7 +20,6 @@ namespace Logistika360.ERP.AS.Domain.Models
 
 
         private string Cobrador;
-        private string Conjunto;
         private string Nombre;
         private string Empleado;
         private decimal Comision;
@@ -36,8 +35,10 @@ namespace Logistika360.ERP.AS.Domain.Models
 
         private ICobradorRepository cobradorRepository;
         public EntityState State { private get; set; }
+        [Required(ErrorMessage = "Cobrador no puede quedar Vacia")]
+        [StringLength(4, ErrorMessage = "Cobrador es de Longitud de 4 Carateres Maximo")]
         public string Cobrador1 { get => Cobrador; set => Cobrador = value; }
-        public string Conjunto1 { get => Conjunto; set => Conjunto = value; }
+        
         public string Nombre1 { get => Nombre; set => Nombre = value; }
         public string Empleado1 { get => Empleado; set => Empleado = value; }
         public decimal Comision1 { get => Comision; set => Comision = value; }
@@ -64,7 +65,6 @@ namespace Logistika360.ERP.AS.Domain.Models
             {
                 var cobradorModel = new Cobrador();
                 cobradorModel.COBRADOR = Cobrador1;
-                cobradorModel.CONJUNTO = Conjunto1;
                 cobradorModel.NOMBRE = Nombre1;
                 cobradorModel.EMPLEADO = Empleado1;
                 cobradorModel.COMISION = Comision1;
@@ -86,7 +86,7 @@ namespace Logistika360.ERP.AS.Domain.Models
                         message = "Cobrador Agregado";
                         break;
                     case EntityState.Deleted:
-                        cobradorRepository.Remove2(Cobrador1, Conjunto1);
+                        cobradorRepository.Remove(Cobrador1);
                         message = "Cobrador Eliminado";
                         break;
                     case EntityState.Modified:
@@ -126,7 +126,6 @@ namespace Logistika360.ERP.AS.Domain.Models
                 listCobrador.Add(new CobradorModel
                 {
                     Cobrador1 = item.COBRADOR,
-                    Conjunto1 = item.CONJUNTO,
                     Nombre1 = item.NOMBRE,
                     Empleado1 = item.EMPLEADO,
                     Comision1 = item.COMISION,
@@ -144,18 +143,18 @@ namespace Logistika360.ERP.AS.Domain.Models
             return listCobrador;
         }
 
-        public IEnumerable<CobradorModel> CobradorConjunto(string filter1)
+        public IEnumerable<CobradorModel> CobradorConjunto()
         {
-            return GetAll().FindAll(e => e.Conjunto.Equals(filter1));
+            return GetAll();
         }
-        public IEnumerable<CobradorModel> BuscarCobrador(string filter1, string filter2)
+        public IEnumerable<CobradorModel> BuscarCobrador(string filter1)
         {
-            return GetAll().FindAll(e => e.Cobrador.Equals(filter1) && e.Conjunto.Equals(filter2));
+            return GetAll().FindAll(e => e.Cobrador.Equals(filter1) );
         }
 
-        public void borrar(string Cobrador, string Conjunto)
+        public void borrar(string Cobrador)
         {
-            cobradorRepository.Remove2(Cobrador, Conjunto);
+            cobradorRepository.Remove(Cobrador);
         }
 
         public void Dispose()

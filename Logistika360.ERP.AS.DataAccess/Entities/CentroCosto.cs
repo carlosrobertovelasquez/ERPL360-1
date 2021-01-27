@@ -9,7 +9,7 @@ namespace Logistika360.ERP.AS.DataAccess.Entities
     public class CentroCosto
     {
         public string CENTROCOSTO { get; set; }
-        public string CONJUNTO { get; set; }
+       
         public string DESCRIPCION { get; set; }
         public string ACEPTADATOS { get; set; }
         public string TIPO { get; set; }

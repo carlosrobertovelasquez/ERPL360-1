@@ -31,7 +31,7 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
 
 
 
-            var numerousuario = rutamodelo.BuscarRuta(txtCodigo.Text, UserLoginCache.CONJUNTO);
+            var numerousuario = rutamodelo.BuscarRuta(txtCodigo.Text);
 
             var valor = numerousuario.Count();
 
@@ -47,7 +47,7 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
                 rutamodelo.CreateDate1 = DateTime.Today;
                 rutamodelo.UpdatedBy1 = UserLoginCache.USUARIO;
                 rutamodelo.RecordDate1 = DateTime.Today;
-                rutamodelo.Conjunto1 = UserLoginCache.CONJUNTO;
+                
 
                 bool valid = new Helps.DataValidation(rutamodelo).Validate();
                 if (valid == true)
@@ -71,7 +71,7 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
                 rutamodelo.Nombre1 = txtNombre.Text;
                 rutamodelo.UpdatedBy1 = UserLoginCache.USUARIO;
                 rutamodelo.RecordDate1 = DateTime.Today;
-                rutamodelo.Conjunto1 = UserLoginCache.CONJUNTO;
+                
 
                 bool valid = new Helps.DataValidation(rutamodelo).Validate();
                 if (valid == true)
@@ -134,7 +134,7 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
         private void txtCodigo_Validated(object sender, EventArgs e)
         {
             RutaModel oRuta = new RutaModel();
-            var existeRuta = oRuta.BuscarRuta(txtCodigo.Text, UserLoginCache.CONJUNTO);
+            var existeRuta = oRuta.BuscarRuta(txtCodigo.Text);
             var valor = existeRuta.Count();
 
             if (valor == 1)

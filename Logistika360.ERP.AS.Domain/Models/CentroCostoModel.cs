@@ -17,7 +17,6 @@ namespace Logistika360.ERP.AS.Domain.Models
     {
 
         private string CentroCosto;
-        private string Conjunto;
         private string Descripcion;
         private string AceptaDatos;
         private string Tipo;
@@ -28,9 +27,10 @@ namespace Logistika360.ERP.AS.Domain.Models
 
         private ICentroCostoRepository centrocostoRepository;
         public EntityState State { private get; set; }
-
+        [Required(ErrorMessage = "Centro Costo no puede quedar Vacia")]
+        
         public string CentroCosto1 { get => CentroCosto; set => CentroCosto = value; }
-        public string Conjunto1 { get => Conjunto; set => Conjunto = value; }
+      
         public string Descripcion1 { get => Descripcion; set => Descripcion = value; }
         public string AceptaDatos1 { get => AceptaDatos; set => AceptaDatos = value; }
         public string Tipo1 { get => Tipo; set => Tipo = value; }
@@ -54,7 +54,6 @@ namespace Logistika360.ERP.AS.Domain.Models
             {
                 var CentroCostoModel = new CentroCosto();
                 CentroCostoModel.CENTROCOSTO = CentroCosto1;
-                CentroCostoModel.CONJUNTO = Conjunto1;
                 CentroCostoModel.DESCRIPCION = Descripcion1;
                 CentroCostoModel.ACEPTADATOS = AceptaDatos1;
                 CentroCostoModel.TIPO = Tipo1;
@@ -71,7 +70,7 @@ namespace Logistika360.ERP.AS.Domain.Models
                         message = "Centro de Costo Agregado";
                         break;
                     case EntityState.Deleted:
-                        centrocostoRepository.Remove2(CentroCosto1, Conjunto1);
+                        centrocostoRepository.Remove(CentroCosto1);
                         message = "Centro de Costo se Elimino Con existo";
                         break;
                     case EntityState.Modified:
@@ -108,7 +107,6 @@ namespace Logistika360.ERP.AS.Domain.Models
                 listCentroCosto.Add(new CentroCostoModel
                 {
                     CentroCosto1 = item.CENTROCOSTO,
-                    Conjunto1 = item.CONJUNTO,
                     Descripcion1 = item.DESCRIPCION,
                     AceptaDatos1=item.ACEPTADATOS,
                     Tipo1=item.TIPO,
@@ -121,19 +119,19 @@ namespace Logistika360.ERP.AS.Domain.Models
             return listCentroCosto;
         }
 
-        public IEnumerable<CentroCostoModel> CentroCostoConjunto(string filter1)
+        public IEnumerable<CentroCostoModel> CentroCostoConjunto()
         {
-            return GetAll().FindAll(e => e.Conjunto.Equals(filter1));
+            return GetAll();
         }
-        public IEnumerable<CentroCostoModel> BuscarCentroCosto(string filter1, string filter2)
+        public IEnumerable<CentroCostoModel> BuscarCentroCosto(string filter1)
         {
-            return GetAll().FindAll(e => e.CentroCosto.Equals(filter1) && e.Conjunto.Equals(filter2));
+            return GetAll().FindAll(e => e.CentroCosto.Equals(filter1) );
         }
 
-        public void borrar(string CentroCosto, string Conjunto)
+        public void borrar(string CentroCosto)
         {
             
-            centrocostoRepository.Remove2(CentroCosto, Conjunto);
+            centrocostoRepository.Remove(CentroCosto);
         }
 
         public void Dispose()

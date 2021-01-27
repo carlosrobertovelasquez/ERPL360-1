@@ -31,11 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenu));
             this.MenuVertical = new System.Windows.Forms.Panel();
+            this.btnFAAA = new System.Windows.Forms.Button();
             this.btnnombreModulo = new System.Windows.Forms.Button();
             this.treeMenu = new System.Windows.Forms.TreeView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panelBotones = new System.Windows.Forms.Panel();
-            this.btnFAAA = new System.Windows.Forms.Button();
             this.btnCerrarSeccion = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.BarraTitulo = new System.Windows.Forms.Panel();
@@ -78,6 +78,25 @@
             this.MenuVertical.Size = new System.Drawing.Size(312, 650);
             this.MenuVertical.TabIndex = 0;
             this.MenuVertical.Paint += new System.Windows.Forms.PaintEventHandler(this.MenuVertical_Paint);
+            // 
+            // btnFAAA
+            // 
+            this.btnFAAA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnFAAA.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFAAA.Enabled = false;
+            this.btnFAAA.FlatAppearance.BorderSize = 0;
+            this.btnFAAA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnFAAA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFAAA.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFAAA.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnFAAA.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFAAA.Location = new System.Drawing.Point(3, 321);
+            this.btnFAAA.Name = "btnFAAA";
+            this.btnFAAA.Size = new System.Drawing.Size(304, 34);
+            this.btnFAAA.TabIndex = 7;
+            this.btnFAAA.Text = "Modulos Instalados";
+            this.btnFAAA.UseVisualStyleBackColor = false;
+            this.btnFAAA.Click += new System.EventHandler(this.btnFA_Click_1);
             // 
             // btnnombreModulo
             // 
@@ -125,25 +144,6 @@
             this.panelBotones.Size = new System.Drawing.Size(312, 255);
             this.panelBotones.TabIndex = 3;
             this.panelBotones.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBotones_Paint);
-            // 
-            // btnFAAA
-            // 
-            this.btnFAAA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnFAAA.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFAAA.Enabled = false;
-            this.btnFAAA.FlatAppearance.BorderSize = 0;
-            this.btnFAAA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnFAAA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFAAA.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFAAA.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnFAAA.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFAAA.Location = new System.Drawing.Point(3, 321);
-            this.btnFAAA.Name = "btnFAAA";
-            this.btnFAAA.Size = new System.Drawing.Size(304, 34);
-            this.btnFAAA.TabIndex = 7;
-            this.btnFAAA.Text = "Modulos Instalados";
-            this.btnFAAA.UseVisualStyleBackColor = false;
-            this.btnFAAA.Click += new System.EventHandler(this.btnFA_Click_1);
             // 
             // btnCerrarSeccion
             // 

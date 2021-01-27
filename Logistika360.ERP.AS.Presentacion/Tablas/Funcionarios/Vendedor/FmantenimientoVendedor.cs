@@ -28,7 +28,7 @@ namespace Logistika360.ERP.AS.Presentacion.Tablas.Funcionarios.Vendedor
 
            
 
-            var numerousuario = vendedormodelo.BuscarVendedor(txtCodigo.Text,UserLoginCache.CONJUNTO);
+            var numerousuario = vendedormodelo.BuscarVendedor(txtCodigo.Text);
 
             var valor = numerousuario.Count();
 
@@ -51,7 +51,7 @@ namespace Logistika360.ERP.AS.Presentacion.Tablas.Funcionarios.Vendedor
                 vendedormodelo.CreateDate1 = DateTime.Today;
                 vendedormodelo.UpdatedBy1 = UserLoginCache.USUARIO;
                 vendedormodelo.RecordDate1 = DateTime.Today;
-                vendedormodelo.Conjunto1 = UserLoginCache.CONJUNTO;
+              
 
                 bool valid = new Helps.DataValidation(vendedormodelo).Validate();
                 if (valid == true)
@@ -82,7 +82,7 @@ namespace Logistika360.ERP.AS.Presentacion.Tablas.Funcionarios.Vendedor
                 vendedormodelo.Activo1 = ckbEstado.Checked ? "S" : "N";
                 vendedormodelo.UpdatedBy1 = UserLoginCache.USUARIO;
                 vendedormodelo.RecordDate1 = DateTime.Today;
-                vendedormodelo.Conjunto1 = UserLoginCache.CONJUNTO;
+               
 
                 bool valid = new Helps.DataValidation(vendedormodelo).Validate();
                 if (valid == true)
@@ -151,7 +151,7 @@ namespace Logistika360.ERP.AS.Presentacion.Tablas.Funcionarios.Vendedor
         private void txtCodigo_Validated(object sender, EventArgs e)
         {
             VendedorModel vendedor = new VendedorModel();
-            var existevendedor = vendedor.BuscarVendedor(txtCodigo.Text,UserLoginCache.CONJUNTO);
+            var existevendedor = vendedor.BuscarVendedor(txtCodigo.Text);
             var valor = existevendedor.Count();
 
             if (valor == 1)

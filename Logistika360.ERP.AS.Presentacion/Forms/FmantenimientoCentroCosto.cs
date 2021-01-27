@@ -29,7 +29,7 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
 
 
 
-            var numerousuario = centrocostomodelo.BuscarCentroCosto(txtCodigo.Text, UserLoginCache.CONJUNTO);
+            var numerousuario = centrocostomodelo.BuscarCentroCosto(txtCodigo.Text);
 
             var valor = numerousuario.Count();
 
@@ -45,7 +45,7 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
                 centrocostomodelo.CreateDate1 = DateTime.Today;
                 centrocostomodelo.UpdatedBy1 = UserLoginCache.USUARIO;
                 centrocostomodelo.RecordDate1 = DateTime.Today;
-                centrocostomodelo.Conjunto1 = UserLoginCache.CONJUNTO;
+                
 
                 bool valid = new Helps.DataValidation(centrocostomodelo).Validate();
                 if (valid == true)
@@ -69,7 +69,7 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
                 centrocostomodelo.Descripcion1 = txtNombre.Text;
                 centrocostomodelo.UpdatedBy1 = UserLoginCache.USUARIO;
                 centrocostomodelo.RecordDate1 = DateTime.Today;
-                centrocostomodelo.Conjunto1 = UserLoginCache.CONJUNTO;
+                
 
                 bool valid = new Helps.DataValidation(centrocostomodelo).Validate();
                 if (valid == true)

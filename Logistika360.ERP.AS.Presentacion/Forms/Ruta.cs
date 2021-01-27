@@ -48,7 +48,7 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
                 dgvDatos.Rows.Clear();
                 DataGridViewRow dgvVendedor = new DataGridViewRow();
                 dgvVendedor.CreateCells(dgvDatos);
-                var LVendedor = ruta.RutaConjunto(UserLoginCache.CONJUNTO);
+                var LVendedor = ruta.RutaConjunto();
                
 
 
@@ -103,7 +103,7 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
                     RutaModel vendedor = new RutaModel();
 
                     var codigoruta = dgvDatos.CurrentRow.Cells[0].Value.ToString();
-                    var buscar = ruta.BuscarRuta(codigoruta, UserLoginCache.CONJUNTO);
+                    var buscar = ruta.BuscarRuta(codigoruta);
 
                     foreach (var item in buscar)
                     {
@@ -142,7 +142,6 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
                     RutaModel ruta = new RutaModel();
                     ruta.State = EntityState.Deleted;
                     ruta.Ruta1 = dgvDatos.CurrentRow.Cells[0].Value.ToString();
-                    ruta.Conjunto1 = UserLoginCache.CONJUNTO;
                     ruta.SaveChanges();
                     string result = ruta.SaveChanges();
                     MessageBox.Show(result);

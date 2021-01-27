@@ -17,7 +17,6 @@ namespace Logistika360.ERP.AS.Domain.Models
     {
 
         private string Vendedor;
-        private string Conjunto;
         private string Nombre;
         private string Empleado;
         private decimal Comision;
@@ -34,9 +33,10 @@ namespace Logistika360.ERP.AS.Domain.Models
         private IVendedorRepository vendedorRepository;
         public EntityState State { private get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Vendedor no puede quedar Vacia")]
+        [StringLength(4, ErrorMessage = "Vendedor es de Longitud de 4 Carateres Maximo")]
         public string Vendedor1 { get => Vendedor; set => Vendedor = value; }
-        public string Conjunto1 { get => Conjunto; set => Conjunto = value; }
+        
         [Required]
         public string Nombre1 { get => Nombre; set => Nombre = value; }
         public string Empleado1 { get => Empleado; set => Empleado = value; }
@@ -66,7 +66,6 @@ namespace Logistika360.ERP.AS.Domain.Models
             {
                 var vendedorModel = new Vendedor();
                 vendedorModel.VENDEDOR = Vendedor1;
-                vendedorModel.CONJUNTO = Conjunto1;
                 vendedorModel.NOMBRE = Nombre1;
                 vendedorModel.EMPLEADO = Empleado1;
                 vendedorModel.COMISION = Comision1;
@@ -88,7 +87,7 @@ namespace Logistika360.ERP.AS.Domain.Models
                         message = "Vendedor Agregado";
                         break;
                     case EntityState.Deleted:
-                        vendedorRepository.Remove2(Vendedor1,Conjunto1);
+                        vendedorRepository.Remove(Vendedor1);
                         message = "Vendedor Eliminado";
                         break;
                     case EntityState.Modified:
@@ -126,7 +125,6 @@ namespace Logistika360.ERP.AS.Domain.Models
                 listVendedor.Add(new VendedorModel
                 {
                     Vendedor1 = item.VENDEDOR,
-                    Conjunto1 = item.CONJUNTO,
                     Nombre1 = item.NOMBRE,
                     Empleado1 = item.EMPLEADO,
                     Comision1 = item.COMISION,
@@ -144,18 +142,18 @@ namespace Logistika360.ERP.AS.Domain.Models
             return listVendedor;
         }
 
-        public IEnumerable<VendedorModel> VendedorConjunto(string filter1)
+        public IEnumerable<VendedorModel> VendedorConjunto()
         {
-            return GetAll().FindAll(e => e.Conjunto.Equals(filter1) );
+            return GetAll();
         }
-        public IEnumerable<VendedorModel> BuscarVendedor(string filter1,string filter2)
+        public IEnumerable<VendedorModel> BuscarVendedor(string filter1)
         {
-            return GetAll().FindAll(e => e.Vendedor.Equals(filter1) && e.Conjunto.Equals(filter2));
+            return GetAll().FindAll(e => e.Vendedor.Equals(filter1) );
         }
 
-         public void borrar(string Vendedor,string Conjunto)
+         public void borrar(string Vendedor)
         {
-            vendedorRepository.Remove2(Vendedor, Conjunto);
+            vendedorRepository.Remove(Vendedor);
         }
 
 

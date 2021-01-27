@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Logistika360.ERP.ERPADMIN.DataAccess.Repositories;
+using Logistika360.ERP.ERPADMIN.Common.Cache;
 using Logistika360.ERP.AS.DataAccess.Entities;
 using Logistika360.ERP.AS.DataAccess.Contracts;
 using System.Data;
@@ -21,17 +22,17 @@ namespace Logistika360.ERP.AS.DataAccess.Repositories
 
         public PaisRepository()
         {
-            selectAll = "SELECT * FROM ERPL360.PAIS";
-            insert = "insert into ERPL360.PAIS(PAIS,CONJUNTO,DIRECCION,NOMBRE,CTR_VENTAS,CTA_VENTAS,CTR_DESC_GRAL,CTA_DESC_GRAL,CTR_COST_VENT,CTA_COST_VENT,CTR_DESC_LIN,CTA_DESC_LIN,CTR_COST_LIN,CTA_COST_LIN,CTR_GAST_COM,CTA_GAST_COM,CTR_CONTADO,CTA_CONTADO,CTR_CXC,CTA_CXC,CTR_LXC,CTA_LXC,CTR_PRONTO_PAG_CXC,CTA_PRONTO_PAG_CXC,CTR_INT_MORA_CXC,CTA_INT_MORA_CXC,CTR_RECIBOS_CXC,CTA_RECIBOS_CXC,CTR_DEBITO_CXC,CTA_DEBITO_CXC,CTR_CREDITO_CXC,CTA_CREDITO_CXC,CTR_IMPUESTO1_CXC,CTA_IMPUESTO1_CXC,CTR_IMPUESTO2_CXC,CTA_IMPUESTO2_CXC,CTR_RUBRO1_CXC,CTA_RUBRO1_CXC,CTR_RUBRO2_CXC,CTA_RUBRO2_CXC,CTR_ANTICIPO_CXC,CTA_ANTICIPO_CXC,CTR_LXP,CTA_LXP,CTR_CREDITO_CXP,CTA_CREDITO_CXP,CTR_DEBITO_CXP,CTA_DEBITO_CXP,CTR_CXP,CTA_CXP,CTR_PRONTO_PAG_CXP,CTA_PRONTO_PAG_CXP,CTR_COMISION_CXP,CTA_COMISION_CXP,CTR_IMPUESTO1_CXP,CTA_IMPUESTO1_CXP,CTR_IMPUESTO2_CXP,CTA_IMPUESTO2_CXP,CTR_RUBRO1_CXP,CTA_RUBRO1_CXP,CTR_RUBRO2_CXP,CTA_RUBRO2_CXP,CTR_ANTICIPO_CXP,CTA_ANTICIPO_CXP,CTR_DESC_BONIF,CTA_DESC_BONIF,CTR_DEV_VENTAS,CTA_DEV_VENTAS,CTR_INT_CORRIENTE,CTA_INT_CORRIENTE,CODIGO_ISO,ETIQUETA_DIV_GEO1,ETIQUETA_DIV_GEO2,MONEDA,CTR_VENTAS_EXEN,CTA_VENTAS_EXEN,CTR_AJUSTE_REDONDEO,CTA_AJUSTE_REDONDEO,ETIQUETA_DIV_GEO3,ETIQUETA_DIV_GEO4,U_PAIS,RecordDate,CreatedBy,UpdatedBy,CreateDate) values(@PAIS,@CONJUNTO,@DIRECCION,@NOMBRE,@CTR_VENTAS,@CTA_VENTAS,@CTR_DESC_GRAL,@CTA_DESC_GRAL,@CTR_COST_VENT,@CTA_COST_VENT,@CTR_DESC_LIN,@CTA_DESC_LIN,@CTR_COST_LIN,@CTA_COST_LIN,@CTR_GAST_COM,@CTA_GAST_COM,@CTR_CONTADO,@CTA_CONTADO,@CTR_CXC,@CTA_CXC,@CTR_LXC,@CTA_LXC,@CTR_PRONTO_PAG_CXC,@CTA_PRONTO_PAG_CXC,@CTR_INT_MORA_CXC,@CTA_INT_MORA_CXC,@CTR_RECIBOS_CXC,@CTA_RECIBOS_CXC,@CTR_DEBITO_CXC,@CTA_DEBITO_CXC,@CTR_CREDITO_CXC,@CTA_CREDITO_CXC,@CTR_IMPUESTO1_CXC,@CTA_IMPUESTO1_CXC,@CTR_IMPUESTO2_CXC,@CTA_IMPUESTO2_CXC,@CTR_RUBRO1_CXC,@CTA_RUBRO1_CXC,@CTR_RUBRO2_CXC,@CTA_RUBRO2_CXC,@CTR_ANTICIPO_CXC,@CTA_ANTICIPO_CXC,@CTR_LXP,@CTA_LXP,@CTR_CREDITO_CXP,@CTA_CREDITO_CXP,@CTR_DEBITO_CXP,@CTA_DEBITO_CXP,@CTR_CXP,@CTA_CXP,@CTR_PRONTO_PAG_CXP,@CTA_PRONTO_PAG_CXP,@CTR_COMISION_CXP,@CTA_COMISION_CXP,@CTR_IMPUESTO1_CXP,@CTA_IMPUESTO1_CXP,@CTR_IMPUESTO2_CXP,@CTA_IMPUESTO2_CXP,@CTR_RUBRO1_CXP,@CTA_RUBRO1_CXP,@CTR_RUBRO2_CXP,@CTA_RUBRO2_CXP,@CTR_ANTICIPO_CXP,@CTA_ANTICIPO_CXP,@CTR_DESC_BONIF,@CTA_DESC_BONIF,@CTR_DEV_VENTAS,@CTA_DEV_VENTAS,@CTR_INT_CORRIENTE,@CTA_INT_CORRIENTE,@CODIGO_ISO,@ETIQUETA_DIV_GEO1,@ETIQUETA_DIV_GEO2,@MONEDA,@CTR_VENTAS_EXEN,@CTA_VENTAS_EXEN,@CTR_AJUSTE_REDONDEO,@CTA_AJUSTE_REDONDEO,@ETIQUETA_DIV_GEO3,@ETIQUETA_DIV_GEO4,@U_PAIS,@RecordDate,@CreatedBy,@UpdatedBy,@CreateDate)";
-            update = "UPDATE ERPL360.PAIS SET DIRECCION=@DIRECCION, NOMBRE=@NOMBRE, CTR_VENTAS=@CTR_VENTAS, CTA_VENTAS=@CTA_VENTAS, CTR_DESC_GRAL=@CTR_DESC_GRAL, CTA_DESC_GRAL=@CTA_DESC_GRAL, CTR_COST_VENT=@CTR_COST_VENT, CTA_COST_VENT=@CTA_COST_VENT, CTR_DESC_LIN=@CTR_DESC_LIN, CTA_DESC_LIN=@CTA_DESC_LIN, CTR_COST_LIN=@CTR_COST_LIN, CTA_COST_LIN=@CTA_COST_LIN, CTR_GAST_COM=@CTR_GAST_COM, CTA_GAST_COM=@CTA_GAST_COM, CTR_CONTADO=@CTR_CONTADO, CTA_CONTADO=@CTA_CONTADO, CTR_CXC=@CTR_CXC, CTA_CXC=@CTA_CXC, CTR_LXC=@CTR_LXC, CTA_LXC=@CTA_LXC, CTR_PRONTO_PAG_CXC=@CTR_PRONTO_PAG_CXC, CTA_PRONTO_PAG_CXC=@CTA_PRONTO_PAG_CXC, CTR_INT_MORA_CXC=@CTR_INT_MORA_CXC, CTA_INT_MORA_CXC=@CTA_INT_MORA_CXC, CTR_RECIBOS_CXC=@CTR_RECIBOS_CXC, CTA_RECIBOS_CXC=@CTA_RECIBOS_CXC, CTR_DEBITO_CXC=@CTR_DEBITO_CXC, CTA_DEBITO_CXC=@CTA_DEBITO_CXC, CTR_CREDITO_CXC=@CTR_CREDITO_CXC, CTA_CREDITO_CXC=@CTA_CREDITO_CXC, CTR_IMPUESTO1_CXC=@CTR_IMPUESTO1_CXC, CTA_IMPUESTO1_CXC=@CTA_IMPUESTO1_CXC, CTR_IMPUESTO2_CXC=@CTR_IMPUESTO2_CXC, CTA_IMPUESTO2_CXC=@CTA_IMPUESTO2_CXC, CTR_RUBRO1_CXC=@CTR_RUBRO1_CXC, CTA_RUBRO1_CXC=@CTA_RUBRO1_CXC, CTR_RUBRO2_CXC=@CTR_RUBRO2_CXC, CTA_RUBRO2_CXC=@CTA_RUBRO2_CXC, CTR_ANTICIPO_CXC=@CTR_ANTICIPO_CXC, CTA_ANTICIPO_CXC=@CTA_ANTICIPO_CXC, CTR_LXP=@CTR_LXP, CTA_LXP=@CTA_LXP, CTR_CREDITO_CXP=@CTR_CREDITO_CXP, CTA_CREDITO_CXP=@CTA_CREDITO_CXP, CTR_DEBITO_CXP=@CTR_DEBITO_CXP, CTA_DEBITO_CXP=@CTA_DEBITO_CXP, CTR_CXP=@CTR_CXP, CTA_CXP=@CTA_CXP, CTR_PRONTO_PAG_CXP=@CTR_PRONTO_PAG_CXP, CTA_PRONTO_PAG_CXP=@CTA_PRONTO_PAG_CXP, CTR_COMISION_CXP=@CTR_COMISION_CXP, CTA_COMISION_CXP=@CTA_COMISION_CXP, CTR_IMPUESTO1_CXP=@CTR_IMPUESTO1_CXP, CTA_IMPUESTO1_CXP=@CTA_IMPUESTO1_CXP, CTR_IMPUESTO2_CXP=@CTR_IMPUESTO2_CXP, CTA_IMPUESTO2_CXP=@CTA_IMPUESTO2_CXP, CTR_RUBRO1_CXP=@CTR_RUBRO1_CXP, CTA_RUBRO1_CXP=@CTA_RUBRO1_CXP, CTR_RUBRO2_CXP=@CTR_RUBRO2_CXP, CTA_RUBRO2_CXP=@CTA_RUBRO2_CXP, CTR_ANTICIPO_CXP=@CTR_ANTICIPO_CXP, CTA_ANTICIPO_CXP=@CTA_ANTICIPO_CXP, CTR_DESC_BONIF=@CTR_DESC_BONIF, CTA_DESC_BONIF=@CTA_DESC_BONIF, CTR_DEV_VENTAS=@CTR_DEV_VENTAS, CTA_DEV_VENTAS=@CTA_DEV_VENTAS, CTR_INT_CORRIENTE=@CTR_INT_CORRIENTE, CTA_INT_CORRIENTE=@CTA_INT_CORRIENTE, CODIGO_ISO=@CODIGO_ISO, ETIQUETA_DIV_GEO1=@ETIQUETA_DIV_GEO1, ETIQUETA_DIV_GEO2=@ETIQUETA_DIV_GEO2, MONEDA=@MONEDA, CTR_VENTAS_EXEN=@CTR_VENTAS_EXEN, CTA_VENTAS_EXEN=@CTA_VENTAS_EXEN, CTR_AJUSTE_REDONDEO=@CTR_AJUSTE_REDONDEO, CTA_AJUSTE_REDONDEO=@CTA_AJUSTE_REDONDEO, ETIQUETA_DIV_GEO3=@ETIQUETA_DIV_GEO3, ETIQUETA_DIV_GEO4=@ETIQUETA_DIV_GEO4, U_PAIS=@U_PAIS, RecordDate=@RecordDate,  UpdatedBy=@UpdatedBy   WHERE CONJUNTO=@CONJUNTO AND ZONA=@ZONA ";
-            delete = "DELETE ERPL360.PAIS WHERE CONJUNTO=@CONJUNTO AND PAIS=@PAIS";
+            
+            selectAll = "SELECT * FROM "+UserLoginCache.CONJUNTO+".PAIS";
+            insert = "insert into "+UserLoginCache.CONJUNTO+".PAIS(PAIS,DIRECCION,NOMBRE,CTR_VENTAS,CTA_VENTAS,CTR_DESC_GRAL,CTA_DESC_GRAL,CTR_COST_VENT,CTA_COST_VENT,CTR_DESC_LIN,CTA_DESC_LIN,CTR_COST_LIN,CTA_COST_LIN,CTR_GAST_COM,CTA_GAST_COM,CTR_CONTADO,CTA_CONTADO,CTR_CXC,CTA_CXC,CTR_LXC,CTA_LXC,CTR_PRONTO_PAG_CXC,CTA_PRONTO_PAG_CXC,CTR_INT_MORA_CXC,CTA_INT_MORA_CXC,CTR_RECIBOS_CXC,CTA_RECIBOS_CXC,CTR_DEBITO_CXC,CTA_DEBITO_CXC,CTR_CREDITO_CXC,CTA_CREDITO_CXC,CTR_IMPUESTO1_CXC,CTA_IMPUESTO1_CXC,CTR_IMPUESTO2_CXC,CTA_IMPUESTO2_CXC,CTR_RUBRO1_CXC,CTA_RUBRO1_CXC,CTR_RUBRO2_CXC,CTA_RUBRO2_CXC,CTR_ANTICIPO_CXC,CTA_ANTICIPO_CXC,CTR_LXP,CTA_LXP,CTR_CREDITO_CXP,CTA_CREDITO_CXP,CTR_DEBITO_CXP,CTA_DEBITO_CXP,CTR_CXP,CTA_CXP,CTR_PRONTO_PAG_CXP,CTA_PRONTO_PAG_CXP,CTR_COMISION_CXP,CTA_COMISION_CXP,CTR_IMPUESTO1_CXP,CTA_IMPUESTO1_CXP,CTR_IMPUESTO2_CXP,CTA_IMPUESTO2_CXP,CTR_RUBRO1_CXP,CTA_RUBRO1_CXP,CTR_RUBRO2_CXP,CTA_RUBRO2_CXP,CTR_ANTICIPO_CXP,CTA_ANTICIPO_CXP,CTR_DESC_BONIF,CTA_DESC_BONIF,CTR_DEV_VENTAS,CTA_DEV_VENTAS,CTR_INT_CORRIENTE,CTA_INT_CORRIENTE,CODIGO_ISO,ETIQUETA_DIV_GEO1,ETIQUETA_DIV_GEO2,MONEDA,CTR_VENTAS_EXEN,CTA_VENTAS_EXEN,CTR_AJUSTE_REDONDEO,CTA_AJUSTE_REDONDEO,ETIQUETA_DIV_GEO3,ETIQUETA_DIV_GEO4,U_PAIS,RecordDate,CreatedBy,UpdatedBy,CreateDate) values(@PAIS,@DIRECCION,@NOMBRE,@CTR_VENTAS,@CTA_VENTAS,@CTR_DESC_GRAL,@CTA_DESC_GRAL,@CTR_COST_VENT,@CTA_COST_VENT,@CTR_DESC_LIN,@CTA_DESC_LIN,@CTR_COST_LIN,@CTA_COST_LIN,@CTR_GAST_COM,@CTA_GAST_COM,@CTR_CONTADO,@CTA_CONTADO,@CTR_CXC,@CTA_CXC,@CTR_LXC,@CTA_LXC,@CTR_PRONTO_PAG_CXC,@CTA_PRONTO_PAG_CXC,@CTR_INT_MORA_CXC,@CTA_INT_MORA_CXC,@CTR_RECIBOS_CXC,@CTA_RECIBOS_CXC,@CTR_DEBITO_CXC,@CTA_DEBITO_CXC,@CTR_CREDITO_CXC,@CTA_CREDITO_CXC,@CTR_IMPUESTO1_CXC,@CTA_IMPUESTO1_CXC,@CTR_IMPUESTO2_CXC,@CTA_IMPUESTO2_CXC,@CTR_RUBRO1_CXC,@CTA_RUBRO1_CXC,@CTR_RUBRO2_CXC,@CTA_RUBRO2_CXC,@CTR_ANTICIPO_CXC,@CTA_ANTICIPO_CXC,@CTR_LXP,@CTA_LXP,@CTR_CREDITO_CXP,@CTA_CREDITO_CXP,@CTR_DEBITO_CXP,@CTA_DEBITO_CXP,@CTR_CXP,@CTA_CXP,@CTR_PRONTO_PAG_CXP,@CTA_PRONTO_PAG_CXP,@CTR_COMISION_CXP,@CTA_COMISION_CXP,@CTR_IMPUESTO1_CXP,@CTA_IMPUESTO1_CXP,@CTR_IMPUESTO2_CXP,@CTA_IMPUESTO2_CXP,@CTR_RUBRO1_CXP,@CTA_RUBRO1_CXP,@CTR_RUBRO2_CXP,@CTA_RUBRO2_CXP,@CTR_ANTICIPO_CXP,@CTA_ANTICIPO_CXP,@CTR_DESC_BONIF,@CTA_DESC_BONIF,@CTR_DEV_VENTAS,@CTA_DEV_VENTAS,@CTR_INT_CORRIENTE,@CTA_INT_CORRIENTE,@CODIGO_ISO,@ETIQUETA_DIV_GEO1,@ETIQUETA_DIV_GEO2,@MONEDA,@CTR_VENTAS_EXEN,@CTA_VENTAS_EXEN,@CTR_AJUSTE_REDONDEO,@CTA_AJUSTE_REDONDEO,@ETIQUETA_DIV_GEO3,@ETIQUETA_DIV_GEO4,@U_PAIS,@RecordDate,@CreatedBy,@UpdatedBy,@CreateDate)";
+            update = "UPDATE "+UserLoginCache.CONJUNTO+".PAIS SET DIRECCION=@DIRECCION, NOMBRE=@NOMBRE, CTR_VENTAS=@CTR_VENTAS, CTA_VENTAS=@CTA_VENTAS, CTR_DESC_GRAL=@CTR_DESC_GRAL, CTA_DESC_GRAL=@CTA_DESC_GRAL, CTR_COST_VENT=@CTR_COST_VENT, CTA_COST_VENT=@CTA_COST_VENT, CTR_DESC_LIN=@CTR_DESC_LIN, CTA_DESC_LIN=@CTA_DESC_LIN, CTR_COST_LIN=@CTR_COST_LIN, CTA_COST_LIN=@CTA_COST_LIN, CTR_GAST_COM=@CTR_GAST_COM, CTA_GAST_COM=@CTA_GAST_COM, CTR_CONTADO=@CTR_CONTADO, CTA_CONTADO=@CTA_CONTADO, CTR_CXC=@CTR_CXC, CTA_CXC=@CTA_CXC, CTR_LXC=@CTR_LXC, CTA_LXC=@CTA_LXC, CTR_PRONTO_PAG_CXC=@CTR_PRONTO_PAG_CXC, CTA_PRONTO_PAG_CXC=@CTA_PRONTO_PAG_CXC, CTR_INT_MORA_CXC=@CTR_INT_MORA_CXC, CTA_INT_MORA_CXC=@CTA_INT_MORA_CXC, CTR_RECIBOS_CXC=@CTR_RECIBOS_CXC, CTA_RECIBOS_CXC=@CTA_RECIBOS_CXC, CTR_DEBITO_CXC=@CTR_DEBITO_CXC, CTA_DEBITO_CXC=@CTA_DEBITO_CXC, CTR_CREDITO_CXC=@CTR_CREDITO_CXC, CTA_CREDITO_CXC=@CTA_CREDITO_CXC, CTR_IMPUESTO1_CXC=@CTR_IMPUESTO1_CXC, CTA_IMPUESTO1_CXC=@CTA_IMPUESTO1_CXC, CTR_IMPUESTO2_CXC=@CTR_IMPUESTO2_CXC, CTA_IMPUESTO2_CXC=@CTA_IMPUESTO2_CXC, CTR_RUBRO1_CXC=@CTR_RUBRO1_CXC, CTA_RUBRO1_CXC=@CTA_RUBRO1_CXC, CTR_RUBRO2_CXC=@CTR_RUBRO2_CXC, CTA_RUBRO2_CXC=@CTA_RUBRO2_CXC, CTR_ANTICIPO_CXC=@CTR_ANTICIPO_CXC, CTA_ANTICIPO_CXC=@CTA_ANTICIPO_CXC, CTR_LXP=@CTR_LXP, CTA_LXP=@CTA_LXP, CTR_CREDITO_CXP=@CTR_CREDITO_CXP, CTA_CREDITO_CXP=@CTA_CREDITO_CXP, CTR_DEBITO_CXP=@CTR_DEBITO_CXP, CTA_DEBITO_CXP=@CTA_DEBITO_CXP, CTR_CXP=@CTR_CXP, CTA_CXP=@CTA_CXP, CTR_PRONTO_PAG_CXP=@CTR_PRONTO_PAG_CXP, CTA_PRONTO_PAG_CXP=@CTA_PRONTO_PAG_CXP, CTR_COMISION_CXP=@CTR_COMISION_CXP, CTA_COMISION_CXP=@CTA_COMISION_CXP, CTR_IMPUESTO1_CXP=@CTR_IMPUESTO1_CXP, CTA_IMPUESTO1_CXP=@CTA_IMPUESTO1_CXP, CTR_IMPUESTO2_CXP=@CTR_IMPUESTO2_CXP, CTA_IMPUESTO2_CXP=@CTA_IMPUESTO2_CXP, CTR_RUBRO1_CXP=@CTR_RUBRO1_CXP, CTA_RUBRO1_CXP=@CTA_RUBRO1_CXP, CTR_RUBRO2_CXP=@CTR_RUBRO2_CXP, CTA_RUBRO2_CXP=@CTA_RUBRO2_CXP, CTR_ANTICIPO_CXP=@CTR_ANTICIPO_CXP, CTA_ANTICIPO_CXP=@CTA_ANTICIPO_CXP, CTR_DESC_BONIF=@CTR_DESC_BONIF, CTA_DESC_BONIF=@CTA_DESC_BONIF, CTR_DEV_VENTAS=@CTR_DEV_VENTAS, CTA_DEV_VENTAS=@CTA_DEV_VENTAS, CTR_INT_CORRIENTE=@CTR_INT_CORRIENTE, CTA_INT_CORRIENTE=@CTA_INT_CORRIENTE, CODIGO_ISO=@CODIGO_ISO, ETIQUETA_DIV_GEO1=@ETIQUETA_DIV_GEO1, ETIQUETA_DIV_GEO2=@ETIQUETA_DIV_GEO2, MONEDA=@MONEDA, CTR_VENTAS_EXEN=@CTR_VENTAS_EXEN, CTA_VENTAS_EXEN=@CTA_VENTAS_EXEN, CTR_AJUSTE_REDONDEO=@CTR_AJUSTE_REDONDEO, CTA_AJUSTE_REDONDEO=@CTA_AJUSTE_REDONDEO, ETIQUETA_DIV_GEO3=@ETIQUETA_DIV_GEO3, ETIQUETA_DIV_GEO4=@ETIQUETA_DIV_GEO4, U_PAIS=@U_PAIS, RecordDate=@RecordDate,  UpdatedBy=@UpdatedBy   WHERE  PAIS=@PAIS ";
+            delete = "DELETE "+UserLoginCache.CONJUNTO+".PAIS WHERE  PAIS=@PAIS";
         }
 
         public int Add(Pais entity)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@PAIS",entity.PAIS )) ;
-            parameters.Add(new SqlParameter("@CONJUNTO", entity.CONJUNTO)) ;
             parameters.Add(new SqlParameter("@DIRECCION", entity.DIRECCION)) ;
             parameters.Add(new SqlParameter("@NOMBRE", entity.NOMBRE)) ;
             parameters.Add(new SqlParameter("@CTR_VENTAS", entity.CTR_VENTAS)) ;
@@ -122,7 +123,6 @@ namespace Logistika360.ERP.AS.DataAccess.Repositories
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@PAIS", entity.PAIS));
-            parameters.Add(new SqlParameter("@CONJUNTO", entity.CONJUNTO));
             parameters.Add(new SqlParameter("@DIRECCION", entity.DIRECCION));
             parameters.Add(new SqlParameter("@NOMBRE", entity.NOMBRE));
             parameters.Add(new SqlParameter("@CTR_VENTAS", entity.CTR_VENTAS));
@@ -216,107 +216,106 @@ namespace Logistika360.ERP.AS.DataAccess.Repositories
                 listPais.Add(new Pais
                 {
                     PAIS = item[0].ToString(),
-                    CONJUNTO = item[1].ToString(),
-                    DIRECCION = item[2].ToString(),
-                    NOMBRE = item[3].ToString(),
-                    CTR_VENTAS = item[4].ToString(),
-                    CTA_VENTAS = item[5].ToString(),
-                    CTR_DESC_GRAL = item[6].ToString(),
-                    CTA_DESC_GRAL = item[7].ToString(),
-                    CTR_COST_VENT = item[8].ToString(),
-                    CTA_COST_VENT = item[9].ToString(),
-                    CTR_DESC_LIN = item[10].ToString(),
-                    CTA_DESC_LIN = item[11].ToString(),
-                    CTR_COST_LIN = item[12].ToString(),
-                    CTA_COST_LIN = item[13].ToString(),
-                    CTR_GAST_COM = item[14].ToString(),
-                    CTA_GAST_COM = item[15].ToString(),
-                    CTR_CONTADO = item[16].ToString(),
-                    CTA_CONTADO = item[17].ToString(),
-                    CTR_CXC = item[18].ToString(),
-                    CTA_CXC = item[19].ToString(),
-                    CTR_LXC = item[20].ToString(),
-                    CTA_LXC = item[21].ToString(),
-                    CTR_PRONTO_PAG_CXC = item[22].ToString(),
-                    CTA_PRONTO_PAG_CXC = item[23].ToString(),
-                    CTR_INT_MORA_CXC = item[24].ToString(),
-                    CTA_INT_MORA_CXC = item[25].ToString(),
-                    CTR_RECIBOS_CXC = item[26].ToString(),
-                    CTA_RECIBOS_CXC = item[27].ToString(),
-                    CTR_DEBITO_CXC = item[28].ToString(),
-                    CTA_DEBITO_CXC = item[29].ToString(),
-                    CTR_CREDITO_CXC = item[30].ToString(),
-                    CTA_CREDITO_CXC = item[31].ToString(),
-                    CTR_IMPUESTO1_CXC = item[32].ToString(),
-                    CTA_IMPUESTO1_CXC = item[33].ToString(),
-                    CTR_IMPUESTO2_CXC = item[34].ToString(),
-                    CTA_IMPUESTO2_CXC = item[35].ToString(),
-                    CTR_RUBRO1_CXC = item[36].ToString(),
-                    CTA_RUBRO1_CXC = item[37].ToString(),
-                    CTR_RUBRO2_CXC = item[38].ToString(),
-                    CTA_RUBRO2_CXC = item[39].ToString(),
-                    CTR_ANTICIPO_CXC = item[40].ToString(),
-                    CTA_ANTICIPO_CXC = item[41].ToString(),
-                    CTR_LXP = item[42].ToString(),
-                    CTA_LXP = item[43].ToString(),
-                    CTR_CREDITO_CXP = item[44].ToString(),
-                    CTA_CREDITO_CXP = item[45].ToString(),
-                    CTR_DEBITO_CXP = item[46].ToString(),
-                    CTA_DEBITO_CXP = item[47].ToString(),
-                    CTR_CXP = item[48].ToString(),
-                    CTA_CXP = item[49].ToString(),
-                    CTR_PRONTO_PAG_CXP = item[50].ToString(),
-                    CTA_PRONTO_PAG_CXP = item[51].ToString(),
-                    CTR_COMISION_CXP = item[52].ToString(),
-                    CTA_COMISION_CXP = item[53].ToString(),
-                    CTR_IMPUESTO1_CXP = item[54].ToString(),
-                    CTA_IMPUESTO1_CXP = item[55].ToString(),
-                    CTR_IMPUESTO2_CXP = item[56].ToString(),
-                    CTA_IMPUESTO2_CXP = item[57].ToString(),
-                    CTR_RUBRO1_CXP = item[58].ToString(),
-                    CTA_RUBRO1_CXP = item[59].ToString(),
-                    CTR_RUBRO2_CXP = item[60].ToString(),
-                    CTA_RUBRO2_CXP = item[61].ToString(),
-                    CTR_ANTICIPO_CXP = item[62].ToString(),
-                    CTA_ANTICIPO_CXP = item[63].ToString(),
-                    CTR_DESC_BONIF = item[64].ToString(),
-                    CTA_DESC_BONIF = item[65].ToString(),
-                    CTR_DEV_VENTAS = item[66].ToString(),
-                    CTA_DEV_VENTAS = item[67].ToString(),
-                    CTR_INT_CORRIENTE = item[68].ToString(),
-                    CTA_INT_CORRIENTE = item[69].ToString(),
-                    CODIGO_ISO = item[70].ToString(),
-                    ETIQUETA_DIV_GEO1 = item[71].ToString(),
-                    ETIQUETA_DIV_GEO2 = item[72].ToString(),
-                    MONEDA = item[73].ToString(),
-                    CTR_VENTAS_EXEN = item[74].ToString(),
-                    CTA_VENTAS_EXEN = item[75].ToString(),
-                    CTR_AJUSTE_REDONDEO = item[76].ToString(),
-                    CTA_AJUSTE_REDONDEO = item[77].ToString(),
-                    ETIQUETA_DIV_GEO3 = item[78].ToString(),
-                    ETIQUETA_DIV_GEO4 = item[79].ToString(),
-                    U_PAIS = item[80].ToString(),
-                    RecordDate = Convert.ToDateTime(item[81]),
-                    CreatedBy = item[82].ToString(),
-                    UpdatedBy = item[83].ToString(),
-                    CreateDate = Convert.ToDateTime(item[84]),
+                    DIRECCION = item[1].ToString(),
+                    NOMBRE = item[2].ToString(),
+                    CTR_VENTAS = item[3].ToString(),
+                    CTA_VENTAS = item[4].ToString(),
+                    CTR_DESC_GRAL = item[5].ToString(),
+                    CTA_DESC_GRAL = item[6].ToString(),
+                    CTR_COST_VENT = item[7].ToString(),
+                    CTA_COST_VENT = item[8].ToString(),
+                    CTR_DESC_LIN = item[9].ToString(),
+                    CTA_DESC_LIN = item[10].ToString(),
+                    CTR_COST_LIN = item[11].ToString(),
+                    CTA_COST_LIN = item[12].ToString(),
+                    CTR_GAST_COM = item[13].ToString(),
+                    CTA_GAST_COM = item[14].ToString(),
+                    CTR_CONTADO = item[15].ToString(),
+                    CTA_CONTADO = item[16].ToString(),
+                    CTR_CXC = item[17].ToString(),
+                    CTA_CXC = item[18].ToString(),
+                    CTR_LXC = item[19].ToString(),
+                    CTA_LXC = item[20].ToString(),
+                    CTR_PRONTO_PAG_CXC = item[21].ToString(),
+                    CTA_PRONTO_PAG_CXC = item[22].ToString(),
+                    CTR_INT_MORA_CXC = item[23].ToString(),
+                    CTA_INT_MORA_CXC = item[24].ToString(),
+                    CTR_RECIBOS_CXC = item[25].ToString(),
+                    CTA_RECIBOS_CXC = item[26].ToString(),
+                    CTR_DEBITO_CXC = item[27].ToString(),
+                    CTA_DEBITO_CXC = item[28].ToString(),
+                    CTR_CREDITO_CXC = item[29].ToString(),
+                    CTA_CREDITO_CXC = item[30].ToString(),
+                    CTR_IMPUESTO1_CXC = item[31].ToString(),
+                    CTA_IMPUESTO1_CXC = item[32].ToString(),
+                    CTR_IMPUESTO2_CXC = item[33].ToString(),
+                    CTA_IMPUESTO2_CXC = item[34].ToString(),
+                    CTR_RUBRO1_CXC = item[35].ToString(),
+                    CTA_RUBRO1_CXC = item[36].ToString(),
+                    CTR_RUBRO2_CXC = item[37].ToString(),
+                    CTA_RUBRO2_CXC = item[38].ToString(),
+                    CTR_ANTICIPO_CXC = item[39].ToString(),
+                    CTA_ANTICIPO_CXC = item[40].ToString(),
+                    CTR_LXP = item[41].ToString(),
+                    CTA_LXP = item[42].ToString(),
+                    CTR_CREDITO_CXP = item[43].ToString(),
+                    CTA_CREDITO_CXP = item[44].ToString(),
+                    CTR_DEBITO_CXP = item[45].ToString(),
+                    CTA_DEBITO_CXP = item[46].ToString(),
+                    CTR_CXP = item[47].ToString(),
+                    CTA_CXP = item[48].ToString(),
+                    CTR_PRONTO_PAG_CXP = item[49].ToString(),
+                    CTA_PRONTO_PAG_CXP = item[50].ToString(),
+                    CTR_COMISION_CXP = item[51].ToString(),
+                    CTA_COMISION_CXP = item[52].ToString(),
+                    CTR_IMPUESTO1_CXP = item[53].ToString(),
+                    CTA_IMPUESTO1_CXP = item[54].ToString(),
+                    CTR_IMPUESTO2_CXP = item[55].ToString(),
+                    CTA_IMPUESTO2_CXP = item[56].ToString(),
+                    CTR_RUBRO1_CXP = item[57].ToString(),
+                    CTA_RUBRO1_CXP = item[58].ToString(),
+                    CTR_RUBRO2_CXP = item[59].ToString(),
+                    CTA_RUBRO2_CXP = item[60].ToString(),
+                    CTR_ANTICIPO_CXP = item[61].ToString(),
+                    CTA_ANTICIPO_CXP = item[62].ToString(),
+                    CTR_DESC_BONIF = item[63].ToString(),
+                    CTA_DESC_BONIF = item[64].ToString(),
+                    CTR_DEV_VENTAS = item[65].ToString(),
+                    CTA_DEV_VENTAS = item[66].ToString(),
+                    CTR_INT_CORRIENTE = item[67].ToString(),
+                    CTA_INT_CORRIENTE = item[68].ToString(),
+                    CODIGO_ISO = item[69].ToString(),
+                    ETIQUETA_DIV_GEO1 = item[70].ToString(),
+                    ETIQUETA_DIV_GEO2 = item[71].ToString(),
+                    MONEDA = item[72].ToString(),
+                    CTR_VENTAS_EXEN = item[73].ToString(),
+                    CTA_VENTAS_EXEN = item[74].ToString(),
+                    CTR_AJUSTE_REDONDEO = item[75].ToString(),
+                    CTA_AJUSTE_REDONDEO = item[76].ToString(),
+                    ETIQUETA_DIV_GEO3 = item[77].ToString(),
+                    ETIQUETA_DIV_GEO4 = item[78].ToString(),
+                    U_PAIS = item[79].ToString(),
+                    RecordDate = Convert.ToDateTime(item[80]),
+                    CreatedBy = item[81].ToString(),
+                    UpdatedBy = item[82].ToString(),
+                    CreateDate = Convert.ToDateTime(item[83]),
 
                 });
             }
             return listPais;
         }
 
-        public int Remove(string valor)
+        public int Remove(string PAIS)
         {
-            throw new NotImplementedException();
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@PAIS", PAIS));
+            return ExecuteNonQuery(delete);
+            
         }
 
         public int Remove2(string PAIS, string CONJUNTO)
         {
-            parameters = new List<SqlParameter>();
-            parameters.Add(new SqlParameter("@PAIS", PAIS));
-            parameters.Add(new SqlParameter("@CONJUNTO", CONJUNTO));
-            return ExecuteNonQuery(delete);
+            throw new NotImplementedException();
 
         }
     }

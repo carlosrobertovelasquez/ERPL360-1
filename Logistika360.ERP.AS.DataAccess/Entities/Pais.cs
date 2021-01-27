@@ -9,7 +9,7 @@ namespace Logistika360.ERP.AS.DataAccess.Entities
    public  class Pais
     {
         public string PAIS { get; set; }
-        public string CONJUNTO { get; set; }
+     
         public string DIRECCION { get; set; }
         public string NOMBRE { get; set; }
         public string CTR_VENTAS { get; set; }

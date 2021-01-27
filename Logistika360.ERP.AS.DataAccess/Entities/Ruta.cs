@@ -9,7 +9,7 @@ namespace Logistika360.ERP.AS.DataAccess.Entities
    public class Ruta
     {
         public string RUTA { get; set; }
-        public string CONJUNTO { get; set; }
+     
         public string NOMBRE { get; set; }
         public string UpdatedBy { get; set; }
         public DateTime RecordDate { get; set; }

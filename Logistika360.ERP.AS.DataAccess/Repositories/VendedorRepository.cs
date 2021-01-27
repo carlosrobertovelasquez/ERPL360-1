@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Logistika360.ERP.ERPADMIN.DataAccess.Repositories;
+using Logistika360.ERP.ERPADMIN.Common.Cache;
 using Logistika360.ERP.AS.DataAccess.Entities;
 using Logistika360.ERP.AS.DataAccess.Contracts;
 using System.Data;
@@ -21,18 +22,16 @@ namespace Logistika360.ERP.AS.DataAccess.Repositories
 
         public VendedorRepository()
         {
-            selectAll = "SELECT * FROM ERPL360.VENDEDOR";
-            insert = "insert into ERPL360.VENDEDOR(VENDEDOR,CONJUNTO,NOMBRE,EMPLEADO,COMISION,CTR_COMISION,CTA_COMISION,CORREO,ACTIVO,TELEFONO,CREATEDBY,CREATEDATE,RECORDDATE,UPDATEDBY) values(@VENDEDOR,@CONJUNTO,@NOMBRE,@EMPLEADO,@COMISION,@CTR_COMISION,@CTA_COMISION,@CORREO,@ACTIVO,@TELEFONO,@CREATEDBY,@CREATEDATE,@RECORDDATE,@UPDATEDBY)";
-            update = "UPDATE ERPL360.VENDEDOR SET NOMBRE=@NOMBRE,EMPLEADO=@EMPLEADO,CTR_COMISION=@CTR_COMISION,CTA_COMISION=@CTA_COMISION,CORREO=@CORREO,ACTIVO=@ACTIVO,TELEFONO=@TELEFONO,UPDATEDBY=@UPDATEDBY,RECORDDATE=@RECORDDATE WHERE CONJUNTO=@CONJUNTO AND VENDEDOR=@VENDEDOR ";
-  
-            delete = "DELETE ERPL360.VENDEDOR WHERE CONJUNTO=@CONJUNTO AND VENDEDOR=@VENDEDOR";
+            selectAll = "SELECT * FROM "+UserLoginCache.CONJUNTO+".VENDEDOR";
+            insert = "insert into "+UserLoginCache.CONJUNTO+".VENDEDOR(VENDEDOR,NOMBRE,EMPLEADO,COMISION,CTR_COMISION,CTA_COMISION,CORREO,ACTIVO,TELEFONO,CREATEDBY,CREATEDATE,RECORDDATE,UPDATEDBY) values(@VENDEDOR,@NOMBRE,@EMPLEADO,@COMISION,@CTR_COMISION,@CTA_COMISION,@CORREO,@ACTIVO,@TELEFONO,@CREATEDBY,@CREATEDATE,@RECORDDATE,@UPDATEDBY)";
+            update = "UPDATE "+UserLoginCache.CONJUNTO+".VENDEDOR SET NOMBRE=@NOMBRE,EMPLEADO=@EMPLEADO,CTR_COMISION=@CTR_COMISION,CTA_COMISION=@CTA_COMISION,CORREO=@CORREO,ACTIVO=@ACTIVO,TELEFONO=@TELEFONO,UPDATEDBY=@UPDATEDBY,RECORDDATE=@RECORDDATE WHERE  VENDEDOR=@VENDEDOR ";
+            delete = "DELETE "+UserLoginCache.CONJUNTO+".VENDEDOR WHERE  VENDEDOR=@VENDEDOR";
         }
 
         public int Add(Vendedor entity)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@VENDEDOR", entity.VENDEDOR));
-            parameters.Add(new SqlParameter("@CONJUNTO", entity.CONJUNTO));
             parameters.Add(new SqlParameter("@NOMBRE", entity.NOMBRE));
             parameters.Add(new SqlParameter("@EMPLEADO", entity.EMPLEADO));
             parameters.Add(new SqlParameter("@COMISION", entity.COMISION));
@@ -53,7 +52,6 @@ namespace Logistika360.ERP.AS.DataAccess.Repositories
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@VENDEDOR", entity.VENDEDOR));
-            parameters.Add(new SqlParameter("@CONJUNTO", entity.CONJUNTO));
             parameters.Add(new SqlParameter("@NOMBRE", entity.NOMBRE));
             parameters.Add(new SqlParameter("@EMPLEADO", entity.EMPLEADO));
             parameters.Add(new SqlParameter("@COMISION", entity.COMISION));
@@ -77,21 +75,18 @@ namespace Logistika360.ERP.AS.DataAccess.Repositories
                 listVendedor.Add(new Vendedor
                 {
                     VENDEDOR = item[0].ToString(),
-                    CONJUNTO = item[1].ToString(),
-                    NOMBRE=item[2].ToString(),
-                    EMPLEADO = item[3].ToString(),
-                    COMISION = Convert.ToDecimal( item[4].ToString()),
-                    CTR_COMISION =  item[5].ToString(),
-                    CTA_COMISION = item[6].ToString(),
-                    CORREO = item[7].ToString(),
-                    ACTIVO = item[8].ToString(),
-                    TELEFONO = item[9].ToString(),
-                    UpdatedBy = item[10].ToString(),
-                    RecordDate = Convert.ToDateTime(item[11]),
-                    CreatedBy = item[12].ToString(),
-                    CreateDate = Convert.ToDateTime(item[13]),
-                    
-                    
+                    NOMBRE=item[1].ToString(),
+                    EMPLEADO = item[2].ToString(),
+                    COMISION = Convert.ToDecimal( item[3].ToString()),
+                    CTR_COMISION =  item[4].ToString(),
+                    CTA_COMISION = item[5].ToString(),
+                    CORREO = item[6].ToString(),
+                    ACTIVO = item[7].ToString(),
+                    TELEFONO = item[8].ToString(),
+                    UpdatedBy = item[9].ToString(),
+                    RecordDate = Convert.ToDateTime(item[10]),
+                    CreatedBy = item[11].ToString(),
+                    CreateDate = Convert.ToDateTime(item[12]),
                     
                 });
             }
@@ -101,18 +96,18 @@ namespace Logistika360.ERP.AS.DataAccess.Repositories
         
         public int Remove(string VENDEDOR)
         {
-            throw new NotImplementedException();
-        }
-
-        public int Remove2(string VENDEDOR, string CONJUNTO)
-        {
-
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@VENDEDOR", VENDEDOR));
-            parameters.Add(new SqlParameter("@CONJUNTO", CONJUNTO));
             return ExecuteNonQuery(delete);
-
             
+        }
+
+        public int Remove2(string VENDEDOR,string CONJUNTO)
+        {
+
+            throw new NotImplementedException();
+
+
         }
     }
 }

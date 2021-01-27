@@ -54,7 +54,7 @@ namespace Logistika360.ERP.AS.Presentacion.Tablas.Funcionarios.Cobrador
                 DataGridViewRow dgvCobrador = new DataGridViewRow();
                 dgvCobrador.CreateCells(dgvDatos);
                 
-                var LCobrador = cobrador.CobradorConjunto(UserLoginCache.CONJUNTO);
+                var LCobrador = cobrador.CobradorConjunto();
                 string activo  ;
 
 
@@ -126,7 +126,7 @@ namespace Logistika360.ERP.AS.Presentacion.Tablas.Funcionarios.Cobrador
                     CobradorModel cobrador = new CobradorModel();
 
                     var codigocobrador = dgvDatos.CurrentRow.Cells[0].Value.ToString();
-                    var buscar = cobrador.BuscarCobrador(codigocobrador, UserLoginCache.CONJUNTO);
+                    var buscar = cobrador.BuscarCobrador(codigocobrador);
 
                     foreach (var item in buscar)
                     {
@@ -182,8 +182,7 @@ namespace Logistika360.ERP.AS.Presentacion.Tablas.Funcionarios.Cobrador
                     CobradorModel cobrador = new CobradorModel();
                     cobrador.State = EntityState.Deleted;
                     cobrador.Cobrador1 = dgvDatos.CurrentRow.Cells[0].Value.ToString();
-                    cobrador.Conjunto1 = UserLoginCache.CONJUNTO;
-                    cobrador.SaveChanges();
+                     cobrador.SaveChanges();
                     string result = cobrador.SaveChanges();
                     MessageBox.Show(result);
 

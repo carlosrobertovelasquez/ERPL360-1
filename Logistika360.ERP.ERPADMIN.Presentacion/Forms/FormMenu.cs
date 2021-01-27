@@ -17,6 +17,8 @@ using Logistika360.ERP.AS.Presentacion.Seguridad.Usuario;
 using Logistika360.ERP.AS.Presentacion.Tablas.Funcionarios.Vendedor;
 using Logistika360.ERP.AS.Presentacion.Tablas;
 using Logistika360.ERP.AS.Presentacion.Tablas.Funcionarios.Cobrador;
+using Logistika360.ERP.AS.Presentacion.Tablas.Otros.Bodega;
+using Logistika360.ERP.AS.Presentacion.Tablas.Tipos.Moneda;
 using Logistika360.ERP.AS.Presentacion.Administracion;
 
 namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
@@ -289,7 +291,15 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Forms
                     case "AS_CENTRO_COSTO":
                         AbrirFormInPanel(new CentroCosto());
                         break;
+                    case "AS_BODEGAS":
+                        AbrirFormInPanel(new Bodega());
+                        break;
+                    case "AS_MONEDAS":
+                        AbrirFormInPanel(new Moneda());
+                        break;
                 }
+
+                
                 //AbrirFormInPanel(new AS_VENDEDORES());
 
                 //AbrirFormInPanel(new FormUsuario());

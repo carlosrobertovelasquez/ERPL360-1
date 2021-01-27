@@ -17,7 +17,6 @@ namespace Logistika360.ERP.AS.Domain.Models
     public class ZonaModel : IDisposable
     {
         private string Zona;
-        private string Conjunto;
         private string Nombre;
         private string UpdatedBy;
         private DateTime RecordDate;
@@ -26,10 +25,10 @@ namespace Logistika360.ERP.AS.Domain.Models
 
         private IZonaRepository zonaRepository;
         public EntityState State { private get; set; }
-        [Required(ErrorMessage = "Ruta no puede quedar Zona")]
-        [StringLength(6, ErrorMessage = "Zona es de Longitud de 6 Carateres Maximo")]
+        [Required(ErrorMessage = "Zona no puede quedar Zona")]
+        [StringLength(4, ErrorMessage = "Zona es de Longitud de 4 Carateres Maximo")]
         public string Zona1 { get => Zona; set => Zona = value; }
-        public string Conjunto1 { get => Conjunto; set => Conjunto = value; }
+        
         [Required(ErrorMessage = "Nombre es Obligatorio ")]
         public string Nombre1 { get => Nombre; set => Nombre = value; }
         public string UpdatedBy1 { get => UpdatedBy; set => UpdatedBy = value; }
@@ -51,7 +50,6 @@ namespace Logistika360.ERP.AS.Domain.Models
             {
                 var zonaModel = new Zona();
                 zonaModel.ZONA = Zona1;
-                zonaModel.CONJUNTO = Conjunto1;
                 zonaModel.NOMBRE = Nombre1;
                 zonaModel.UpdatedBy = UpdatedBy1;
                 zonaModel.RecordDate = RecordDate1;
@@ -66,7 +64,7 @@ namespace Logistika360.ERP.AS.Domain.Models
                         message = "Zona Agregado";
                         break;
                     case EntityState.Deleted:
-                        zonaRepository.Remove2(Zona1, Conjunto1);
+                        zonaRepository.Remove(Zona1);
                         message = "Zona Eliminado";
                         break;
                     case EntityState.Modified:
@@ -106,7 +104,6 @@ namespace Logistika360.ERP.AS.Domain.Models
                 listZona.Add(new ZonaModel
                 {
                     Zona1 = item.ZONA,
-                    Conjunto1 = item.CONJUNTO,
                     Nombre1 = item.NOMBRE,
                     RecordDate1 = item.RecordDate,
                     CreateDate1 = item.CreateDate,
@@ -118,18 +115,18 @@ namespace Logistika360.ERP.AS.Domain.Models
         }
 
 
-        public IEnumerable<ZonaModel> ZonaConjunto(string filter1)
+        public IEnumerable<ZonaModel> ZonaConjunto()
         {
-            return GetAll().FindAll(e => e.Conjunto.Equals(filter1));
+            return GetAll();
         }
-        public IEnumerable<ZonaModel> BuscarZona(string filter1, string filter2)
+        public IEnumerable<ZonaModel> BuscarZona(string filter1)
         {
-            return GetAll().FindAll(e => e.Zona.Equals(filter1) && e.Conjunto.Equals(filter2));
+            return GetAll().FindAll(e => e.Zona.Equals(filter1) );
         }
 
-        public void borrar(string Zona, string Conjunto)
+        public void borrar(string Zona)
         {
-            zonaRepository.Remove2(Zona, Conjunto);
+            zonaRepository.Remove(Zona);
         }
 
 

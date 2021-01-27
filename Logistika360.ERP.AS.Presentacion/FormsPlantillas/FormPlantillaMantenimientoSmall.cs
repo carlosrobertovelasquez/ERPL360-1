@@ -18,7 +18,7 @@ namespace Logistika360.ERP.AS.Presentacion.FormsPlantillas
         }
         public virtual void Nuevo()
         {
-
+            
         }
         public virtual void Guardar()
         {
@@ -114,6 +114,11 @@ namespace Logistika360.ERP.AS.Presentacion.FormsPlantillas
         private void menuAyuda_Click(object sender, EventArgs e)
         {
             Ayuda();
+        }
+
+        private void FormPlantillaMantenimientoSmall_Load(object sender, EventArgs e)
+        {
+          
         }
     }
 }

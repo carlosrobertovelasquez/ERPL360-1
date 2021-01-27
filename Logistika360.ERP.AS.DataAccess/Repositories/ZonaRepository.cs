@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Logistika360.ERP.ERPADMIN.DataAccess.Repositories;
+using Logistika360.ERP.ERPADMIN.Common.Cache;
 using Logistika360.ERP.AS.DataAccess.Entities;
 using Logistika360.ERP.AS.DataAccess.Contracts;
 using System.Data;
@@ -20,16 +21,16 @@ namespace Logistika360.ERP.AS.DataAccess.Repositories
 
         public ZonaRepository()
         {
-            selectAll = "SELECT * FROM ERPL360.ZONA";
-            insert = "insert into ERPL360.ZONA(ZONA,CONJUNTO,NOMBRE,RecordDate,CreatedBy,UpdatedBy,CreateDate) values(@ZONA,@CONJUNTO,@NOMBRE,@RecordDate,@CreatedBy,@UpdatedBy,@CreateDate)";
-            update = "UPDATE ERPL360.ZONA SET  NOMBRE=@NOMBRE,  RecordDate=@RecordDate,  UpdatedBy=@UpdatedBy   WHERE CONJUNTO=@CONJUNTO AND ZONA=@ZONA ";
-            delete = "DELETE ERPL360.ZONA WHERE CONJUNTO=@CONJUNTO AND ZONA=@ZONA";
+            selectAll = "SELECT * FROM "+UserLoginCache.CONJUNTO+".ZONA";
+            insert = "insert into "+UserLoginCache.CONJUNTO+".ZONA(ZONA,NOMBRE,RecordDate,CreatedBy,UpdatedBy,CreateDate) values(@ZONA,@NOMBRE,@RecordDate,@CreatedBy,@UpdatedBy,@CreateDate)";
+            update = "UPDATE "+UserLoginCache.CONJUNTO+".ZONA SET  NOMBRE=@NOMBRE,  RecordDate=@RecordDate,  UpdatedBy=@UpdatedBy   WHERE  ZONA=@ZONA ";
+            delete = "DELETE "+UserLoginCache.CONJUNTO+".ZONA WHERE  ZONA=@ZONA";
         }
         public int Add(Zona entity)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@ZONA", entity.ZONA));
-            parameters.Add(new SqlParameter("@CONJUNTO", entity.CONJUNTO));
+         
             parameters.Add(new SqlParameter("@NOMBRE", entity.NOMBRE));
             parameters.Add(new SqlParameter("@RecordDate", entity.RecordDate));
             parameters.Add(new SqlParameter("@CreatedBy", entity.CreatedBy));
@@ -43,7 +44,6 @@ namespace Logistika360.ERP.AS.DataAccess.Repositories
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@ZONA", entity.ZONA));
-            parameters.Add(new SqlParameter("@CONJUNTO", entity.CONJUNTO));
             parameters.Add(new SqlParameter("@NOMBRE", entity.NOMBRE));
             parameters.Add(new SqlParameter("@RecordDate", entity.RecordDate));
             parameters.Add(new SqlParameter("@UpdatedBy", entity.UpdatedBy));
@@ -59,29 +59,28 @@ namespace Logistika360.ERP.AS.DataAccess.Repositories
                 listZona.Add(new Zona
                 {
                     ZONA = item[0].ToString(),
-                    CONJUNTO = item[1].ToString(),
-                    NOMBRE = item[2].ToString(),
-                    RecordDate = Convert.ToDateTime(item[3]),
-                    CreatedBy = item[4].ToString(),
-                    UpdatedBy = item[5].ToString(),
-                    CreateDate = Convert.ToDateTime(item[6]),
+                    NOMBRE = item[1].ToString(),
+                    RecordDate = Convert.ToDateTime(item[2]),
+                    CreatedBy = item[3].ToString(),
+                    UpdatedBy = item[4].ToString(),
+                    CreateDate = Convert.ToDateTime(item[5]),
 
                 });
             }
             return listZona;
         }
 
-        public int Remove(string valor)
+        public int Remove(string ZONA)
         {
-            throw new NotImplementedException();
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@ZONA", ZONA));
+            return ExecuteNonQuery(delete);
+            
         }
 
         public int Remove2(string ZONA, string CONJUNTO)
         {
-            parameters = new List<SqlParameter>();
-            parameters.Add(new SqlParameter("@ZONA", ZONA));
-            parameters.Add(new SqlParameter("@CONJUNTO", CONJUNTO));
-            return ExecuteNonQuery(delete);
+            throw new NotImplementedException();
         }
     }
 }

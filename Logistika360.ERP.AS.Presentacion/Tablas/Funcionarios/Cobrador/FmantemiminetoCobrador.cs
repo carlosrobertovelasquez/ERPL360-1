@@ -29,7 +29,7 @@ namespace Logistika360.ERP.AS.Presentacion.Tablas.Funcionarios.Cobrador
 
 
 
-            var numerousuario = cobradormodelo.BuscarCobrador(txtCodigo.Text, UserLoginCache.CONJUNTO);
+            var numerousuario = cobradormodelo.BuscarCobrador(txtCodigo.Text);
 
             var valor = numerousuario.Count();
 
@@ -52,7 +52,7 @@ namespace Logistika360.ERP.AS.Presentacion.Tablas.Funcionarios.Cobrador
                 cobradormodelo.CreateDate1 = DateTime.Today;
                 cobradormodelo.UpdatedBy1 = UserLoginCache.USUARIO;
                 cobradormodelo.RecordDate1 = DateTime.Today;
-                cobradormodelo.Conjunto1 = UserLoginCache.CONJUNTO;
+               
 
                 bool valid = new Helps.DataValidation(cobradormodelo).Validate();
                 if (valid == true)
@@ -83,7 +83,7 @@ namespace Logistika360.ERP.AS.Presentacion.Tablas.Funcionarios.Cobrador
                 cobradormodelo.Activo1 = ckbEstado.Checked ? "S" : "N";
                 cobradormodelo.UpdatedBy1 = UserLoginCache.USUARIO;
                 cobradormodelo.RecordDate1 = DateTime.Today;
-                cobradormodelo.Conjunto1 = UserLoginCache.CONJUNTO;
+             
 
                 bool valid = new Helps.DataValidation(cobradormodelo).Validate();
                 if (valid == true)
@@ -152,7 +152,7 @@ namespace Logistika360.ERP.AS.Presentacion.Tablas.Funcionarios.Cobrador
         private void txtCodigo_Validated(object sender, EventArgs e)
         {
             CobradorModel cobrador = new CobradorModel();
-            var existecobrador = cobrador.BuscarCobrador(txtCodigo.Text, UserLoginCache.CONJUNTO);
+            var existecobrador = cobrador.BuscarCobrador(txtCodigo.Text);
             var valor = existecobrador.Count();
 
             if (valor == 1)
@@ -223,7 +223,7 @@ namespace Logistika360.ERP.AS.Presentacion.Tablas.Funcionarios.Cobrador
         private void txtCodigo_Validated_1(object sender, EventArgs e)
         {
             CobradorModel oCobrador = new CobradorModel();
-            var existeCobrador = oCobrador.BuscarCobrador(txtCodigo.Text, UserLoginCache.CONJUNTO);
+            var existeCobrador = oCobrador.BuscarCobrador(txtCodigo.Text);
             var valor = existeCobrador.Count();
 
             if (valor == 1)

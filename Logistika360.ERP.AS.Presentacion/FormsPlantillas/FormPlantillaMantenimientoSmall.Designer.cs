@@ -194,6 +194,7 @@
             this.Controls.Add(this.menu);
             this.Name = "FormPlantillaMantenimientoSmall";
             this.Text = "FormPlantillaMantenimientoSmall";
+            this.Load += new System.EventHandler(this.FormPlantillaMantenimientoSmall_Load);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             this.ResumeLayout(false);

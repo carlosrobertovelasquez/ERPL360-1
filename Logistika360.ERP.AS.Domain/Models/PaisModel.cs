@@ -17,7 +17,6 @@ namespace Logistika360.ERP.AS.Domain.Models
     {
 
         private string PAIS;
-        private string CONJUNTO;
         private string DIRECCION;
         private string NOMBRE;
         private string CTR_VENTAS;
@@ -104,9 +103,10 @@ namespace Logistika360.ERP.AS.Domain.Models
 
         private IPaisRepository paisRepository;
         public EntityState State { private get; set; }
-        [Required]
+        [Required(ErrorMessage = "Pais no puede quedar Vacia")]
+        [StringLength(4, ErrorMessage = "Pais es de Longitud de 4 Carateres Maximo")]
         public string PAIS1 { get => PAIS; set => PAIS = value; }
-        public string CONJUNTO1 { get => CONJUNTO; set => CONJUNTO = value; }
+        
         [Required]
         public string DIRECCION1 { get => DIRECCION; set => DIRECCION = value; }
         [Required]
@@ -207,7 +207,6 @@ namespace Logistika360.ERP.AS.Domain.Models
             {
                 var paisModel = new Pais();
                 paisModel.PAIS = PAIS1;
-                paisModel.CONJUNTO = CONJUNTO1;
                 paisModel.DIRECCION = DIRECCION1;
                 paisModel.NOMBRE = NOMBRE1;
                 paisModel.CTR_VENTAS = CTR_VENTAS1;
@@ -300,7 +299,7 @@ namespace Logistika360.ERP.AS.Domain.Models
                         message = "Pais Agregado";
                         break;
                     case EntityState.Deleted:
-                        paisRepository.Remove2(PAIS1, CONJUNTO1);
+                        paisRepository.Remove(PAIS1);
                         message = "Pais Eliminado";
                         break;
                     case EntityState.Modified:
@@ -339,7 +338,6 @@ namespace Logistika360.ERP.AS.Domain.Models
                 listPais.Add(new PaisModel
                 {
                     PAIS1 = item.PAIS,
-                    CONJUNTO1 = item.CONJUNTO,
                     DIRECCION1 = item.DIRECCION,
                     NOMBRE1 = item.NOMBRE,
                     CTR_VENTAS1 = item.CTR_VENTAS,
@@ -429,13 +427,13 @@ namespace Logistika360.ERP.AS.Domain.Models
             return listPais;
         }
 
-        public IEnumerable<PaisModel> PaisConjunto(string filter1)
+        public IEnumerable<PaisModel> PaisConjunto()
         {
-            return GetAll().FindAll(e => e.CONJUNTO.Equals(filter1));
+            return GetAll();
         }
-        public IEnumerable<PaisModel> BuscarPais(string PAIS, string CONJUNTO)
+        public IEnumerable<PaisModel> BuscarPais(string PAIS)
         {
-            return GetAll().FindAll(e => e.PAIS.Equals(PAIS) && e.CONJUNTO.Equals(CONJUNTO));
+            return GetAll().FindAll(e => e.PAIS.Equals(PAIS) );
         }
 
        

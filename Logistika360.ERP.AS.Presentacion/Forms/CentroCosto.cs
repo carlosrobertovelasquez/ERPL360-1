@@ -47,7 +47,7 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
                 dgvDatos.Rows.Clear();
                 DataGridViewRow dgvCentroCosto = new DataGridViewRow();
                 dgvCentroCosto.CreateCells(dgvDatos);
-                var LCentroCosto = centrocosto.CentroCostoConjunto (UserLoginCache.CONJUNTO);
+                var LCentroCosto = centrocosto.CentroCostoConjunto ();
 
 
 
@@ -104,7 +104,7 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
                     CentroCostoModel vendedor = new CentroCostoModel();
 
                     var codigocentrocosto = dgvDatos.CurrentRow.Cells[0].Value.ToString();
-                    var buscar = centrocosto.BuscarCentroCosto(codigocentrocosto, UserLoginCache.CONJUNTO);
+                    var buscar = centrocosto.BuscarCentroCosto(codigocentrocosto);
 
                     foreach (var item in buscar)
                     {
@@ -147,7 +147,6 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
                     CentroCostoModel centrocosto = new CentroCostoModel();
                     centrocosto.State = EntityState.Deleted;
                     centrocosto.CentroCosto1 = dgvDatos.CurrentRow.Cells[0].Value.ToString();
-                    centrocosto.Conjunto1 = UserLoginCache.CONJUNTO;
                     centrocosto.SaveChanges();
                     string result = centrocosto.SaveChanges();
                     MessageBox.Show(result);

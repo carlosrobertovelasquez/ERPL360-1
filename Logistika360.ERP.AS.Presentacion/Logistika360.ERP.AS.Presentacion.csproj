@@ -195,6 +195,30 @@
     <Compile Include="Forms\Zona.Designer.cs">
       <DependentUpon>Zona.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tablas\Otros\Bodega\Bodega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tablas\Otros\Bodega\Bodega.Designer.cs">
+      <DependentUpon>Bodega.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tablas\Otros\Bodega\FmanteniminetoBodega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tablas\Otros\Bodega\FmanteniminetoBodega.Designer.cs">
+      <DependentUpon>FmanteniminetoBodega.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tablas\Tipos\Moneda\FmantemiminetoMoneda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tablas\Tipos\Moneda\FmantemiminetoMoneda.Designer.cs">
+      <DependentUpon>FmantemiminetoMoneda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tablas\Tipos\Moneda\Moneda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tablas\Tipos\Moneda\Moneda.Designer.cs">
+      <DependentUpon>Moneda.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Administracion\GLOBALES.resx">
       <DependentUpon>GLOBALES.cs</DependentUpon>
     </EmbeddedResource>
@@ -268,6 +292,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ruta.resx">
       <DependentUpon>Ruta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tablas\Otros\Bodega\Bodega.resx">
+      <DependentUpon>Bodega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tablas\Otros\Bodega\FmanteniminetoBodega.resx">
+      <DependentUpon>FmanteniminetoBodega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tablas\Tipos\Moneda\FmantemiminetoMoneda.resx">
+      <DependentUpon>FmantemiminetoMoneda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tablas\Tipos\Moneda\Moneda.resx">
+      <DependentUpon>Moneda.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -131,6 +131,16 @@ namespace Logistika360.ERP.ERPADMIN.Presentacion.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+        /// </summary>
+        internal static System.Drawing.Icon logo5rdondo {
+            get {
+                object obj = ResourceManager.GetObject("logo5rdondo", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Newfile_page_document_empty_6315__1_ {

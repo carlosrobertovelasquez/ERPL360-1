@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Logistika360.ERP.ERPADMIN.DataAccess.Repositories;
+using Logistika360.ERP.ERPADMIN.Common.Cache;
 using Logistika360.ERP.AS.DataAccess.Entities;
 using Logistika360.ERP.AS.DataAccess.Contracts;
 using System.Data;
@@ -23,10 +24,10 @@ namespace Logistika360.ERP.AS.DataAccess.Repositories
         public RutaRepository()
         {
             
-                selectAll = "SELECT * FROM ERPL360.RUTA";
-                insert = "insert into ERPL360.RUTA(RUTA,CONJUNTO,NOMBRE,RecordDate,CreatedBy,UpdatedBy,CreateDate) values(@RUTA,@CONJUNTO,@NOMBRE,@RecordDate,@CreatedBy,@UpdatedBy,@CreateDate)";
-                update = "UPDATE ERPL360.RUTA SET  NOMBRE=@NOMBRE , RecordDate=@RecordDate,  UpdatedBy=@UpdatedBy   WHERE CONJUNTO=@CONJUNTO AND RUTA=@RUTA ";
-                delete = "DELETE ERPL360.RUTA WHERE CONJUNTO=@CONJUNTO AND RUTA=@RUTA";
+                selectAll = "SELECT * FROM "+UserLoginCache.CONJUNTO+".RUTA";
+                insert = "insert into "+UserLoginCache.CONJUNTO+".RUTA(RUTA,NOMBRE,RecordDate,CreatedBy,UpdatedBy,CreateDate) values(@RUTA,@NOMBRE,@RecordDate,@CreatedBy,@UpdatedBy,@CreateDate)";
+                update = "UPDATE "+UserLoginCache.CONJUNTO+".RUTA SET  NOMBRE=@NOMBRE , RecordDate=@RecordDate,  UpdatedBy=@UpdatedBy   WHERE  RUTA=@RUTA ";
+                delete = "DELETE "+UserLoginCache.CONJUNTO+".RUTA WHERE  RUTA=@RUTA";
             
         }
 
@@ -34,7 +35,6 @@ namespace Logistika360.ERP.AS.DataAccess.Repositories
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@RUTA", entity.RUTA));
-            parameters.Add(new SqlParameter("@CONJUNTO", entity.CONJUNTO));
             parameters.Add(new SqlParameter("@NOMBRE", entity.NOMBRE));
             parameters.Add(new SqlParameter("@RecordDate", entity.RecordDate));
             parameters.Add(new SqlParameter("@CreatedBy", entity.CreatedBy));
@@ -48,7 +48,6 @@ namespace Logistika360.ERP.AS.DataAccess.Repositories
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@RUTA", entity.RUTA));
-            parameters.Add(new SqlParameter("@CONJUNTO", entity.CONJUNTO));
             parameters.Add(new SqlParameter("@NOMBRE", entity.NOMBRE));
             parameters.Add(new SqlParameter("@RecordDate", entity.RecordDate));
             parameters.Add(new SqlParameter("@UpdatedBy", entity.UpdatedBy));
@@ -64,29 +63,28 @@ namespace Logistika360.ERP.AS.DataAccess.Repositories
                 listRuta.Add(new Ruta
                 {
                     RUTA = item[0].ToString(),
-                    CONJUNTO = item[1].ToString(),
-                    NOMBRE = item[2].ToString(),
-                    RecordDate = Convert.ToDateTime(item[3]),
-                    CreatedBy = item[4].ToString(),
-                    UpdatedBy = item[5].ToString(),
-                    CreateDate = Convert.ToDateTime(item[6]),
+                    NOMBRE = item[1].ToString(),
+                    RecordDate = Convert.ToDateTime(item[2]),
+                    CreatedBy = item[3].ToString(),
+                    UpdatedBy = item[4].ToString(),
+                    CreateDate = Convert.ToDateTime(item[5]),
 
                 });
             }
             return listRuta;
         }
 
-        public int Remove(string valor)
+        public int Remove(string RUTA)
         {
-            throw new NotImplementedException();
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@RUTA", RUTA));
+            return ExecuteNonQuery(delete);
+            
         }
 
         public int Remove2(string RUTA, string CONJUNTO)
         {
-            parameters = new List<SqlParameter>();
-            parameters.Add(new SqlParameter("@RUTA", RUTA));
-            parameters.Add(new SqlParameter("@CONJUNTO", CONJUNTO));
-            return ExecuteNonQuery(delete);
+            throw new NotImplementedException();
         }
     }
 }

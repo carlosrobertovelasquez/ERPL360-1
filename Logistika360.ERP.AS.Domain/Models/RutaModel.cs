@@ -11,13 +11,13 @@ using Logistika360.ERP.ERPADMIN.Common.Cache;
 using Logistika360.ERP.ERPADMIN.DataAccess.Repositories;
 using System.ComponentModel.DataAnnotations;
 
+
 namespace Logistika360.ERP.AS.Domain.Models
 {
     public class RutaModel : IDisposable
     {
 
         private string Ruta;
-        private string Conjunto;
         private string Nombre;
         private string UpdatedBy;
         private DateTime RecordDate;
@@ -27,9 +27,8 @@ namespace Logistika360.ERP.AS.Domain.Models
         private IRutaRepository rutaRepository;
         public EntityState State { private get; set; }
         [Required(ErrorMessage = "Ruta no puede quedar Vacia")]
-        [StringLength(6,ErrorMessage ="Ruta es de Longitud de 6 Carateres Maximo")]
+        [StringLength(4,ErrorMessage ="Ruta es de Longitud de 4 Carateres Maximo")]
         public string Ruta1 { get => Ruta; set => Ruta = value; }
-        public string Conjunto1 { get => Conjunto; set => Conjunto = value; }
         [Required(ErrorMessage = "Requiere Registro")]
         public string Nombre1 { get => Nombre; set => Nombre = value; }
         public string UpdatedBy1 { get => UpdatedBy; set => UpdatedBy = value; }
@@ -50,7 +49,6 @@ namespace Logistika360.ERP.AS.Domain.Models
             {
                 var rutaModel = new Ruta();
                 rutaModel.RUTA = Ruta1;
-                rutaModel.CONJUNTO = Conjunto1;
                 rutaModel.NOMBRE = Nombre1;
                 rutaModel.UpdatedBy = UpdatedBy1;
                 rutaModel.RecordDate = RecordDate1;
@@ -65,7 +63,7 @@ namespace Logistika360.ERP.AS.Domain.Models
                         message = "Ruta Agregada";
                         break;
                     case EntityState.Deleted:
-                        rutaRepository.Remove2(Ruta1, Conjunto1);
+                        rutaRepository.Remove(Ruta1);
                         message = "Ruta Eliminado";
                         break;
                     case EntityState.Modified:
@@ -104,7 +102,6 @@ namespace Logistika360.ERP.AS.Domain.Models
                 listRuta.Add(new RutaModel
                 {
                     Ruta1 = item.RUTA,
-                    Conjunto1 = item.CONJUNTO,
                     Nombre1 = item.NOMBRE,
                     RecordDate1 = item.RecordDate,
                     CreateDate1 = item.CreateDate,
@@ -116,18 +113,18 @@ namespace Logistika360.ERP.AS.Domain.Models
         }
 
 
-        public IEnumerable<RutaModel> RutaConjunto(string filter1)
+        public IEnumerable<RutaModel> RutaConjunto()
         {
-            return GetAll().FindAll(e => e.Conjunto.Equals(filter1));
+            return GetAll();
         }
-        public IEnumerable<RutaModel> BuscarRuta(string filter1, string filter2)
+        public IEnumerable<RutaModel> BuscarRuta(string filter1)
         {
-            return GetAll().FindAll(e => e.Ruta.Equals(filter1) && e.Conjunto.Equals(filter2));
+            return GetAll().FindAll(e => e.Ruta.Equals(filter1) );
         }
 
-        public void borrar(string Ruta, string Conjunto)
+        public void borrar(string Ruta)
         {
-            rutaRepository.Remove2(Ruta, Conjunto);
+            rutaRepository.Remove(Ruta);
         }
 
 

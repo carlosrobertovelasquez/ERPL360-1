@@ -38,6 +38,7 @@ namespace Logistika360.ERP.AS.Presentacion.Tablas.Funcionarios.Vendedor
                 //Agregamos Columnas
                 dgvDatos.Columns.Add("Columna1", "Vendedor");
                 dgvDatos.Columns.Add("Columna2", "Nombre");
+                
                 DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
                 dgvDatos.Columns.Add(chk);
                 chk.HeaderText = "Activo";
@@ -51,7 +52,7 @@ namespace Logistika360.ERP.AS.Presentacion.Tablas.Funcionarios.Vendedor
                 dgvDatos.Rows.Clear();
                 DataGridViewRow dgvVendedor = new DataGridViewRow();
                 dgvVendedor.CreateCells(dgvDatos);
-                var LVendedor = vendedor.VendedorConjunto(UserLoginCache.CONJUNTO);
+                var LVendedor = vendedor.VendedorConjunto();
                 var activo = false;
                 
 
@@ -123,7 +124,7 @@ namespace Logistika360.ERP.AS.Presentacion.Tablas.Funcionarios.Vendedor
                     VendedorModel vendedor = new VendedorModel();
 
                     var codigovendedor = dgvDatos.CurrentRow.Cells[0].Value.ToString();
-                    var buscar = vendedor.BuscarVendedor(codigovendedor ,UserLoginCache.CONJUNTO);
+                    var buscar = vendedor.BuscarVendedor(codigovendedor );
 
                     foreach (var item in buscar)
                     {
@@ -179,7 +180,6 @@ namespace Logistika360.ERP.AS.Presentacion.Tablas.Funcionarios.Vendedor
                     VendedorModel vendedor = new VendedorModel();
                     vendedor.State = EntityState.Deleted;
                     vendedor.Vendedor1 = dgvDatos.CurrentRow.Cells[0].Value.ToString();
-                    vendedor.Conjunto1 = UserLoginCache.CONJUNTO;
                     vendedor.SaveChanges();
                     string result = vendedor.SaveChanges();
                     MessageBox.Show(result);

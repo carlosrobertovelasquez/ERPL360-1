@@ -41,30 +41,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IBodegaRepository.cs" />
     <Compile Include="Contracts\ICentroCostoRepository.cs" />
     <Compile Include="Contracts\ICobradorRepository.cs" />
     <Compile Include="Contracts\IConjuntoRepository.cs" />
+    <Compile Include="Contracts\IMonedaRepository.cs" />
     <Compile Include="Contracts\IPaisRepository.cs" />
     <Compile Include="Contracts\IRutaRepository.cs" />
     <Compile Include="Contracts\IVendedorRepository.cs" />
     <Compile Include="Contracts\IZonaRepository.cs" />
+    <Compile Include="Entities\Bodega.cs" />
     <Compile Include="Entities\CentroCosto.cs" />
     <Compile Include="Entities\Cobrador.cs" />
     <Compile Include="Entities\Conjunto.cs" />
+    <Compile Include="Entities\Moneda.cs" />
     <Compile Include="Entities\Pais.cs" />
     <Compile Include="Entities\Ruta.cs" />
     <Compile Include="Entities\Vendedor.cs" />
     <Compile Include="Entities\Zona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\BodegaRepository.cs" />
     <Compile Include="Repositories\CentroCostoRepository.cs" />
     <Compile Include="Repositories\CobradorRepository.cs" />
     <Compile Include="Repositories\ConjuntoRepository.cs" />
+    <Compile Include="Repositories\MonedaRepository.cs" />
     <Compile Include="Repositories\PaisRepository.cs" />
     <Compile Include="Repositories\RutaRepository.cs" />
     <Compile Include="Repositories\VendedorRepository.cs" />
     <Compile Include="Repositories\ZonaRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Logistika360.ERP.ERPADMIN.Common\Logistika360.ERP.ERPADMIN.Common.csproj">
+      <Project>{0c3f8f03-3830-471c-aa0f-de7255d5b3e9}</Project>
+      <Name>Logistika360.ERP.ERPADMIN.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Logistika360.ERP.ERPADMIN.DataAccess\Logistika360.ERP.ERPADMIN.DataAccess.csproj">
       <Project>{52f6ee4c-9a7a-4763-a63a-fae73bbbcce3}</Project>
       <Name>Logistika360.ERP.ERPADMIN.DataAccess</Name>

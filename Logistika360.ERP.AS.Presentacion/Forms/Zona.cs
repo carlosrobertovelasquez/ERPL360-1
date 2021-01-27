@@ -42,7 +42,7 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
                 dgvDatos.Rows.Clear();
                 DataGridViewRow dgvVendedor = new DataGridViewRow();
                 dgvVendedor.CreateCells(dgvDatos);
-                var LZona = zona.ZonaConjunto(UserLoginCache.CONJUNTO);
+                var LZona = zona.ZonaConjunto();
 
 
 
@@ -97,7 +97,7 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
                     RutaModel vendedor = new RutaModel();
 
                     var codigozona = dgvDatos.CurrentRow.Cells[0].Value.ToString();
-                    var buscar = zona.BuscarZona(codigozona, UserLoginCache.CONJUNTO);
+                    var buscar = zona.BuscarZona(codigozona);
 
                     foreach (var item in buscar)
                     {
@@ -136,7 +136,6 @@ namespace Logistika360.ERP.AS.Presentacion.Forms
                     ZonaModel zona = new ZonaModel();
                     zona.State = EntityState.Deleted;
                     zona.Zona1 = dgvDatos.CurrentRow.Cells[0].Value.ToString();
-                    zona.Conjunto1 = UserLoginCache.CONJUNTO;
                     zona.SaveChanges();
                     string result = zona.SaveChanges();
                     MessageBox.Show(result);
